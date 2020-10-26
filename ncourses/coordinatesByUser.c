@@ -26,6 +26,9 @@ int main()
   box(menu_win, 0, 0);
   do{
     clear();
+    refresh();
+    box(menu_win, 0, 0);
+    wrefresh(menu_win);
     mvprintw(0, 0, "Write X coordinates (max x is %d): ",WIDTH-2);
     refresh();
     char xCoord[5];
@@ -34,7 +37,6 @@ int main()
     refresh();
     char yCoord[5];
     getstr(yCoord);
-    box(menu_win, 0, 0);
     mvwprintw(menu_win,atoi(yCoord)+1, atoi(xCoord)+1, "*");
     wrefresh(menu_win);
     c = getch();
