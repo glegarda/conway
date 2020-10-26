@@ -1,4 +1,4 @@
-// Amoh chavaleh que estoh es toh facil
+// Amoh chavaleh que estoh es toh facil <3
 
 #include <ncurses.h>
 #include <stdio.h>
