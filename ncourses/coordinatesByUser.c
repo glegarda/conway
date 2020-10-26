@@ -1,7 +1,8 @@
-// Amoh chavaleh que estoh es toh facil
+// Amoh chavaleh que estoh es toh facil <3
 
 #include <ncurses.h>
 #include <stdio.h>
+#include <stdlib.h> //Con esta librería ya no da el 'warning' en la compilacion
 
 #define WIDTH 62
 #define HEIGHT 22
@@ -38,7 +39,6 @@ int main()
     getstr(yCoord);
     mvwprintw(menu_win,atoi(yCoord)+1, atoi(xCoord)+1, "*");
     wrefresh(menu_win);
-
     c = getch();
   }while(c!=27);
 
