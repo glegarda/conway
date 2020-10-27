@@ -40,8 +40,12 @@ int main() {
 	// Main loop. Apply game logic to update *state* at every iteration. 
 	while (true) {
 		size = sizeof(state) / sizeof(state[0]);
+		unsigned char live_neighbours = 0;
 		for (unsigned short i = 0; i < size; i++) {
-			
+			live_neighbours = nLiveNeighbours(i);
+			if (live_neighbours < 2 || live_neighbours > 3) {
+				
+			}
 		}
 	}
 
