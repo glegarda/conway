@@ -12,7 +12,7 @@
 // should have enough range for the purpose of this program
 
 // Formatting considerations:
-//   - Stick to standard 80-character width (default terminal)
+//   - Try to stick to standard 80-character width (default terminal)
 //   - Name local variables using lowercase and underscores: my_variable
 //   - For global variables, capitalise the first letter: My_global_variable
 //   - Constants (#define) in capital letters: VARIABLE
@@ -30,8 +30,7 @@ int main() {
 	// *state* should be sorted in ascending/descending order, which will make
 	// cheking neighbour status more efficient. Use qsort() from stdlib.h for
 	// this purpose.
-	unsigned short *state = (unsigned short *) malloc(size *
-													  sizeof(unsigned short));
+	unsigned short *state = (unsigned short *) malloc(size * sizeof(unsigned short));
 	if (state == NULL) {
 		fprintf(stderr, "malloc failed\n");
 		return -1;
