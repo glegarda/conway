@@ -7,8 +7,6 @@
 #define WIDTH 62
 #define HEIGHT 22
 
-
-void print_menu(WINDOW *menu_win, int highlight);
 int c;
 
 int main()
