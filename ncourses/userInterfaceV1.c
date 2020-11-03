@@ -1,3 +1,5 @@
+// 30x10 mainMenu
+// 40x15 gameMenu
 
 #include <ncurses.h>
 #include <stdio.h>
@@ -19,7 +21,14 @@ char *choicesGame[] = {
 	"Test 3: Acorn",
 	"User input using keyboard",
 	"User input using mouse(?)",
-	"Back"
+	"Back",
+};
+
+char *choicesGame[] = {
+	"Width: ",
+	"Height: ",
+	"Cell Alive Symbol: ",
+	"Back",
 };
 
 enum states {mainMenu, playMenu, OptionsMenu, gameOn};
@@ -28,7 +37,7 @@ enum states currentState = mainMenu;
 void print_menu(WINDOW *win, int highlight, int n_choices);
 void print_gameMenu(WINDOW *win, int highlight, int n_choices);
 void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice);
-void setWindowsSize(int arg1,int arg2);
+void setWindowsSize(int widthSize,int heightSize);
 
 int main(int argc, char *argv[])
 {
@@ -75,9 +84,9 @@ int main(int argc, char *argv[])
 
 				n_choices = sizeof(choicesMenu) / sizeof(char *);
 				WINDOW *menu_win;
-				startxMenu = (int)COLS/2-(int)((float)width/4);
-				startyMenu = (int)LINES/2-(int)((float)height/2.5);
-				menu_win = newwin((int)(0.75*height), (int)(0.5*width),startyMenu,startxMenu);
+				startxMenu = (int)(COLS/2-15-1);
+				startyMenu = (int)(LINES/2-5-1);
+				menu_win = newwin(10, 30,startyMenu,startxMenu);
 
 				keypad(menu_win, TRUE);
 				print_menu(menu_win, highlight,n_choices);
@@ -104,9 +113,9 @@ int main(int argc, char *argv[])
 				n_choices = sizeof(choicesGame) / sizeof(char *);
 
 				WINDOW *gameMenu_win;
-				startxMenu = (int)COLS/2-(int)((float)width/2.5);
-				startyMenu = (int)LINES/2-(int)((float)height/2.5);
-				gameMenu_win = newwin((int)(0.75*height), (int)(0.75*width),startyMenu,startxMenu);
+				startxMenu = (int)(COLS/2-20-1);
+				startyMenu = (int)(LINES/2-8-1);
+				gameMenu_win = newwin(15, 40,startyMenu,startxMenu);
 
 				keypad(gameMenu_win, TRUE);
 				print_gameMenu(gameMenu_win, highlight,n_choices);
@@ -136,17 +145,11 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void setWindowsSize(int arg1,int arg2){
-  if(arg1>arg2){
-    if(arg1<COLS && arg2<LINES){
+void setWindowsSize(int widthSize,int heightSize){
+
+  if(widthSize<COLS && heightSize<LINES){
       width = arg1;
       height = arg2;
-    }
-  }else{
-    if(arg2<COLS && arg1<LINES){
-      width = arg2;
-      height = arg1;
-    }
   }
 }
 
