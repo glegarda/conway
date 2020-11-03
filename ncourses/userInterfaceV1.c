@@ -24,10 +24,11 @@ char *choicesGame[] = {
 	"Back",
 };
 
-char *choicesGame[] = {
+char *choicesOptions[] = {
 	"Width: ",
 	"Height: ",
 	"Cell Alive Symbol: ",
+	"Refreshing time: "
 	"Back",
 };
 
@@ -36,6 +37,7 @@ enum states currentState = mainMenu;
 
 void print_menu(WINDOW *win, int highlight, int n_choices);
 void print_gameMenu(WINDOW *win, int highlight, int n_choices);
+void print_optionsMenu(WINDOW *win, int highlight, int n_choices, int width, int height);
 void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice);
 void setWindowsSize(int widthSize,int heightSize);
 
@@ -147,9 +149,9 @@ int main(int argc, char *argv[])
 
 void setWindowsSize(int widthSize,int heightSize){
 
-  if(widthSize<COLS && heightSize<LINES){
-      width = arg1;
-      height = arg2;
+  if(widthSize<COLS && heightSize<LINES && widthSize>30 && heightSize>10){
+      width = widthSize;
+      height = heightSize;
   }
 }
 
