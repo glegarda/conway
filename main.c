@@ -80,6 +80,10 @@ int main() {
 			}
 		}
 
+		// Remove under/overpopulated live cells
+		
+		// Evolve dead cells
+
 		// Trigger *end_game* from NCURSES here
 
 		// Clear memory

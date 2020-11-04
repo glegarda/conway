@@ -19,10 +19,11 @@ bool initVector(vector *v, const unsigned short init_size);
 void freeVector(vector *v);
 bool pushBack(vector *v, const cell *c);
 bool popBack(vector *v);
+int compareCells(const void *a, const void *b);
+void sortVector(vector *v);
 
 // conway functions
 int xy2id(const unsigned short x, const unsigned short y, size_t columns);
-int compareCells(const cell *c1, const cell *c2);
 int isInArray(const vector *v, const int id);
 void get8nn(int *array, const int id, size_t columns);
 
