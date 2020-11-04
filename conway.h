@@ -1,11 +1,29 @@
-// Declare the functions that should be implemented in a separate conway.c file.
+#ifndef CONWAY_H
+#define CONWAY_H
 
-// Return number of live neighbours of a given cell
-unsigned char nLiveNeighbours(const unsigned short state, const unsigned short cell);
+#include <stdbool.h>
 
-// Check if any (exactly) three live cells share a common dead cell, and return
-// the location of that cell
-unsigned short evolvingCell(const unsigned short state);
+typedef struct cell {
+	int id; // linear index encoding location
+	unsigned char live_neighbours; // number of live neighbours
+} cell;
 
-// Check if a value is in an array
-bool isInArray(const unsigned short cell);
+typedef struct vector {
+    cell *array;
+    unsigned short size;
+    unsigned short capacity;
+} vector;
+
+// vector functions
+bool initVector(vector *v, const unsigned short init_size);
+void freeVector(vector *v);
+bool pushBack(vector *v, const cell *c);
+bool popBack(vector *v);
+
+// conway functions
+int xy2id(const unsigned short x, const unsigned short y, size_t columns);
+int compareCells(const cell *c1, const cell *c2);
+int isInArray(const vector *v, const int id);
+void get8nn(int *array, const int id, size_t columns);
+
+#endif
