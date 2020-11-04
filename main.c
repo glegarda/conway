@@ -4,13 +4,9 @@
 //#include <ncurses.h>
 #include "conway.h"
 
-// **************************
-// ***** DO NOT COMPILE *****
-// **************************
-
-// This is only a schematic file. Most declarations and initialisations missing.
-
-// Need to fine-tune data types
+// **********************
+// ***** DO NOT RUN *****
+// **********************
 
 // Formatting considerations:
 //   - Try to stick to standard 80-character width (default terminal)
@@ -55,16 +51,18 @@ int main() {
 			return -1;
 		}
 
-		for (unsigned int i = 0; i < state.size; i++) { // iterate over live cells
+		// For every live cell...
+		for (unsigned int i = 0; i < state.size; i++) {
 			get8nn(eight_nn, state.array[i].id, COLS);
 			int in_live_array = -1;
 			int in_dead_array = -1;
-			for (unsigned char j = 0; j < 8; j++) { // iterate over 8 neighbours
-				in_live_array = isInArray(&state, eight_nn[j]);
+			// ... iterate over its 8 nearest neighbours
+			for (unsigned char j = 0; j < 8; j++) {
+				in_live_array = isInVector(&state, eight_nn[j]);
 				if (in_live_array >= 0) {
 					state.array[i].live_neighbours++;
 				} else {
-					in_dead_array = isInArray(&dead_cells, eight_nn[j]);
+					in_dead_array = isInVector(&dead_cells, eight_nn[j]);
 					if (in_dead_array >= 0) {
 						dead_cells.array[in_dead_array].live_neighbours++;
 					} else {
@@ -80,16 +78,50 @@ int main() {
 			}
 		}
 
-		// Remove under/overpopulated live cells
+		// Remove underpopulated live cells
+		sortVectorDescending(&state);
+		while (state.array[state.size - 1].live_neighbours < 2) {
+			check = popBack(&state);
+			if (!check) {
+				freeVector(&dead_cells);
+				freeVector(&state);
+				return -1;
+			}
+		}
+		
+		// Remove overpopulated live cells
+		sortVectorAscending(&state);
+		while (state.array[state.size - 1].live_neighbours > 3) {
+			check = popBack(&state);
+			if (!check) {
+				freeVector(&dead_cells);
+				freeVector(&state);
+				return -1;
+			}
+		}
 		
 		// Evolve dead cells
+		sortVectorAscending(&dead_cells);
+		for (unsigned short i = 0; i < dead_cells.size; i++) {
+			if (dead_cells.array[i].live_neighbours == 3) {
+				check = pushBack(&state, &(dead_cells.array[i]));
+				if (!check) {
+					freeVector(&dead_cells);
+					freeVector(&state);
+					return -1;
+				}
+			} else if (dead_cells.array[i].live_neighbours > 3) {
+				break;
+			}
+		}
+
+		// Reset number of live neighbours of live cells
+		resetNeighbours(&state);
 
 		// Trigger *end_game* from NCURSES here
 
 		// Clear memory
-		if (end_game) {
-			freeVector(&dead_cells);
-		}
+		freeVector(&dead_cells);
 	}
 
 	// Clear memory

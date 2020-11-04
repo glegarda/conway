@@ -53,18 +53,42 @@ bool popBack(vector *v) {
     return true;
 }
 
-int compareCells(const void *a, const void *b) {
-	// Compares cells based on ID magnitude for sorting purposes
-	const cell cell_1 = *(const cell *) a;
-	const cell cell_2 = *(const cell *) b;
-	const int id1 = cell_1.id;
-	const int id2 = cell_2.id;
-	return (id1 < id2) - (id1 > id2);
+int isInVector(const vector *v, const int id) {
+	// Check if cell is in vector and return its index
+	for (unsigned short i = 0; i < v->size; i++) {
+		if (v->array[i].id == id) {
+			return i;
+		}
+	}
+	return -1;
 }
 
-void sortVector(vector *v) {
-	// Sorts vector of cells in descending order of ID
-	qsort(v->array, v->size, sizeof(cell), compareCells);
+int compareCellsDescending(const void *a, const void *b) {
+	// Compares cells based on number of live neighbours for sorting purposes
+	const cell cell_1 = *(const cell *) a;
+	const cell cell_2 = *(const cell *) b;
+	const int ln1 = cell_1.live_neighbours;
+	const int ln2 = cell_2.live_neighbours;
+	return (ln1 < ln2) - (ln1 > ln2);
+}
+
+void sortVectorDescending(vector *v) {
+	// Sorts vector of cells in descending order of number of live neighbours
+	qsort(v->array, v->size, sizeof(cell), compareCellsDescending);
+}
+
+int compareCellsAscending(const void *a, const void *b) {
+	// Compares cells based on number of live neighbours for sorting purposes
+	const cell cell_1 = *(const cell *) a;
+	const cell cell_2 = *(const cell *) b;
+	const int ln1 = cell_1.live_neighbours;
+	const int ln2 = cell_2.live_neighbours;
+	return (ln1 > ln2) - (ln1 < ln2);
+}
+
+void sortVectorAscending(vector *v) {
+	// Sorts vector of cells in ascending order of number of live neighbours
+	qsort(v->array, v->size, sizeof(cell), compareCellsAscending);
 }
 
 //////////////////////
@@ -79,18 +103,8 @@ int xy2id(const unsigned short x, const unsigned short y, size_t columns) {
 	return id;
 }
 
-int isInArray(const vector *v, const int id) {
-	// Check if cell is in vector and return its index
-	for (unsigned short i = 0; i < v->size; i++) {
-		if (v->array[i].id == id) {
-			return i;
-		}
-	}
-	return -1;
-}
-
 void get8nn(int *array, const int id, size_t columns) {
-	// Return linear indices of 8 nearest neighbours of cell at id.
+	// Return linear indices of 8 nearest neighbours of cell at id
 	// *** NOTE: MUST ACCOUNT FOR END OF GRID ***
 	array[0] = id - columns - 1;
 	array[1] = id - columns;
@@ -100,4 +114,11 @@ void get8nn(int *array, const int id, size_t columns) {
 	array[5] = id + columns - 1;
 	array[6] = id + columns;
 	array[7] = id + columns + 1;
+}
+
+void resetNeighbours(vector *v) {
+	// Set number of live neighbours of every cell in vector to zero
+	for (unsigned short i = 0; i < v->size; i++) {
+		v->array[i].live_neighbours = 0;
+	}
 }
