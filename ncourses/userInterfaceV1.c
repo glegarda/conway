@@ -8,6 +8,8 @@
 
 int width;
 int height;
+char symbol = '*';
+float refreshingTime = 1.0;
 
 char *choicesMenu[] = {
 		"PLAY",
@@ -26,20 +28,21 @@ char *choicesGame[] = {
 
 char *choicesOptions[] = {
 	"Width: ",
-	"Height: ",
+	"Heigth: ",
 	"Cell Alive Symbol: ",
-	"Refreshing time: "
+	"Refreshing time: ",
 	"Back",
 };
 
-enum states {mainMenu, playMenu, OptionsMenu, gameOn};
+enum states {mainMenu, playMenu, optionsMenu, gameOn};
 enum states currentState = mainMenu;
 
 void print_menu(WINDOW *win, int highlight, int n_choices);
 void print_gameMenu(WINDOW *win, int highlight, int n_choices);
-void print_optionsMenu(WINDOW *win, int highlight, int n_choices, int width, int height);
+void print_optionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refresingTime);
 void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice);
 void setWindowsSize(int widthSize,int heightSize);
+void optionsGetch(char *buffer, WINDOW *win);
 
 int main(int argc, char *argv[])
 {
@@ -102,10 +105,14 @@ int main(int argc, char *argv[])
 						box(game_win, 0, 0);
 					  wrefresh(game_win);
 					}
-					else if(highlight==2);
-						//Options menu
-					else
-						escape = true;
+					else if(highlight==2){
+						currentState = optionsMenu;
+						clear();
+						box(game_win, 0, 0);
+						wrefresh(game_win);
+						highlight = 1;
+					}
+					else{escape = true;}
 					choice = 0;
 				}	/* User did a choice come out of the infinite loop */
 			break;
@@ -113,10 +120,9 @@ int main(int argc, char *argv[])
 			case playMenu: ;
 
 				n_choices = sizeof(choicesGame) / sizeof(char *);
-
 				WINDOW *gameMenu_win;
 				startxMenu = (int)(COLS/2-20-1);
-				startyMenu = (int)(LINES/2-8-1);
+				startyMenu = (int)(LINES/2-7-1);
 				gameMenu_win = newwin(15, 40,startyMenu,startxMenu);
 
 				keypad(gameMenu_win, TRUE);
@@ -140,6 +146,74 @@ int main(int argc, char *argv[])
 					}
 					choice = 0;
 				}
+			break;
+
+			case optionsMenu: ;
+
+				n_choices = sizeof(choicesOptions) / sizeof(char *);
+				WINDOW *optionsMenu_win;
+				startxMenu = (int)(COLS/2-20-1);
+				startyMenu = (int)(LINES/2-7-1);
+				optionsMenu_win = newwin(15, 40,startyMenu,startxMenu);
+
+				keypad(optionsMenu_win, TRUE);
+				print_optionsMenu(optionsMenu_win, highlight, n_choices, &width, &height, &symbol, &refreshingTime);
+				key_pressed(optionsMenu_win, &highlight, n_choices, &choice);
+				print_optionsMenu(optionsMenu_win, highlight, n_choices, &width, &height, &symbol, &refreshingTime);
+
+				if(choice != 0){
+					if(highlight<5)	{
+						mvwprintw(optionsMenu_win, 10, 2, "Introduce new %s", choicesOptions[highlight-1]);
+						wrefresh(optionsMenu_win);
+					}
+					char newValue[5];
+					if(highlight==1){
+						optionsGetch(newValue,optionsMenu_win);
+						erase();
+						refresh();
+						setWindowsSize(atoi(newValue),height);
+						startx = (int)COLS/2-(int)width/2-1;
+						starty = (int)LINES/2-(int)height/2-1;
+						game_win = newwin(height+2, width+2, starty, startx);
+						box(game_win, 0, 0);
+						wrefresh(game_win);
+					}
+					else if(highlight==2){
+						optionsGetch(newValue,optionsMenu_win);
+						erase();
+						refresh();
+						setWindowsSize(width,atoi(newValue));
+						erase();
+						startx = (int)COLS/2-(int)width/2-1;
+						starty = (int)LINES/2-(int)height/2-1;
+						game_win = newwin(height+2, width+2, starty, startx);
+						box(game_win, 0, 0);
+						wrefresh(game_win);
+					}
+					else if(highlight==3){
+						symbol = wgetch(optionsMenu_win);
+						clear();
+						box(game_win, 0, 0);
+						wrefresh(game_win);
+					}
+					else if(highlight==4){
+						optionsGetch(newValue,optionsMenu_win);
+						refreshingTime=atof(newValue);
+						clear();
+						box(game_win, 0, 0);
+						wrefresh(game_win);
+					}
+					else{
+						currentState = mainMenu;
+						highlight=1;
+						clear();
+						box(game_win, 0, 0);
+						wrefresh(game_win);
+					}
+					choice = 0;
+				}	/* User did a choice come out of the infinite loop */
+
+			break;
 		}
 
 	}
@@ -149,7 +223,7 @@ int main(int argc, char *argv[])
 
 void setWindowsSize(int widthSize,int heightSize){
 
-  if(widthSize<COLS && heightSize<LINES && widthSize>30 && heightSize>10){
+  if(widthSize<COLS && heightSize<LINES && widthSize>42 && heightSize>17){
       width = widthSize;
       height = heightSize;
   }
@@ -197,6 +271,43 @@ void print_gameMenu(WINDOW *win, int highlight, int n_choices)
 	wrefresh(win);
 }
 
+void print_optionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refresingTime)
+{
+	clear();
+	int x, y, i;
+
+	x = 2;
+	y = 2;
+	box(win, 0, 0);
+	for(i = 0; i < n_choices-1; ++i)
+	{
+		mvwprintw(win, y, x, "%s", choicesOptions[i]);
+		if(highlight == i + 1) /* High light the present choice */
+		  wattron(win, A_REVERSE);
+
+		if(i==0)
+			wprintw(win,"%d",*width);
+		else if(i==1)
+			wprintw(win,"%d",*height);
+		else if(i==2)
+			wprintw(win,"%c",*symbol);
+		else if(i==3)
+			wprintw(win,"%.02f",*refresingTime);
+
+		if(highlight == i + 1)
+			wattroff(win, A_REVERSE);
+		++y;
+	}
+	if(highlight == n_choices){
+		wattron(win, A_REVERSE);
+		mvwprintw(win, y, x, "%s", choicesOptions[n_choices-1]);
+		wattroff(win, A_REVERSE);
+	}else{
+		mvwprintw(win, y, x, "%s", choicesOptions[n_choices-1]);
+	}
+	wrefresh(win);
+}
+
 void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice)
 {
 	int c = wgetch(win);
@@ -220,4 +331,15 @@ void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice)
 			refresh();
 			break;
 	}
+}
+
+void optionsGetch(char *buffer, WINDOW *win){
+	curs_set(1);
+	nocbreak();
+	echo();
+	wgetstr(win,buffer);
+	curs_set(0);
+	noecho();
+	cbreak();
+	keypad(win, TRUE);
 }
