@@ -27,7 +27,7 @@ void sortVectorAscending(vector *v);
 
 // conway functions
 int xy2id(const unsigned short x, const unsigned short y, size_t columns);
-void get8nn(int *array, const int id, size_t columns);
+void get8nn(int *array, const int id, size_t columns, size_t lines);
 void resetNeighbours(vector *v);
 
 #endif

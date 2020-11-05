@@ -103,9 +103,9 @@ int xy2id(const unsigned short x, const unsigned short y, size_t columns) {
 	return id;
 }
 
-void get8nn(int *array, const int id, size_t columns) {
+void get8nn(int *array, const int id, size_t columns, size_t lines) {
 	// Return linear indices of 8 nearest neighbours of cell at id
-	// *** NOTE: MUST ACCOUNT FOR END OF GRID ***
+	// Assign default values
 	array[0] = id - columns - 1;
 	array[1] = id - columns;
 	array[2] = id - columns + 1;
@@ -114,6 +114,43 @@ void get8nn(int *array, const int id, size_t columns) {
 	array[5] = id + columns - 1;
 	array[6] = id + columns;
 	array[7] = id + columns + 1;
+
+	// Reassing accounting for end-of-grid by wrapping the environment
+	if (id < columns) { // top row
+		array[0] = columns * (lines - 1) + id - 1;
+		array[1] = columns * (lines - 1) + id;
+		array[2] = columns * (lines - 1) + id + 1;
+		if (id == 0) { // top-left corner
+			array[0] = columns * lines - 1;
+			array[3] = id + columns - 1;
+			array[5] = id + 2 * columns - 1;
+		} else if (id == columns - 1) { // top-right corner
+			array[2] = columns * (lines - 1);
+			array[4] = id - columns + 1;
+			array[7] = id + 1;
+		}
+	} else if (id >= columns * (lines - 1)) { // bottom row
+		array[5] = (id - 1) % columns;
+		array[6] = id % columns;
+		array[7] = (id + 1) % columns;
+		if (id == columns * (lines - 1)) { // bottom-left corner
+			array[0] = id - 1;
+			array[3] = id + columns - 1;
+			array[5] = columns - 1;
+		} else if (id == columns * lines - 1) { // bottom-right corner
+			array[2] = id - 2 * columns + 1;
+			array[4] = id - columns + 1;
+			array[7] = 0;
+		}
+	} else if (id % columns == 0) { // left column
+		array[0] = id - 1;
+		array[3] = id + columns - 1;
+		array[5] = id + 2 * columns - 1;
+	} else if (id % columns == columns - 1) { // right column
+		array[2] = id - 2 * columns + 1;
+		array[4] = id - columns + 1;
+		array[7] = id + 1;
+	}
 }
 
 void resetNeighbours(vector *v) {
