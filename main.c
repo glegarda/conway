@@ -19,10 +19,10 @@ int main() {
 
 	// Create cells for testing purposes
 	const unsigned short test_size = 4;
-	cell c1 = {.id = xy2id(12, 40, COLS), .live_neighbours = 0};
-	cell c2 = {.id = xy2id(14, 40, COLS), .live_neighbours = 0};
-	cell c3 = {.id = xy2id(13, 41, COLS), .live_neighbours = 0};
-	cell c4 = {.id = xy2id(13, 42, COLS), .live_neighbours = 0};
+	cell c1 = {.id = xy2id(40, 12, COLS), .live_neighbours = 0};
+	cell c2 = {.id = xy2id(40, 14, COLS), .live_neighbours = 0};
+	cell c3 = {.id = xy2id(41, 13, COLS), .live_neighbours = 0};
+	cell c4 = {.id = xy2id(42, 13, COLS), .live_neighbours = 0};
 
 	// Create vector of live cells
 	bool check = false; // keeps track of correct allocations

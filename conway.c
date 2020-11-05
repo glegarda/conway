@@ -109,14 +109,14 @@ void sortVectorAscending(vector *v) {
 
 int xy2id(const unsigned short x, const unsigned short y, size_t columns) {
 	// Transform (x,y) coordinates to a linear index (left-right, top-bottom)
-	int id = (int) (x * columns + y);
+	int id = (int) (y * columns + x);
 	return id;
 }
 
 void id2xy(unsigned short *array, const int id, size_t columns) {
 	// Transform linear index back to (x,y) coordinates
-	array[0] = (unsigned short) (id - id % columns) / columns; // x
-	array[1] = (unsigned short) id % columns; // y
+	array[0] = (unsigned short) id % columns; // x
+	array[1] = (unsigned short) (id - id % columns) / columns; // y
 }
 
 void get8nn(int *array, const int id, size_t columns, size_t lines) {
