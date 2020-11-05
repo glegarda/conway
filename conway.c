@@ -103,6 +103,12 @@ int xy2id(const unsigned short x, const unsigned short y, size_t columns) {
 	return id;
 }
 
+void id2xy(unsigned short *array, const int id, size_t columns) {
+	// Transform linear index back to (x,y) coordinates
+	array[0] = (unsigned short) (id - id % columns) / columns; // x
+	array[1] = (unsigned short) id % columns; // y
+}
+
 void get8nn(int *array, const int id, size_t columns, size_t lines) {
 	// Return linear indices of 8 nearest neighbours of cell at id
 	// Assign default values
