@@ -338,9 +338,10 @@ void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice)
 	}
 }
 
-void optionsGetch(char *buffecurs_set(1);
+void optionsGetch(char *buffer, WINDOW *win){
+	curs_set(1);
 	nocbreak();
-	echo();r, WINDOW *win){
+	echo();
 	curs_set(1);
 	nocbreak();
 	echo();
