@@ -10,13 +10,12 @@ typedef struct cell {
 
 typedef struct vector {
     cell *array;
-    unsigned short size;
-    unsigned short capacity;
+    unsigned short size; // occupied elements
+    unsigned short capacity; // number of elements available in memory
 } vector;
 
 // vector functions
 bool initVector(vector *v, const unsigned short init_size);
-//void freeVector(vector *v);
 void freeVector(const unsigned char n, ...);
 bool pushBack(vector *v, const cell *c);
 bool popBack(vector *v);
