@@ -44,9 +44,8 @@ void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice);
 void setWindowsSize(int widthSize,int heightSize);
 void optionsGetch(char *buffer, WINDOW *win);
 //******************************************************************************
-void R_pentomino(WINDOW *win, int *width, int *height);
-void R_Diehard(WINDOW *win, int *width, int *height);
-void R_Acorn(WINDOW *win, int *width, int *height);
+void Simulation(WINDOW *win, int *width, int *height, char Sim);
+void Print_Sim(WINDOW *win, int *width, int *height, int strt_x, int strt_y, char R_Sim[], char size);
 //******************************************************************************
 
 int main(int argc, char *argv[])
@@ -147,13 +146,7 @@ int main(int argc, char *argv[])
 						currentState = gameOn;
 						clear();
 						box(game_win, 0, 0);
-						if(highlight==1){
-							R_pentomino(game_win, &width, &height);
-						}	else if(highlight==2){
-							R_Diehard(game_win, &width, &height);
-						} else if(highlight==3){
-							R_Acorn(game_win, &width, &height);
-						}
+						Simulation(game_win, &width, &height, highlight);
 					}
 					choice = 0;
 				}
@@ -356,37 +349,30 @@ void optionsGetch(char *buffer, WINDOW *win){
 }
 
 //******************************************************************************
-void R_pentomino(WINDOW *win, int *width, int *height){
+void Simulation(WINDOW *win, int *width, int *height, char Sim){
 	int strt_x = (*width+2)/2-1;
 	int strt_y = (*height+2)/2-1;
-	char R_pen[9] = {0,1,1,1,1,0,0,1,0};
-	for (int i=0; i<9; i++){
-		if (R_pen[i]==1){
-			mvwprintw(win,strt_y+(i/3), strt_x+(i%3), "X");
-		}
+	switch(Sim)
+	{
+		case 1: ;//R_pentomino
+			char R_Sim1[9] = {0,1,1,1,1,0,0,1,0};
+			Print_Sim(win, width, height, strt_x, strt_y, R_Sim1,9);
+			break;
+		case 2: ;//Diehard
+			char R_Sim2[24] = {0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,1,0,0,0,1,1,1};
+			Print_Sim(win, width, height, strt_x, strt_y, R_Sim2,24);
+			break;
+		case 3: ;//R_Acorn
+			char R_Sim3[21] = {0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,1,1,1};
+			Print_Sim(win, width, height, strt_x, strt_y, R_Sim3,21);
+			break;
 	}
-	wrefresh(win);
 }
 
-void R_Diehard(WINDOW *win, int *width, int *height){
-	int strt_x = (*width+2)/2-3;
-	int strt_y = (*height+2)/2-1;
-	char R_Die[24] = {0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,1,0,0,0,1,1,1};
-	for (int i=0; i<24; i++){
-		if (R_Die[i]==1){
-			mvwprintw(win,strt_y+(i/8), strt_x+(i%8), "X");
-		}
-	}
-	wrefresh(win);
-}
-
-void R_Acorn(WINDOW *win, int *width, int *height){
-	int strt_x = (*width+2)/2-3;
-	int strt_y = (*height+2)/2-1;
-	char R_Die[21] = {0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,1,1,1};
-	for (int i=0; i<21; i++){
-		if (R_Die[i]==1){
-			mvwprintw(win,strt_y+(i/7), strt_x+(i%7), "X");
+void Print_Sim(WINDOW *win, int *width, int *height, int strt_x, int strt_y, char R_Sim[], char size){
+	for (int i=0; i<size; i++){
+		if (R_Sim[i]==1){
+			mvwprintw(win,strt_y+(i/(size/3)), strt_x+(i%(size/3)), "X");
 		}
 	}
 	wrefresh(win);
