@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdarg.h>
 #include "conway.h"
 
 //////////////////////
@@ -20,13 +21,21 @@ bool initVector(vector *v, const unsigned short init_size) {
     v->capacity = init_size;
     return true;
 }
-void freeVector(vector *v) {
-	// Clean up memory
-    free(v->array);
-    v->array = NULL;
-    v->size = 0;
-    v->capacity = 0;
+
+void freeVector(const unsigned char n, ...) {
+	// Clean up memory of n vectors
+	va_list args;
+	va_start(args, n);
+	for (unsigned char i = 0; i < n; i++) {
+		vector *f = va_arg(args, vector *);
+    	free(f->array);
+    	f->array = NULL;
+    	f->size = 0;
+    	f->capacity = 0;
+	}
+	va_end(args);
 }
+
 bool pushBack(vector *v, const cell *c) {
 	// Add element at the end
     if (v->size == v->capacity) {
@@ -42,6 +51,7 @@ bool pushBack(vector *v, const cell *c) {
     v->array[v->size++] = *c;
     return true;
 }
+
 bool popBack(vector *v) {
 	// Remove last element
     if (v->size) {

@@ -4,12 +4,10 @@
 //#include <ncurses.h>
 #include "conway.h"
 
-// Formatting considerations:
-//   - Try to stick to standard 80-character width (default terminal)
-//   - Name local variables using lowercase and underscores: my_variable
-//   - For global variables, capitalise the first letter: My_global_variable
-//   - Constants (#define) in capital letters: VARIABLE
-//   - Name functions with lowercase and capitals: myFunction
+// Check for correct memory allocation and clear memory in case of error.
+#define CHECK_ALLOC(...) \
+    if (!check) { freeVector(__VA_ARGS__); return -1; } \
+    else (void)0
 
 int main() {
 
@@ -26,44 +24,27 @@ int main() {
 	cell c3 = {.id = xy2id(13, 41, COLS), .live_neighbours = 0};
 	cell c4 = {.id = xy2id(13, 42, COLS), .live_neighbours = 0};
 
-	// *state* is the malloc'ed array containing linear indices of active cells.
-	// *state* should be sorted in ascending/descending order, which will make
-	// cheking neighbour status more efficient. Use qsort() from stdlib.h for
-	// this purpose.
+	// Create vector of live cells
 	bool check = false; // keeps track of correct allocations
 	vector state;
 	check = initVector(&state, test_size);
-	if (!check) {
-		return -1;
-	}
-	// *state* must be filled here
+	CHECK_ALLOC(0);
+	// Fill state with test cells
 	check = pushBack(&state, &c1);
-	if (!check) {
-		freeVector(&state);
-		return -1;
-	}
+	CHECK_ALLOC(1, &state);
 	check = pushBack(&state, &c2);
-	if (!check) {
-		freeVector(&state);
-		return -1;
-	}
+	CHECK_ALLOC(1, &state);
 	check = pushBack(&state, &c3);
-	if (!check) {
-		freeVector(&state);
-		return -1;
-	}
+	CHECK_ALLOC(1, &state);
 	check = pushBack(&state, &c4);
-	if (!check) {
-		freeVector(&state);
-		return -1;
-	}
+	CHECK_ALLOC(1, &state);
 
 	bool end_game = false;
 	int eight_nn[8] = {0}; // indices of 8 nearest neighbours
 	unsigned short coordinates[2] = {0}; // (x,y) coordinates of a cell
-	// Main loop. Apply game logic to update *state* at every iteration. 
+	// Main loop. Apply game logic to update the state at every iteration. 
 	//while (!end_game) {
-	for (int k = 0; k < 3; k++) {
+	for (int k = 0; k < 10; k++) {
 		// Show current state
 		printf("Iteration %d:\n", k);
 		for (unsigned short n = 0; n < state.size; n++) {
@@ -72,13 +53,10 @@ int main() {
 		}
 		printf("=============\n");
 
-		// Dynamic array that keeps track of dead cells encountered
+		// Vector that keeps track of dead cells encountered
 		vector dead_cells;
 		check = initVector(&dead_cells, state.size);
-		if (!check) {
-			freeVector(&state);
-			return -1;
-		}
+		CHECK_ALLOC(1, &state);
 
 		// For every live cell...
 		for (unsigned int i = 0; i < state.size; i++) {
@@ -97,11 +75,7 @@ int main() {
 					} else {
 						cell c = {.id = eight_nn[j], .live_neighbours = 1};
 						check = pushBack(&dead_cells, &c);
-						if (!check) {
-							freeVector(&dead_cells);
-							freeVector(&state);
-							return -1;
-						}
+						CHECK_ALLOC(2, &dead_cells, &state);
 					}
 				}
 			}
@@ -111,22 +85,14 @@ int main() {
 		sortVectorDescending(&state);
 		while (state.array[state.size - 1].live_neighbours < 2) {
 			check = popBack(&state);
-			if (!check) {
-				freeVector(&dead_cells);
-				freeVector(&state);
-				return -1;
-			}
+			CHECK_ALLOC(2, &dead_cells, &state);
 		}
 		
 		// Remove overpopulated live cells
 		sortVectorAscending(&state);
 		while (state.array[state.size - 1].live_neighbours > 3) {
 			check = popBack(&state);
-			if (!check) {
-				freeVector(&dead_cells);
-				freeVector(&state);
-				return -1;
-			}
+			CHECK_ALLOC(2, &dead_cells, &state);
 		}
 		
 		// Evolve dead cells
@@ -134,11 +100,7 @@ int main() {
 		for (unsigned short i = 0; i < dead_cells.size; i++) {
 			if (dead_cells.array[i].live_neighbours == 3) {
 				check = pushBack(&state, &(dead_cells.array[i]));
-				if (!check) {
-					freeVector(&dead_cells);
-					freeVector(&state);
-					return -1;
-				}
+				CHECK_ALLOC(2, &dead_cells, &state);
 			} else if (dead_cells.array[i].live_neighbours > 3) {
 				break;
 			}
@@ -148,13 +110,17 @@ int main() {
 		resetNeighbours(&state);
 
 		// Clear memory
-		freeVector(&dead_cells);
+		freeVector(1, &dead_cells);
 
 		// Trigger *end_game* from NCURSES here
+
+		if (state.size == 0) {
+			break;
+		}
 	}
 
 	// Clear memory
-	freeVector(&state);
+	freeVector(1, &state);
 
 	return 0;
 }

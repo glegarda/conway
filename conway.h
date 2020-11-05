@@ -16,7 +16,8 @@ typedef struct vector {
 
 // vector functions
 bool initVector(vector *v, const unsigned short init_size);
-void freeVector(vector *v);
+//void freeVector(vector *v);
+void freeVector(const unsigned char n, ...);
 bool pushBack(vector *v, const cell *c);
 bool popBack(vector *v);
 int isInVector(const vector *v, const int id);
