@@ -217,6 +217,11 @@ int main(int argc, char *argv[])
 		}
 
 	}
+	curs_set(1);
+	nocbreak();
+	echo();
+	erase();
+	refresh();
 	endwin();
 	return 0;
 }
@@ -333,7 +338,9 @@ void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice)
 	}
 }
 
-void optionsGetch(char *buffer, WINDOW *win){
+void optionsGetch(char *buffecurs_set(1);
+	nocbreak();
+	echo();r, WINDOW *win){
 	curs_set(1);
 	nocbreak();
 	echo();
