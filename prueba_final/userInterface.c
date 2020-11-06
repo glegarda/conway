@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
 	clear();
 
 	bool escape;
+  vector state; //Check if defined previously
 
   if(argc == 3){
     int arg1 = atoi(argv[1]);
@@ -158,7 +159,6 @@ int main(int argc, char *argv[])
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 						bool check = false; //Check if memory allocation was successful -> Check if defined previously
-						vector state; //Check if defined previously
 						check = initVector(&state,5); //We estimate that the min. number is going to be 5
 						CHECK_ALLOC(0);
 						int check_int = 0; //check_int = 1 go back to menu; check_int = -1 memory allocation failed, teminate.
@@ -290,6 +290,7 @@ int main(int argc, char *argv[])
 		}
 
 	}
+  freeVector(1,&state);
 	curs_set(1);
 	nocbreak();
 	echo();
