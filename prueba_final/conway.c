@@ -26,7 +26,7 @@ void freeVector(const unsigned int n, ...) {
 	// Clean up memory of n vectors
 	va_list args;
 	va_start(args, n);
-	for (unsigned char i = 0; i < n; i++) {
+	for (unsigned int i = 0; i < n; i++) {
 		vector *f = va_arg(args, vector *);
     	free(f->array);
     	f->array = NULL;
