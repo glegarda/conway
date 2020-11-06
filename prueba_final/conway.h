@@ -3,6 +3,11 @@
 
 #include <stdbool.h>
 
+// Check for correct memory allocation and clear memory in case of error.
+#define CHECK_ALLOC(...) \
+    if (!check) { freeVector(__VA_ARGS__); return -1; } \
+    else (void)0
+
 typedef struct cell {
 	int id; // linear index encoding location
 	unsigned char live_neighbours; // number of live neighbours

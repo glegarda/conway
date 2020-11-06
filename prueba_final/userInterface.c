@@ -3,16 +3,10 @@
 
 #include <ncurses.h>
 #include <stdio.h>
-#include <stdlib.h> //Con esta librería ya no da el 'warning' en la compilacion
+#include <stdlib.h>
 #include <stdbool.h>
-//******************************************************************************
 #include <stdarg.h>
 #include "conway.h"
-// Check for correct memory allocation and clear memory in case of error.
-#define CHECK_ALLOC(...) \
-    if (!check) { freeVector(__VA_ARGS__); return -1; } \
-    else (void)0
-//*****************************************************************************
 
 int width;
 int height;
