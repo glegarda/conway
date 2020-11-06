@@ -26,6 +26,7 @@ int compareCellsAscending(const void *a, const void *b);
 void sortVectorAscending(vector *v);
 
 // conway functions
+int iterateConway(vector *v, size_t columns, size_t lines);
 int xy2id(const unsigned short x, const unsigned short y, size_t columns);
 void id2xy(unsigned short *array, const int id, size_t columns);
 void get8nn(int *array, const int id, size_t columns, size_t lines);
