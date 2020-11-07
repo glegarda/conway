@@ -107,6 +107,73 @@ void sortVectorAscending(vector *v) {
 //                  //
 //////////////////////
 
+int iterateConway(vector *state, size_t columns, size_t lines) {
+    // Apply game logic to update the state
+    int eight_nn[8] = {0}; // indices of 8 nearest neighbours
+    unsigned short coordinates[2] = {0}; // (x,y) coordinates of a cell
+
+    // Vector that keeps track of dead cells encountered
+    vector dead_cells;
+    bool check = initVector(&dead_cells, state->size);
+    CHECK_ALLOC(1, state);
+
+    // For every live cell...
+    for (unsigned int i = 0; i < state->size; i++) {
+        get8nn(eight_nn, state->array[i].id, columns, lines);
+        int in_live_array = -1;
+        int in_dead_array = -1;
+        // ... iterate over its 8 nearest neighbours
+        for (unsigned char j = 0; j < 8; j++) {
+            in_live_array = isInVector(state, eight_nn[j]);
+            if (in_live_array >= 0) {
+                state->array[i].live_neighbours++;
+            } else {
+                in_dead_array = isInVector(&dead_cells, eight_nn[j]);
+                if (in_dead_array >= 0) {
+                    dead_cells.array[in_dead_array].live_neighbours++;
+                } else {
+                    cell c = {.id = eight_nn[j], .live_neighbours = 1};
+                    check = pushBack(&dead_cells, &c);
+                    CHECK_ALLOC(2, &dead_cells, state);
+                }
+            }
+        }
+    }
+
+    // Remove underpopulated live cells
+    sortVectorDescending(state);
+    while (state->array[state->size - 1].live_neighbours < 2) {
+        check = popBack(state);
+        CHECK_ALLOC(2, &dead_cells, state);
+    }
+
+    // Remove overpopulated live cells
+    sortVectorAscending(state);
+    while (state->array[state->size - 1].live_neighbours > 3) {
+        check = popBack(state);
+        CHECK_ALLOC(2, &dead_cells, state);
+    }
+
+    // Evolve dead cells
+    sortVectorAscending(&dead_cells);
+    for (unsigned short i = 0; i < dead_cells.size; i++) {
+        if (dead_cells.array[i].live_neighbours == 3) {
+            check = pushBack(state, &(dead_cells.array[i]));
+            CHECK_ALLOC(2, &dead_cells, state);
+        } else if (dead_cells.array[i].live_neighbours > 3) {
+            break;
+        }
+    }
+
+    // Reset number of live neighbours of live cells
+    resetNeighbours(state);
+
+    // Clear memory
+    freeVector(1, &dead_cells);
+
+    return 0;
+}
+
 int xy2id(const unsigned short x, const unsigned short y, size_t columns) {
 	// Transform (x,y) coordinates to a linear index (left-right, top-bottom)
 	int id = (int) (y * columns + x);
