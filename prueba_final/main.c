@@ -6,10 +6,11 @@
 #include "conway.h"
 #include "userInterface.h"
 
-int width;
-int height;
-char symbol = '*';
-float refreshing_time = 1.0;
+int Width;
+int Height;
+char Symbol = '*';
+float Refreshing_time = 1.0;
+int Check_int;
 
 char *choices_menu[] = {
   "PLAY",
@@ -52,8 +53,8 @@ int main (int argc, char *argv[])
 	if (argc == 3) {
 		int arg1 = atoi(argv[1]);
 		int arg2 = atoi(argv[2]);
-		setWindowsSize(arg1,arg2,&width,&height);
-  	} else { setWindowsSize((int)(3.0/4*COLS),(int)(3.0/4*LINES),&width,&height); }
+		setWindowsSize(arg1,arg2,&Width,&Height);
+  	} else { setWindowsSize((int)(3.0/4*COLS),(int)(3.0/4*LINES),&Width,&Height); }
 
   	WINDOW *game_win;
 
@@ -61,9 +62,9 @@ int main (int argc, char *argv[])
   	int choice = 0;
   	int c;
 
-  	int start_x = (int)COLS/2-(int)width/2-1;
-  	int start_y = (int)LINES/2-(int)height/2-1;
-  	game_win = newwin(height+2, width+2, start_y, start_x);
+  	int start_x = (int)COLS/2-(int)Width/2-1;
+  	int start_y = (int)LINES/2-(int)Height/2-1;
+  	game_win = newwin(Height+2, Width+2, start_y, start_x);
 
 
   	refresh();
@@ -121,8 +122,8 @@ int main (int argc, char *argv[])
 
 				if(choice != 0){
 
-		  			int mid_x = (width+2)/2-1;
-		  			int mid_y = (height+2)/2-1;
+		  			int mid_x = (Width+2)/2-1;
+		  			int mid_y = (Height+2)/2-1;
 
 		  			if(highlight==5){
 		  				current_state = main_menu;
@@ -137,28 +138,28 @@ int main (int argc, char *argv[])
 		  				bool check = false; //Check if memory allocation was successful -> Check if defined previously
 		  				check = initVector(&state,5); //We estimate that the min. number is going to be 5
 		  				CHECK_ALLOC(0);
-		  				int check_int = 0; //check_int = 1 go back to menu; check_int = -1 memory allocation failed, teminate.
+		  				Check_int = 0; //Check_int = 1 go back to menu; Check_int = -1 memory allocation failed, teminate.
 		  				if (highlight==1) { //Game mode 1: R-pentomino
 		  					int x1[5] = {mid_x  ,mid_x+1,mid_x-1,mid_x,mid_x  };
 		  					int y1[5] = {mid_y-1,mid_y-1,mid_y  ,mid_y,mid_y+1};
-		  					check_int = initMode(&state,&width,x1,y1,5);
+		  					Check_int = initMode(&state,&Width,x1,y1,5);
 		  				} else if (highlight==2) { //Game mode 2: Diehard
 		  					int x2[7] = {mid_x+3,mid_x-3,mid_x-2,mid_x-2,mid_x+2,mid_x+3,mid_x+4};
 		  					int y2[7] = {mid_y-1,mid_y  ,mid_y  ,mid_y+1,mid_y+1,mid_y+1,mid_y+1};
-		  					check_int = initMode(&state,&width,x2,y2,7);
+		  					Check_int = initMode(&state,&Width,x2,y2,7);
 		  				} else if (highlight==3) { //Game mode 3: Acorn
 		  					int x3[7] = {mid_x-2,mid_x  ,mid_x-3,mid_x-2,mid_x+1,mid_x+2,mid_x+3};
 		  					int y3[7] = {mid_y-1,mid_y  ,mid_y+1,mid_y+1,mid_y+1,mid_y+1,mid_y+1};
-		  					check_int = initMode(&state,&width,x3,y3,7);
+		  					Check_int = initMode(&state,&Width,x3,y3,7);
 		  				} else { //Game mode 4: User inputs simulation
-							check_int = GetUserSim(game_win, &state, &width, &height, &symbol);
+							Check_int = GetUserSim(game_win, &state, &Width, &Height, &Symbol);
 		  				}
 		  				//Check if memory allocation was successful
-		  				if (check_int==-1){
+		  				if (Check_int==-1){
 		  					return -1;
-		  				} else if (check_int==0) { //Start game
+		  				} else if (Check_int==0) { //Start game
 	  						current_state = game_on;
-		  				} else if (check_int==1){ //Go back to choice menu
+		  				} else if (Check_int==1){ //Go back to choice menu
 							state.size = 0;
 							current_state = play_menu;
 		  				}
@@ -179,9 +180,9 @@ int main (int argc, char *argv[])
 				options_menu_win = newwin(15, 40,start_y_menu,start_x_menu);
 
 				keypad(options_menu_win, TRUE);
-				printOptionsMenu(options_menu_win, highlight, n_choices, &width, &height, &symbol, &refreshing_time, choices_options);
+				printOptionsMenu(options_menu_win, highlight, n_choices, &Width, &Height, &Symbol, &Refreshing_time, choices_options);
 				keyPressedMenu(options_menu_win, &highlight, n_choices, &choice);
-				printOptionsMenu(options_menu_win, highlight, n_choices, &width, &height, &symbol, &refreshing_time, choices_options);
+				printOptionsMenu(options_menu_win, highlight, n_choices, &Width, &Height, &Symbol, &Refreshing_time, choices_options);
 
 				if(choice != 0){
 					if(highlight<5)	{
@@ -193,10 +194,10 @@ int main (int argc, char *argv[])
 						optionsGetch(newValue,options_menu_win);
 						erase();
 						refresh();
-						setWindowsSize(atoi(newValue),height,&width,&height);
-						start_x = (int)COLS/2-(int)width/2-1;
-						start_y = (int)LINES/2-(int)height/2-1;
-						game_win = newwin(height+2, width+2, start_y, start_x);
+						setWindowsSize(atoi(newValue),Height,&Width,&Height);
+						start_x = (int)COLS/2-(int)Width/2-1;
+						start_y = (int)LINES/2-(int)Height/2-1;
+						game_win = newwin(Height+2, Width+2, start_y, start_x);
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 					}
@@ -204,23 +205,23 @@ int main (int argc, char *argv[])
 						optionsGetch(newValue,options_menu_win);
 						erase();
 						refresh();
-						setWindowsSize(width,atoi(newValue),&width,&height);
+						setWindowsSize(Width,atoi(newValue),&Width,&Height);
 						erase();
-						start_x = (int)COLS/2-(int)width/2-1;
-						start_y = (int)LINES/2-(int)height/2-1;
-						game_win = newwin(height+2, width+2, start_y, start_x);
+						start_x = (int)COLS/2-(int)Width/2-1;
+						start_y = (int)LINES/2-(int)Height/2-1;
+						game_win = newwin(Height+2, Width+2, start_y, start_x);
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 					}
 					else if(highlight==3){
-						symbol = wgetch(options_menu_win);
+						Symbol = wgetch(options_menu_win);
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 					}
 					else if(highlight==4){
 						optionsGetch(newValue,options_menu_win);
-						refreshing_time=atof(newValue);
+						Refreshing_time=atof(newValue);
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
@@ -238,39 +239,37 @@ int main (int argc, char *argv[])
 			break;
 
 			case game_on: ;
-				PrintWndw(game_win, &width, &height, &state, &symbol);
+				PrintWndw(game_win, &Width, &Height, &state, &Symbol);
 				float scaled_speed = 1.0;
 				bool game_paused = false;
-				mvprintw (start_y+height+2,start_x,"r: reset");
-				mvprintw (start_y+height+3,start_x,"space bar: pause");
-				mvprintw (start_y+height+4,start_x,"esc: exit game");
-				mvprintw (start_y+height+5,start_x,"-> arrow: increment speed");
-				mvprintw (start_y+height+6,start_x,"<- arrow: decrement speed");
+				mvprintw (start_y+Height+2,start_x,"r: reset");
+				mvprintw (start_y+Height+3,start_x,"space bar: pause");
+				mvprintw (start_y+Height+4,start_x,"esc: exit game");
+				mvprintw (start_y+Height+5,start_x,"-> arrow: increment speed");
+				mvprintw (start_y+Height+6,start_x,"<- arrow: decrement speed");
 				refresh();
 				box(game_win, 0, 0);
 				wrefresh(game_win);
-				wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
+				wtimeout(game_win,(int)(Refreshing_time/scaled_speed*1000));
 				keypad(game_win, TRUE);
-				int dummy_var = 1;
 				int movement;
 				do{
-					mvprintw (start_y+height+2,start_x+width-17,"speed factor: x%.02f",scaled_speed);
+					mvprintw (start_y+Height+2,start_x+Width-17,"speed factor: x%.02f",scaled_speed);
 					refresh();
-					mvwprintw(game_win,1, dummy_var, "%c",symbol);
 					movement = wgetch(game_win);
 					bool refresh = true;
 					switch (movement){
 						case KEY_RIGHT:
 							if(scaled_speed < 4){
 								scaled_speed *= 2.0;
-								wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
+								wtimeout(game_win,(int)(Refreshing_time/scaled_speed*1000));
 							}
 						break;
 
 						case KEY_LEFT:
 							if(scaled_speed > 0.25){
 								scaled_speed /= 2;
-								wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
+								wtimeout(game_win,(int)(Refreshing_time/scaled_speed*1000));
 							}
 						break;
 
@@ -280,7 +279,7 @@ int main (int argc, char *argv[])
 								wtimeout(game_win,-1);
 							}else{
 								game_paused=false;
-								wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
+								wtimeout(game_win,(int)(Refreshing_time/scaled_speed*1000));
 							}
 						break;
 
@@ -288,8 +287,7 @@ int main (int argc, char *argv[])
 							wclear(game_win);
 							box(game_win, 0, 0);
 							wrefresh(game_win);
-							dummy_var = 0;
-							PrintWndw(game_win, &width, &height, &state, &symbol);
+							PrintWndw(game_win, &Width, &Height, &state, &Symbol);
 
 						break;
 
@@ -307,13 +305,21 @@ int main (int argc, char *argv[])
 							refresh = false;
 						break;
 					}
-					if (refresh){
-						dummy_var ++;
-						mvwprintw(game_win,1, dummy_var, "%c",symbol);
+					if (refresh) {
+						Check_int = iterateConway(&state, Width, Height);
+						if (Check_int == -1) {
+							freeVector(1, &state);
+							return -1;
+						}
+						wclear(game_win);
+						box(game_win, 0, 0);
+						PrintWndw(game_win, &Width, &Height, &state, &Symbol);
 						wrefresh(game_win);
 					}
-
-
+					if (!state.size) {
+						current_state = play_menu;
+						break;
+					}
 
 				}while(movement!=27);
 				wclear(game_win);
@@ -323,6 +329,10 @@ int main (int argc, char *argv[])
 
 		}
 	}
+
+	// Clear memory
+	freeVector(1, &state);
+
   	// Mac Problem
 	curs_set(1);
 	nocbreak();
@@ -331,5 +341,6 @@ int main (int argc, char *argv[])
 	refresh();
   	// Mac Problem
 	endwin();
+
 	return 0;
 }

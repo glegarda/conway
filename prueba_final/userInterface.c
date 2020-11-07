@@ -214,6 +214,8 @@ void PrintWndw(WINDOW *win, int *width, int *height, vector *v, char *symbol){
 	unsigned short coordinates[2] = {0};
 	for (int i=0; i<(v->size); i++){
 		id2xy(coordinates, v->array[i].id, *width);
+		coordinates[0]++;
+		coordinates[1]++;
 		mvwprintw(win,coordinates[1], coordinates[0], "%c",*symbol);
 	}
 	wrefresh(win);
