@@ -47,7 +47,7 @@ enum states current_state = main_menu;
 void printMenu (WINDOW *win, int highlight, int n_choices);
 void printGameMenu (WINDOW *win, int highlight, int n_choices);
 void printOptionsMenu (WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refreshing_time);
-void keyPressed (WINDOW *win, int *highlight, int n_choices, int *choice);
+void keyPressedMenu (WINDOW *win, int *highlight, int n_choices, int *choice);
 void setWindowsSize (int width_size,int height_size);
 void optionsGetch (char *buffer, WINDOW *win);
 //*****************************************************************************
@@ -66,6 +66,8 @@ int main (int argc, char *argv[])
  	clear();
 
  	bool escape;
+
+	vector state; //Check if defined previously
 
 	if (argc == 3) {
 		int arg1 = atoi(argv[1]);
@@ -104,7 +106,7 @@ int main (int argc, char *argv[])
 
 				keypad(menu_win, TRUE);
 				printMenu(menu_win, highlight,n_choices);
-				keyPressed(menu_win, &highlight, n_choices, &choice);
+				keyPressedMenu(menu_win, &highlight, n_choices, &choice);
 				printMenu(menu_win, highlight,n_choices);
 
 				if (choice != 0) {
@@ -134,7 +136,7 @@ int main (int argc, char *argv[])
 
 				keypad(gameMenu_win, TRUE);
 				printGameMenu(gameMenu_win, highlight,n_choices);
-				keyPressed(gameMenu_win, &highlight, n_choices, &choice);
+				keyPressedMenu(gameMenu_win, &highlight, n_choices, &choice);
 				printGameMenu(gameMenu_win, highlight,n_choices);
 
 				if(choice != 0){
@@ -153,7 +155,6 @@ int main (int argc, char *argv[])
 		  				box(game_win, 0, 0);
 		  				wrefresh(game_win);
 		  				bool check = false; //Check if memory allocation was successful -> Check if defined previously
-		  				vector state; //Check if defined previously
 		  				check = initVector(&state,5); //We estimate that the min. number is going to be 5
 		  				CHECK_ALLOC(0);
 		  				int check_int = 0; //check_int = 1 go back to menu; check_int = -1 memory allocation failed, teminate.
@@ -182,7 +183,7 @@ int main (int argc, char *argv[])
 							state.size = 0;
 							current_state = play_menu;
 		  				}
-		  				PrintWndw(game_win, &width, &height, &state, &symbol);
+
 		  			}
 				}
 			//*****************************************************************************
@@ -200,7 +201,7 @@ int main (int argc, char *argv[])
 
 				keypad(options_menu_win, TRUE);
 				printOptionsMenu(options_menu_win, highlight, n_choices, &width, &height, &symbol, &refreshing_time);
-				keyPressed(options_menu_win, &highlight, n_choices, &choice);
+				keyPressedMenu(options_menu_win, &highlight, n_choices, &choice);
 				printOptionsMenu(options_menu_win, highlight, n_choices, &width, &height, &symbol, &refreshing_time);
 
 				if(choice != 0){
@@ -258,36 +259,72 @@ int main (int argc, char *argv[])
 			break;
 //*****************************************************************************
 			case game_on: ;
-				mvwprintw(game_win, 1, 1, "Lets begin...");
-				mvwprintw(game_win, 2, 1, "Press ESC to finalize");
+				PrintWndw(game_win, &width, &height, &state, &symbol);
+				float scaled_speed = 1.0;
+				bool game_paused = false;
+				mvprintw (start_y+height+2,start_x,"r: reset");
+				mvprintw (start_y+height+3,start_x,"space bar: pause");
+				mvprintw (start_y+height+4,start_x,"esc: exit game");
+				mvprintw (start_y+height+5,start_x,"-> arrow: increment speed");
+				mvprintw (start_y+height+6,start_x,"<- arrow: decrement speed");
+				refresh();
+				box(game_win, 0, 0);
 				wrefresh(game_win);
-				wtimeout(game_win,(int)(refreshing_time*1000));
+				wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
 				keypad(game_win, TRUE);
 				int dummy_var = 1;
 				int movement;
 				do{
+					mvprintw (start_y+height+2,start_x+width-17,"speed factor: x%.02f",scaled_speed);
+					refresh();
+					mvwprintw(game_win,1, dummy_var, "%c",symbol);
 					movement = wgetch(game_win);
-		  			mvwprintw(game_win,1, dummy_var, "%c",symbol);
 					switch (movement){
+						case KEY_UP:
+							if(scaled_speed < 4){
+								scaled_speed *= 2.0;
+								wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
+							}
+						break;
+
+						case KEY_DOWN:
+							if(scaled_speed > 0.25){
+								scaled_speed /= 2;
+								wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
+							}
+						break;
+
+						case 32:
+							if(!game_paused){
+								game_paused=true;
+								wtimeout(game_win,-1);
+							}else{
+								game_paused=false;
+								wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
+							}
+						break;
+
+						case 114:
+							wclear(game_win);
+							box(game_win, 0, 0);
+							wrefresh(game_win);
+							dummy_var = 1;
+							PrintWndw(game_win, &width, &height, &state, &symbol);
+
+						break;
+
 						case 27:
-
-							break;
-
-						default:
-							break;
+							current_state = play_menu;
+						break;
 					}
 		  			dummy_var ++;
 				}while(movement!=27);
-				keypad(game_win, FALSE);
 				wclear(game_win);
 				box(game_win, 0, 0);
 				wrefresh(game_win);
-				escape = true;
-				choice = 0;
 			break;
 //*****************************************************************************
 		}
-
 	}
   	// Mac Problem
 	curs_set(1);
@@ -302,7 +339,7 @@ int main (int argc, char *argv[])
 
 void setWindowsSize(int width_size,int height_size){
 
-  if(width_size<COLS && height_size<LINES && width_size>42 && height_size>17){
+  if(width_size<COLS && height_size<LINES-3 && width_size>42 && height_size>17){
 	  width = width_size;
 	  height = height_size;
   }
@@ -315,8 +352,8 @@ void printMenu(WINDOW *win, int highlight, int n_choices){
 	x = 2;
 	y = 2;
 	box(win, 0, 0);
-	for(i = 0; i < n_choices; ++i){	
-		if(highlight == i + 1) /* High light the present choice */{	
+	for(i = 0; i < n_choices; ++i){
+		if(highlight == i + 1) /* High light the present choice */{
 			wattron(win, A_REVERSE);
 			mvwprintw(win, y, x, "%s", choices_menu[i]);
 			wattroff(win, A_REVERSE);
@@ -381,11 +418,11 @@ void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int
 	wrefresh(win);
 }
 
-void keyPressed(WINDOW *win, int *highlight, int n_choices, int *choice){
-	
+void keyPressedMenu(WINDOW *win, int *highlight, int n_choices, int *choice){
+
 	int c = wgetch(win);
 	switch(c){
-	
+
 		case KEY_UP:
 			if(*highlight == 1)
 				*highlight = n_choices;
