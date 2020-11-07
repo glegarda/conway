@@ -1,4 +1,4 @@
-// 30x10 mainMenu
+// 30x10 main_menu
 // 40x15 gameMenu
 
 #include <ncurses.h>
@@ -17,15 +17,15 @@
 int width;
 int height;
 char symbol = '*';
-float refreshingTime = 1.0;
+float refreshing_time = 1.0;
 
-char *choicesMenu[] = {
+char *choices_menu[] = {
 		"PLAY",
 		"OPTIONS",
 		"EXIT",
 };
 
-char *choicesGame[] = {
+char *choices_game[] = {
 	"Test 1: R-pentomino",
 	"Test 2: Diehard",
 	"Test 3: Acorn",
@@ -33,7 +33,7 @@ char *choicesGame[] = {
 	"Back",
 };
 
-char *choicesOptions[] = {
+char *choices_options[] = {
 	"Width: ",
 	"Heigth: ",
 	"Cell Alive Symbol: ",
@@ -41,19 +41,19 @@ char *choicesOptions[] = {
 	"Back",
 };
 
-enum states {mainMenu, playMenu, optionsMenu, gameOn};
-enum states currentState = mainMenu;
+enum states {main_menu, play_menu, options_menu, game_on};
+enum states current_state = main_menu;
 
-void print_menu(WINDOW *win, int highlight, int n_choices);
-void print_gameMenu(WINDOW *win, int highlight, int n_choices);
-void print_optionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refresingTime);
-void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice);
-void setWindowsSize(int widthSize,int heightSize);
+void printMenu(WINDOW *win, int highlight, int n_choices);
+void printGameMenu(WINDOW *win, int highlight, int n_choices);
+void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refreshing_time);
+void keyPressed(WINDOW *win, int *highlight, int n_choices, int *choice);
+void setWindowsSize(int width_size,int height_size);
 void optionsGetch(char *buffer, WINDOW *win);
 //*****************************************************************************
 int GetUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol);
 int initMode(vector *v, int *width, int *x, int *y, char size);
-void Print_Wndw(WINDOW *win, int *width, int *height, vector *v, char *symbol);
+void PrintWndw(WINDOW *win, int *width, int *height, vector *v, char *symbol);
 //*****************************************************************************
 
 int main(int argc, char *argv[])
@@ -85,9 +85,9 @@ int main(int argc, char *argv[])
   int choice = 0;
 	int c;
 
-	int startx = (int)COLS/2-(int)width/2-1;
-	int starty = (int)LINES/2-(int)height/2-1;
-	game_win = newwin(height+2, width+2, starty, startx);
+	int start_x = (int)COLS/2-(int)width/2-1;
+	int start_y = (int)LINES/2-(int)height/2-1;
+	game_win = newwin(height+2, width+2, start_y, start_x);
 
 
   refresh();
@@ -97,31 +97,31 @@ int main(int argc, char *argv[])
 	while(escape == false){
 
 		int n_choices;
-		int startxMenu, startyMenu;
+		int start_x_menu, start_y_menu;
 
-		switch (currentState) {
-			case mainMenu: ;
+		switch (current_state) {
+			case main_menu: ;
 
-				n_choices = sizeof(choicesMenu) / sizeof(char *);
+				n_choices = sizeof(choices_menu) / sizeof(char *);
 				WINDOW *menu_win;
-				startxMenu = (int)(COLS/2-15-1);
-				startyMenu = (int)(LINES/2-5-1);
-				menu_win = newwin(10, 30,startyMenu,startxMenu);
+				start_x_menu = (int)(COLS/2-15-1);
+				start_y_menu = (int)(LINES/2-5-1);
+				menu_win = newwin(10, 30,start_y_menu,start_x_menu);
 
 				keypad(menu_win, TRUE);
-				print_menu(menu_win, highlight,n_choices);
-				key_pressed(menu_win, &highlight, n_choices, &choice);
-				print_menu(menu_win, highlight,n_choices);
+				printMenu(menu_win, highlight,n_choices);
+				keyPressed(menu_win, &highlight, n_choices, &choice);
+				printMenu(menu_win, highlight,n_choices);
 
 				if(choice != 0){
 					if(highlight==1){
-						currentState = playMenu;
+						current_state = play_menu;
 						clear();
 						box(game_win, 0, 0);
 					  wrefresh(game_win);
 					}
 					else if(highlight==2){
-						currentState = optionsMenu;
+						current_state = options_menu;
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
@@ -132,23 +132,23 @@ int main(int argc, char *argv[])
 				}	/* User did a choice come out of the infinite loop */
 			break;
 
-			case playMenu: ;
+			case play_menu: ;
 
-				n_choices = sizeof(choicesGame) / sizeof(char *);
+				n_choices = sizeof(choices_game) / sizeof(char *);
 				WINDOW *gameMenu_win;
-				startxMenu = (int)(COLS/2-20-1);
-				startyMenu = (int)(LINES/2-7-1);
-				gameMenu_win = newwin(15, 40,startyMenu,startxMenu);
+				start_x_menu = (int)(COLS/2-20-1);
+				start_y_menu = (int)(LINES/2-7-1);
+				gameMenu_win = newwin(15, 40,start_y_menu,start_x_menu);
 
 				keypad(gameMenu_win, TRUE);
-				print_gameMenu(gameMenu_win, highlight,n_choices);
-				key_pressed(gameMenu_win, &highlight, n_choices, &choice);
-				print_gameMenu(gameMenu_win, highlight,n_choices);
+				printGameMenu(gameMenu_win, highlight,n_choices);
+				keyPressed(gameMenu_win, &highlight, n_choices, &choice);
+				printGameMenu(gameMenu_win, highlight,n_choices);
 
 				if(choice != 0){
 					//*****************************************************************************
 					if(highlight==5){
-						currentState = mainMenu;
+						current_state = main_menu;
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
@@ -181,76 +181,76 @@ int main(int argc, char *argv[])
 						if (check_int==-1){
 							return -1;
 						} else if (check_int==0) { //Start game
-	 							currentState = gameOn;
+	 							current_state = game_on;
 	 					} else if (check_int==1){ //Go back to choice menu
 								//freeVector(1,&state); //Pensaba que con esto limpiaba el vector pero parece que no
 								state.size = 0;
-								currentState = playMenu;
+								current_state = play_menu;
 	 					}
-						Print_Wndw(game_win, &width, &height, &state, &symbol);
+						PrintWndw(game_win, &width, &height, &state, &symbol);
 						}
 					}
 					//*****************************************************************************
 					choice = 0;
 			break;
 
-			case optionsMenu: ;
+			case options_menu: ;
 
-				n_choices = sizeof(choicesOptions) / sizeof(char *);
-				WINDOW *optionsMenu_win;
-				startxMenu = (int)(COLS/2-20-1);
-				startyMenu = (int)(LINES/2-7-1);
-				optionsMenu_win = newwin(15, 40,startyMenu,startxMenu);
+				n_choices = sizeof(choices_options) / sizeof(char *);
+				WINDOW *options_menu_win;
+				start_x_menu = (int)(COLS/2-20-1);
+				start_y_menu = (int)(LINES/2-7-1);
+				options_menu_win = newwin(15, 40,start_y_menu,start_x_menu);
 
-				keypad(optionsMenu_win, TRUE);
-				print_optionsMenu(optionsMenu_win, highlight, n_choices, &width, &height, &symbol, &refreshingTime);
-				key_pressed(optionsMenu_win, &highlight, n_choices, &choice);
-				print_optionsMenu(optionsMenu_win, highlight, n_choices, &width, &height, &symbol, &refreshingTime);
+				keypad(options_menu_win, TRUE);
+				printOptionsMenu(options_menu_win, highlight, n_choices, &width, &height, &symbol, &refreshing_time);
+				keyPressed(options_menu_win, &highlight, n_choices, &choice);
+				printOptionsMenu(options_menu_win, highlight, n_choices, &width, &height, &symbol, &refreshing_time);
 
 				if(choice != 0){
 					if(highlight<5)	{
-						mvwprintw(optionsMenu_win, 10, 2, "Introduce new %s", choicesOptions[highlight-1]);
-						wrefresh(optionsMenu_win);
+						mvwprintw(options_menu_win, 10, 2, "Introduce new %s", choices_options[highlight-1]);
+						wrefresh(options_menu_win);
 					}
 					char newValue[5];
 					if(highlight==1){
-						optionsGetch(newValue,optionsMenu_win);
+						optionsGetch(newValue,options_menu_win);
 						erase();
 						refresh();
 						setWindowsSize(atoi(newValue),height);
-						startx = (int)COLS/2-(int)width/2-1;
-						starty = (int)LINES/2-(int)height/2-1;
-						game_win = newwin(height+2, width+2, starty, startx);
+						start_x = (int)COLS/2-(int)width/2-1;
+						start_y = (int)LINES/2-(int)height/2-1;
+						game_win = newwin(height+2, width+2, start_y, start_x);
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 					}
 					else if(highlight==2){
-						optionsGetch(newValue,optionsMenu_win);
+						optionsGetch(newValue,options_menu_win);
 						erase();
 						refresh();
 						setWindowsSize(width,atoi(newValue));
 						erase();
-						startx = (int)COLS/2-(int)width/2-1;
-						starty = (int)LINES/2-(int)height/2-1;
-						game_win = newwin(height+2, width+2, starty, startx);
+						start_x = (int)COLS/2-(int)width/2-1;
+						start_y = (int)LINES/2-(int)height/2-1;
+						game_win = newwin(height+2, width+2, start_y, start_x);
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 					}
 					else if(highlight==3){
-						symbol = wgetch(optionsMenu_win);
+						symbol = wgetch(options_menu_win);
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 					}
 					else if(highlight==4){
-						optionsGetch(newValue,optionsMenu_win);
-						refreshingTime=atof(newValue);
+						optionsGetch(newValue,options_menu_win);
+						refreshing_time=atof(newValue);
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 					}
 					else{
-						currentState = mainMenu;
+						current_state = main_menu;
 						highlight=1;
 						clear();
 						box(game_win, 0, 0);
@@ -261,7 +261,7 @@ int main(int argc, char *argv[])
 
 			break;
 //*****************************************************************************
-			case gameOn: ;
+			case game_on: ;
 				mvwprintw(game_win, 1, 1, "Lets begin...");
 				mvwprintw(game_win, 2, 1, "Press ESC to finalize");
 				wrefresh(game_win);
@@ -290,24 +290,26 @@ int main(int argc, char *argv[])
 		}
 
 	}
+  // Mac Problem
 	curs_set(1);
 	nocbreak();
 	echo();
 	erase();
 	refresh();
+  // Mac Problem
 	endwin();
 	return 0;
 }
 
-void setWindowsSize(int widthSize,int heightSize){
+void setWindowsSize(int width_size,int height_size){
 
-  if(widthSize<COLS && heightSize<LINES && widthSize>42 && heightSize>17){
-      width = widthSize;
-      height = heightSize;
+  if(width_size<COLS && height_size<LINES && width_size>42 && height_size>17){
+      width = width_size;
+      height = height_size;
   }
 }
 
-void print_menu(WINDOW *win, int highlight, int n_choices)
+void printMenu(WINDOW *win, int highlight, int n_choices)
 {
 	clear();
 	int x, y, i;
@@ -318,17 +320,17 @@ void print_menu(WINDOW *win, int highlight, int n_choices)
 	for(i = 0; i < n_choices; ++i)
 	{	if(highlight == i + 1) /* High light the present choice */
 		{	wattron(win, A_REVERSE);
-			mvwprintw(win, y, x, "%s", choicesMenu[i]);
+			mvwprintw(win, y, x, "%s", choices_menu[i]);
 			wattroff(win, A_REVERSE);
 		}
 		else
-			mvwprintw(win, y, x, "%s", choicesMenu[i]);
+			mvwprintw(win, y, x, "%s", choices_menu[i]);
 		++y;
 	}
 	wrefresh(win);
 }
 
-void print_gameMenu(WINDOW *win, int highlight, int n_choices)
+void printGameMenu(WINDOW *win, int highlight, int n_choices)
 {
 	clear();
 	int x, y, i;
@@ -339,17 +341,17 @@ void print_gameMenu(WINDOW *win, int highlight, int n_choices)
 	for(i = 0; i < n_choices; ++i)
 	{	if(highlight == i + 1) /* High light the present choice */
 		{	wattron(win, A_REVERSE);
-			mvwprintw(win, y, x, "%s", choicesGame[i]);
+			mvwprintw(win, y, x, "%s", choices_game[i]);
 			wattroff(win, A_REVERSE);
 		}
 		else
-			mvwprintw(win, y, x, "%s", choicesGame[i]);
+			mvwprintw(win, y, x, "%s", choices_game[i]);
 		++y;
 	}
 	wrefresh(win);
 }
 
-void print_optionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refresingTime)
+void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refreshing_time)
 {
 	clear();
 	int x, y, i;
@@ -359,7 +361,7 @@ void print_optionsMenu(WINDOW *win, int highlight, int n_choices, int *width, in
 	box(win, 0, 0);
 	for(i = 0; i < n_choices-1; ++i)
 	{
-		mvwprintw(win, y, x, "%s", choicesOptions[i]);
+		mvwprintw(win, y, x, "%s", choices_options[i]);
 		if(highlight == i + 1) /* High light the present choice */
 		  wattron(win, A_REVERSE);
 
@@ -370,7 +372,7 @@ void print_optionsMenu(WINDOW *win, int highlight, int n_choices, int *width, in
 		else if(i==2)
 			wprintw(win,"%c",*symbol);
 		else if(i==3)
-			wprintw(win,"%.02f",*refresingTime);
+			wprintw(win,"%.02f",*refreshing_time);
 
 		if(highlight == i + 1)
 			wattroff(win, A_REVERSE);
@@ -378,15 +380,15 @@ void print_optionsMenu(WINDOW *win, int highlight, int n_choices, int *width, in
 	}
 	if(highlight == n_choices){
 		wattron(win, A_REVERSE);
-		mvwprintw(win, y, x, "%s", choicesOptions[n_choices-1]);
+		mvwprintw(win, y, x, "%s", choices_options[n_choices-1]);
 		wattroff(win, A_REVERSE);
 	}else{
-		mvwprintw(win, y, x, "%s", choicesOptions[n_choices-1]);
+		mvwprintw(win, y, x, "%s", choices_options[n_choices-1]);
 	}
 	wrefresh(win);
 }
 
-void key_pressed(WINDOW *win, int *highlight, int n_choices, int *choice)
+void keyPressed(WINDOW *win, int *highlight, int n_choices, int *choice)
 {
 	int c = wgetch(win);
 	switch(c)
@@ -500,7 +502,7 @@ int initMode(vector *v, int *width, int *x, int *y, char size){
 	return 0;
 }
 
-void Print_Wndw(WINDOW *win, int *width, int *height, vector *v, char *symbol){
+void PrintWndw(WINDOW *win, int *width, int *height, vector *v, char *symbol){
 	unsigned short coordinates[2] = {0};
 	for (int i=0; i<(v->size); i++){
 		id2xy(coordinates, v->array[i].id, *width);
