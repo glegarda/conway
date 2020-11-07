@@ -34,6 +34,7 @@ typedef struct vector {
 
 // vector functions
 bool initVector(vector *v, const unsigned short init_size);
+bool copyVector(vector *v_c, vector *v_o);
 void freeVector(const unsigned int n, ...);
 bool pushBack(vector *v, const cell *c);
 bool popBack(vector *v);

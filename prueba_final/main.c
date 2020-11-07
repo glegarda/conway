@@ -10,6 +10,7 @@ int Width;
 int Height;
 char Symbol = '*';
 float Refreshing_time = 1.0;
+bool Check = false;
 int Check_int;
 
 char *choices_menu[] = {
@@ -135,9 +136,10 @@ int main (int argc, char *argv[])
 		  				clear();
 		  				box(game_win, 0, 0);
 		  				wrefresh(game_win);
-		  				bool check = false; //Check if memory allocation was successful -> Check if defined previously
-		  				check = initVector(&original_conway_state,5); //We estimate that the min. number is going to be 5
-		  				CHECK_ALLOC(0);
+		  				Check = initVector(&original_conway_state,10); // Set initial arbitrary size
+						if (!Check) {
+							return -1;
+						}
 		  				Check_int = 0; //Check_int = 1 go back to menu; Check_int = -1 memory allocation failed, teminate.
 		  				if (highlight==1) { //Game mode 1: R-pentomino
 		  					int x1[5] = {mid_x  ,mid_x+1,mid_x-1,mid_x,mid_x  };
@@ -238,6 +240,12 @@ int main (int argc, char *argv[])
 			break;
 
 			case game_on: ;
+				vector conway_state;
+				Check = copyVector(&conway_state, &original_conway_state);
+				if (!Check) {
+					freeVector(1, &original_conway_state);
+					return -1;
+				}
 				PrintWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
 				float scaled_speed = 1.0;
 				bool game_paused = false;
@@ -283,11 +291,16 @@ int main (int argc, char *argv[])
 						break;
 
 						case 114:
+							freeVector(1, &conway_state);
+							Check = copyVector(&conway_state, &original_conway_state);
+							if (!Check) {
+								freeVector(1, &original_conway_state);
+								return -1;
+							}
 							wclear(game_win);
 							box(game_win, 0, 0);
 							wrefresh(game_win);
 							PrintWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
-
 						break;
 
 						case 27:
@@ -305,17 +318,17 @@ int main (int argc, char *argv[])
 						break;
 					}
 					if (refresh) {
-						Check_int = iterateConway(&original_conway_state, Width, Height);
+						Check_int = iterateConway(&conway_state, Width, Height);
 						if (Check_int == -1) {
-							freeVector(1, &original_conway_state);
+							freeVector(2, &original_conway_state, &conway_state);
 							return -1;
 						}
 						wclear(game_win);
 						box(game_win, 0, 0);
-						PrintWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
+						PrintWndw(game_win, &Width, &Height, &conway_state, &Symbol);
 						wrefresh(game_win);
 					}
-					if (!original_conway_state.size) {
+					if (!conway_state.size) {
 						current_state = play_menu;
 						break;
 					}
@@ -324,6 +337,7 @@ int main (int argc, char *argv[])
 				wclear(game_win);
 				box(game_win, 0, 0);
 				wrefresh(game_win);
+				freeVector(1, &conway_state);
 			break;
 
 		}

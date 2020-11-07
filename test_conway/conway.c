@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdarg.h>
+#include <string.h>
 #include "conway.h"
 
 //////////////////////
@@ -19,6 +20,19 @@ bool initVector(vector *v, const unsigned short init_size) {
 	}
 	v->size = 0;
 	v->capacity = init_size;
+	return true;
+}
+
+bool copyVector(vector *v_c, vector *v_o) {
+	// Copy the contents of a vector v_o to a vector v_c
+	v_c->array = (cell *) malloc(v_o->capacity * sizeof(cell));
+	if (v_c->array == NULL) {
+		fprintf(stderr, "malloc failed\n");
+		return false;
+	}
+	memcpy(v_c->array, v_o->array, v_o->size * sizeof(cell));
+	v_c->size = v_o->size;
+	v_c->capacity = v_o->capacity;
 	return true;
 }
 
