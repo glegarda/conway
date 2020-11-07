@@ -5,21 +5,21 @@
 #include "conway.h"
 
 //////////////////////
-//                  //
+//				  //
 // vector functions //
-//                  //
+//				  //
 //////////////////////
 
 bool initVector(vector *v, const unsigned short init_size) {
 	// Initialise struct members
-    v->array = (cell *) malloc(init_size * sizeof(cell));
-    if (v->array == NULL) {
-        fprintf(stderr, "malloc failed\n");
-        return false;
-    }
-    v->size = 0;
-    v->capacity = init_size;
-    return true;
+	v->array = (cell *) malloc(init_size * sizeof(cell));
+	if (v->array == NULL) {
+		fprintf(stderr, "malloc failed\n");
+		return false;
+	}
+	v->size = 0;
+	v->capacity = init_size;
+	return true;
 }
 
 void freeVector(const unsigned int n, ...) {
@@ -28,39 +28,39 @@ void freeVector(const unsigned int n, ...) {
 	va_start(args, n);
 	for (unsigned int i = 0; i < n; i++) {
 		vector *f = va_arg(args, vector *);
-    	free(f->array);
-    	f->array = NULL;
-    	f->size = 0;
-    	f->capacity = 0;
+		free(f->array);
+		f->array = NULL;
+		f->size = 0;
+		f->capacity = 0;
 	}
 	va_end(args);
 }
 
 bool pushBack(vector *v, const cell *c) {
 	// Add element at the end
-    if (v->size == v->capacity) {
-        v->capacity *= 2;
-        cell *tmp = (cell *) realloc(v->array, v->capacity * sizeof(cell));
-        if (tmp == NULL) {
-            fprintf(stderr, "realloc failed\n");
-            return false;
-        } else {
-            v->array = tmp;
-        }
-    }
-    v->array[v->size++] = *c;
-    return true;
+	if (v->size == v->capacity) {
+		v->capacity *= 2;
+		cell *tmp = (cell *) realloc(v->array, v->capacity * sizeof(cell));
+		if (tmp == NULL) {
+			fprintf(stderr, "realloc failed\n");
+			return false;
+		} else {
+			v->array = tmp;
+		}
+	}
+	v->array[v->size++] = *c;
+	return true;
 }
 
 bool popBack(vector *v) {
 	// Remove last element
-    if (v->size) {
-        v->size--;
-    } else {
-        fprintf(stderr, "cannot popBack empty vector\n");
-        return false;
-    }
-    return true;
+	if (v->size) {
+		v->size--;
+	} else {
+		fprintf(stderr, "cannot popBack empty vector\n");
+		return false;
+	}
+	return true;
 }
 
 int isInVector(const vector *v, const int id) {
@@ -102,76 +102,76 @@ void sortVectorAscending(vector *v) {
 }
 
 //////////////////////
-//                  //
+//				  //
 // conway functions //
-//                  //
+//				  //
 //////////////////////
 
 int iterateConway(vector *state, size_t columns, size_t lines) {
-    // Apply game logic to update the state
-    int eight_nn[8] = {0}; // indices of 8 nearest neighbours
-    unsigned short coordinates[2] = {0}; // (x,y) coordinates of a cell
+	// Apply game logic to update the state
+	int eight_nn[8] = {0}; // indices of 8 nearest neighbours
+	unsigned short coordinates[2] = {0}; // (x,y) coordinates of a cell
 
-    // Vector that keeps track of dead cells encountered
-    vector dead_cells;
-    bool check = initVector(&dead_cells, state->size);
-    CHECK_ALLOC(1, state);
+	// Vector that keeps track of dead cells encountered
+	vector dead_cells;
+	bool check = initVector(&dead_cells, state->size);
+	CHECK_ALLOC(1, state);
 
-    // For every live cell...
-    for (unsigned int i = 0; i < state->size; i++) {
-        get8nn(eight_nn, state->array[i].id, columns, lines);
-        int in_live_array = -1;
-        int in_dead_array = -1;
-        // ... iterate over its 8 nearest neighbours
-        for (unsigned char j = 0; j < 8; j++) {
-            in_live_array = isInVector(state, eight_nn[j]);
-            if (in_live_array >= 0) {
-                state->array[i].live_neighbours++;
-            } else {
-                in_dead_array = isInVector(&dead_cells, eight_nn[j]);
-                if (in_dead_array >= 0) {
-                    dead_cells.array[in_dead_array].live_neighbours++;
-                } else {
-                    cell c = {.id = eight_nn[j], .live_neighbours = 1};
-                    check = pushBack(&dead_cells, &c);
-                    CHECK_ALLOC(2, &dead_cells, state);
-                }
-            }
-        }
-    }
+	// For every live cell...
+	for (unsigned int i = 0; i < state->size; i++) {
+		get8nn(eight_nn, state->array[i].id, columns, lines);
+		int in_live_array = -1;
+		int in_dead_array = -1;
+		// ... iterate over its 8 nearest neighbours
+		for (unsigned char j = 0; j < 8; j++) {
+			in_live_array = isInVector(state, eight_nn[j]);
+			if (in_live_array >= 0) {
+				state->array[i].live_neighbours++;
+			} else {
+				in_dead_array = isInVector(&dead_cells, eight_nn[j]);
+				if (in_dead_array >= 0) {
+					dead_cells.array[in_dead_array].live_neighbours++;
+				} else {
+					cell c = {.id = eight_nn[j], .live_neighbours = 1};
+					check = pushBack(&dead_cells, &c);
+					CHECK_ALLOC(2, &dead_cells, state);
+				}
+			}
+		}
+	}
 
-    // Remove underpopulated live cells
-    sortVectorDescending(state);
-    while (state->array[state->size - 1].live_neighbours < 2) {
-        check = popBack(state);
-        CHECK_ALLOC(2, &dead_cells, state);
-    }
+	// Remove underpopulated live cells
+	sortVectorDescending(state);
+	while (state->array[state->size - 1].live_neighbours < 2) {
+		check = popBack(state);
+		CHECK_ALLOC(2, &dead_cells, state);
+	}
 
-    // Remove overpopulated live cells
-    sortVectorAscending(state);
-    while (state->array[state->size - 1].live_neighbours > 3) {
-        check = popBack(state);
-        CHECK_ALLOC(2, &dead_cells, state);
-    }
+	// Remove overpopulated live cells
+	sortVectorAscending(state);
+	while (state->array[state->size - 1].live_neighbours > 3) {
+		check = popBack(state);
+		CHECK_ALLOC(2, &dead_cells, state);
+	}
 
-    // Evolve dead cells
-    sortVectorAscending(&dead_cells);
-    for (unsigned short i = 0; i < dead_cells.size; i++) {
-        if (dead_cells.array[i].live_neighbours == 3) {
-            check = pushBack(state, &(dead_cells.array[i]));
-            CHECK_ALLOC(2, &dead_cells, state);
-        } else if (dead_cells.array[i].live_neighbours > 3) {
-            break;
-        }
-    }
+	// Evolve dead cells
+	sortVectorAscending(&dead_cells);
+	for (unsigned short i = 0; i < dead_cells.size; i++) {
+		if (dead_cells.array[i].live_neighbours == 3) {
+			check = pushBack(state, &(dead_cells.array[i]));
+			CHECK_ALLOC(2, &dead_cells, state);
+		} else if (dead_cells.array[i].live_neighbours > 3) {
+			break;
+		}
+	}
 
-    // Reset number of live neighbours of live cells
-    resetNeighbours(state);
+	// Reset number of live neighbours of live cells
+	resetNeighbours(state);
 
-    // Clear memory
-    freeVector(1, &dead_cells);
+	// Clear memory
+	freeVector(1, &dead_cells);
 
-    return 0;
+	return 0;
 }
 
 int xy2id(const unsigned short x, const unsigned short y, size_t columns) {

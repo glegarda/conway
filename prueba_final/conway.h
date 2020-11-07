@@ -5,8 +5,8 @@
 
 // Check for correct memory allocation and clear memory in case of error.
 #define CHECK_ALLOC(...) \
-    if (!check) { freeVector(__VA_ARGS__); return -1; } \
-    else (void)0
+	if (!check) { freeVector(__VA_ARGS__); return -1; } \
+	else (void)0
 
 typedef struct cell {
 	int id; // linear index encoding location
@@ -14,9 +14,9 @@ typedef struct cell {
 } cell;
 
 typedef struct vector {
-    cell *array;
-    unsigned short size; // occupied elements
-    unsigned short capacity; // number of elements available in memory
+	cell *array;
+	unsigned short size; // occupied elements
+	unsigned short capacity; // number of elements available in memory
 } vector;
 
 // vector functions
