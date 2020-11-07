@@ -3,10 +3,16 @@
 
 #include <ncurses.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> //Con esta librería ya no da el 'warning' en la compilacion
 #include <stdbool.h>
+//******************************************************************************
 #include <stdarg.h>
 #include "conway.h"
+// Check for correct memory allocation and clear memory in case of error.
+#define CHECK_ALLOC(...) \
+    if (!check) { freeVector(__VA_ARGS__); return -1; } \
+    else (void)0
+//*****************************************************************************
 
 int width;
 int height;
@@ -14,9 +20,9 @@ char symbol = '*';
 float refreshing_time = 1.0;
 
 char *choices_menu[] = {
-		"PLAY",
-		"OPTIONS",
-		"EXIT",
+  "PLAY",
+  "OPTIONS",
+  "EXIT",
 };
 
 char *choices_game[] = {
@@ -60,7 +66,6 @@ int main(int argc, char *argv[])
 	clear();
 
 	bool escape;
-  vector state; //Check if defined previously
 
   if(argc == 3){
     int arg1 = atoi(argv[1]);
@@ -153,6 +158,7 @@ int main(int argc, char *argv[])
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 						bool check = false; //Check if memory allocation was successful -> Check if defined previously
+						vector state; //Check if defined previously
 						check = initVector(&state,5); //We estimate that the min. number is going to be 5
 						CHECK_ALLOC(0);
 						int check_int = 0; //check_int = 1 go back to menu; check_int = -1 memory allocation failed, teminate.
@@ -284,11 +290,7 @@ int main(int argc, char *argv[])
 		}
 
 	}
-<<<<<<< HEAD
   // Mac Problem
-=======
-  freeVector(1,&state);
->>>>>>> 629263aea5c8c0cb46e39a4b5739640ced93595d
 	curs_set(1);
 	nocbreak();
 	echo();
@@ -430,15 +432,15 @@ int GetUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol){
 	curs_set(1);
 	keypad(win, TRUE);
 
-	int x_Loc = 1;
-	int y_Loc = 1;
-	int x_Max = *width;
-	int y_Max = *height;
+	int x_loc = 1;
+	int y_loc = 1;
+	int x_max = *width;
+	int y_max = *height;
 
 	int movement;
 	int check = 0;
 	do{
-		wmove(win, y_Loc, x_Loc);
+		wmove(win, y_loc, x_loc);
 		wrefresh(win);
 
 		movement = wgetch(win);
@@ -447,32 +449,32 @@ int GetUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol){
 			case KEY_UP:
 			case 'w':
 			case 'W':
-				if (y_Loc>1){y_Loc--;}
+				if (y_loc>1){y_loc--;}
 				break;
 			case KEY_DOWN:
 			case 's':
 			case 'S':
-				if (y_Loc<y_Max){y_Loc++;}
+				if (y_loc<y_max){y_loc++;}
 				break;
 			case KEY_LEFT:
 			case 'a':
 			case 'A':
-				if (x_Loc>1){x_Loc--;}
+				if (x_loc>1){x_loc--;}
 				break;
 			case KEY_RIGHT:
 			case 'd':
 			case 'D':
-				if (x_Loc<x_Max){x_Loc++;}
+				if (x_loc<x_max){x_loc++;}
 				break;
 			case 32:
-				mvwprintw(win,y_Loc,x_Loc, "%c",*symbol);
-				check = initMode(v,width,&x_Loc,&y_Loc,1);
+				mvwprintw(win,y_loc,x_loc, "%c",*symbol);
+				check = initMode(v,width,&x_loc,&y_loc,1);
 				if (check){return -1;} //Memory allocation failed, terminate
 				break;
 			default:
 				break;
 		}
-		wmove(win, y_Loc, x_Loc);
+		wmove(win, y_loc, x_loc);
 		wrefresh(win);
 	}while(movement!=10 && movement!=27);
 	curs_set(0);
