@@ -489,7 +489,7 @@ int GetUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol){
 }
 
 int initMode(vector *v, int *width, int *x, int *y, char size){
-	//Le paso un vector de coordenadas y me crea el vector state
+  //Receives x&y coord. transforms and inputs them into the cells vector
 	bool check = false;
 	cell c;
 	c.live_neighbours = 0;
@@ -502,6 +502,7 @@ int initMode(vector *v, int *width, int *x, int *y, char size){
 }
 
 void Print_Wndw(WINDOW *win, int *width, int *height, vector *v, char *symbol){
+  //Prints cells
 	unsigned short coordinates[2] = {0};
 	for (int i=0; i<(v->size); i++){
 		id2xy(coordinates, v->array[i].id, *width);
