@@ -258,15 +258,16 @@ int main (int argc, char *argv[])
 					refresh();
 					mvwprintw(game_win,1, dummy_var, "%c",symbol);
 					movement = wgetch(game_win);
+					bool refresh = true;
 					switch (movement){
-						case KEY_UP:
+						case KEY_RIGHT:
 							if(scaled_speed < 4){
 								scaled_speed *= 2.0;
 								wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
 							}
 						break;
 
-						case KEY_DOWN:
+						case KEY_LEFT:
 							if(scaled_speed > 0.25){
 								scaled_speed /= 2;
 								wtimeout(game_win,(int)(refreshing_time/scaled_speed*1000));
@@ -287,16 +288,33 @@ int main (int argc, char *argv[])
 							wclear(game_win);
 							box(game_win, 0, 0);
 							wrefresh(game_win);
-							dummy_var = 1;
+							dummy_var = 0;
 							PrintWndw(game_win, &width, &height, &state, &symbol);
 
 						break;
 
 						case 27:
 							current_state = play_menu;
+							clear();
+							refresh();
+							wrefresh(game_win);
+						break;
+
+						case ERR:
+						break;
+
+						default:
+							refresh = false;
 						break;
 					}
-		  			dummy_var ++;
+					if (refresh){
+						dummy_var ++;
+						mvwprintw(game_win,1, dummy_var, "%c",symbol);
+						wrefresh(game_win);
+					}
+
+
+
 				}while(movement!=27);
 				wclear(game_win);
 				box(game_win, 0, 0);

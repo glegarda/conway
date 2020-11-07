@@ -259,6 +259,7 @@ int main (int argc, char *argv[])
 			break;
 //*****************************************************************************
 			case game_on: ;
+			// Improve this part creating a function 
 				PrintWndw(game_win, &width, &height, &state, &symbol);
 				float scaled_speed = 1.0;
 				bool game_paused = false;
