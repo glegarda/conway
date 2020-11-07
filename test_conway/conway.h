@@ -24,6 +24,8 @@ int compareCellsDescending(const void *a, const void *b);
 void sortVectorDescending(vector *v);
 int compareCellsAscending(const void *a, const void *b);
 void sortVectorAscending(vector *v);
+int compareCellsAscendingID(const void *a, const void *b);
+void sortVectorAscendingID(vector *v);
 
 // conway functions
 int xy2id(const unsigned short x, const unsigned short y, size_t columns);

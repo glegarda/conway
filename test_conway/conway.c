@@ -101,6 +101,20 @@ void sortVectorAscending(vector *v) {
 	qsort(v->array, v->size, sizeof(cell), compareCellsAscending);
 }
 
+int compareCellsAscendingID(const void *a, const void *b) {
+	// Compares cells based on ID for sorting purposes
+	const cell cell_1 = *(const cell *) a;
+	const cell cell_2 = *(const cell *) b;
+	const int id1 = cell_1.id;
+	const int id2 = cell_2.id;
+	return (id1 > id2) - (id1 < id2);
+}
+
+void sortVectorAscendingID(vector *v) {
+	// Sorts vector of cells in ascending order of ID
+	qsort(v->array, v->size, sizeof(cell), compareCellsAscendingID);
+}
+
 //////////////////////
 //                  //
 // conway functions //
@@ -131,7 +145,7 @@ void get8nn(int *array, const int id, size_t columns, size_t lines) {
 	array[6] = id + columns;
 	array[7] = id + columns + 1;
 
-	// Reassing accounting for end-of-grid by wrapping the environment
+	// Reassign accounting for end-of-grid by wrapping the environment
 	if (id < columns) { // top row
 		array[0] = columns * (lines - 1) + id - 1;
 		array[1] = columns * (lines - 1) + id;

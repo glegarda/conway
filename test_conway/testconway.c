@@ -42,6 +42,7 @@ int main() {
 	unsigned short coordinates[2] = {0}; // (x,y) coordinates of a cell
 	// Main loop. Apply game logic to update the state at every iteration. 
 	for (int k = 0; k < 10; k++) {
+/*
 		// Show current state
 		printf("Iteration %d:\n", k + 1);
 		for (unsigned short n = 0; n < state.size; n++) {
@@ -49,11 +50,15 @@ int main() {
 			printf("%hu   %hu\n", coordinates[0], coordinates[1]);
 		}
 		printf("=============\n");
+*/
 
 		// Vector that keeps track of dead cells encountered
 		vector dead_cells;
 		check = initVector(&dead_cells, state.size);
 		CHECK_ALLOC(1, &state);
+
+		// Sort state in ascending order of ID for more efficient branch pred.
+		sortVectorAscendingID(&state);
 
 		// For every live cell...
 		for (unsigned int i = 0; i < state.size; i++) {
