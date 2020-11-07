@@ -10,8 +10,8 @@
 #include "conway.h"
 // Check for correct memory allocation and clear memory in case of error.
 #define CHECK_ALLOC(...) \
-    if (!check) { freeVector(__VA_ARGS__); return -1; } \
-    else (void)0
+	if (!check) { freeVector(__VA_ARGS__); return -1; } \
+	else (void)0
 //*****************************************************************************
 
 int width;
@@ -59,138 +59,136 @@ void PrintWndw (WINDOW *win, int *width, int *height, vector *v, char *symbol);
 int main (int argc, char *argv[])
 {
 
-  initscr();
-  curs_set(0); //Makes the cursor invisible, otherwise it will keep blinking after the '*'
-  noecho();
-  cbreak();	/* Line buffering disabled. pass on everything */
-  clear();
+	initscr();
+	curs_set(0); //Makes the cursor invisible, otherwise it will keep blinking after the '*'
+	noecho();
+	cbreak();	/* Line buffering disabled. pass on everything */
+ 	clear();
 
-  bool escape;
+ 	bool escape;
 
-  if (argc == 3) {
-    int arg1 = atoi(argv[1]);
-    int arg2 = atoi(argv[2]);
-    setWindowsSize(arg1,arg2);
-  } else { setWindowsSize((int)(3.0/4*COLS),(int)(3.0/4*LINES)); }
+	if (argc == 3) {
+		int arg1 = atoi(argv[1]);
+		int arg2 = atoi(argv[2]);
+		setWindowsSize(arg1,arg2);
+  	} else { setWindowsSize((int)(3.0/4*COLS),(int)(3.0/4*LINES)); }
 
-  WINDOW *game_win;
+  	WINDOW *game_win;
 
-  int highlight = 1;
-  int choice = 0;
-  int c;
+  	int highlight = 1;
+  	int choice = 0;
+  	int c;
 
-  int start_x = (int)COLS/2-(int)width/2-1;
-  int start_y = (int)LINES/2-(int)height/2-1;
-  game_win = newwin(height+2, width+2, start_y, start_x);
+  	int start_x = (int)COLS/2-(int)width/2-1;
+  	int start_y = (int)LINES/2-(int)height/2-1;
+  	game_win = newwin(height+2, width+2, start_y, start_x);
 
 
-  refresh();
-  box(game_win, 0, 0);
-  wrefresh(game_win);
+  	refresh();
+  	box(game_win, 0, 0);
+  	wrefresh(game_win);
 
-  while (escape == false) {
+  	while (escape == false) {
 
-    int n_choices;
-    int start_x_menu, start_y_menu;
+		int n_choices;
+		int start_x_menu, start_y_menu;
 
-    switch (current_state) {
-    	case main_menu: ;
+		switch (current_state) {
+			case main_menu: ;
 
-        n_choices = sizeof(choices_menu) / sizeof(char *);
-        WINDOW *menu_win;
-        start_x_menu = (int)(COLS/2-15-1);
-        start_y_menu = (int)(LINES/2-5-1);
-        menu_win = newwin(10, 30,start_y_menu,start_x_menu);
+				n_choices = sizeof(choices_menu) / sizeof(char *);
+				WINDOW *menu_win;
+				start_x_menu = (int)(COLS/2-15-1);
+				start_y_menu = (int)(LINES/2-5-1);
+				menu_win = newwin(10, 30,start_y_menu,start_x_menu);
 
-        keypad(menu_win, TRUE);
-        printMenu(menu_win, highlight,n_choices);
-        keyPressed(menu_win, &highlight, n_choices, &choice);
-        printMenu(menu_win, highlight,n_choices);
+				keypad(menu_win, TRUE);
+				printMenu(menu_win, highlight,n_choices);
+				keyPressed(menu_win, &highlight, n_choices, &choice);
+				printMenu(menu_win, highlight,n_choices);
 
-        if (choice != 0) {
-        	if (highlight==1) {
-        		current_state = play_menu;
-        		clear();
-        		box(game_win, 0, 0);
-        	  wrefresh(game_win);
-        	}
-          else if(highlight==2){
-          	current_state = options_menu;
-          	clear();
-          	box(game_win, 0, 0);
-          	wrefresh(game_win);
-          	highlight = 1;
-          }
-          else{escape = true;}
-          choice = 0;
+				if (choice != 0) {
+		  			if (highlight==1) {
+						current_state = play_menu;
+						clear();
+						box(game_win, 0, 0);
+		  				wrefresh(game_win);
+					} else if (highlight==2) {
+		  				current_state = options_menu;
+		  				clear();
+		  				box(game_win, 0, 0);
+		  				wrefresh(game_win);
+		  				highlight = 1;
+		  			} else{escape = true;}
+		  		choice = 0;
 				}	/* User did a choice come out of the infinite loop */
-      break;
+			break;
 
-      case play_menu: ;
+	  		case play_menu: ;
 
-        n_choices = sizeof(choices_game) / sizeof(char *);
-        WINDOW *gameMenu_win;
-        start_x_menu = (int)(COLS/2-20-1);
-        start_y_menu = (int)(LINES/2-7-1);
-        gameMenu_win = newwin(15, 40,start_y_menu,start_x_menu);
+				n_choices = sizeof(choices_game) / sizeof(char *);
+				WINDOW *gameMenu_win;
+				start_x_menu = (int)(COLS/2-20-1);
+				start_y_menu = (int)(LINES/2-7-1);
+				gameMenu_win = newwin(15, 40,start_y_menu,start_x_menu);
 
-        keypad(gameMenu_win, TRUE);
-        printGameMenu(gameMenu_win, highlight,n_choices);
-        keyPressed(gameMenu_win, &highlight, n_choices, &choice);
-        printGameMenu(gameMenu_win, highlight,n_choices);
+				keypad(gameMenu_win, TRUE);
+				printGameMenu(gameMenu_win, highlight,n_choices);
+				keyPressed(gameMenu_win, &highlight, n_choices, &choice);
+				printGameMenu(gameMenu_win, highlight,n_choices);
 
-        if(choice != 0){
-        	//*****************************************************************************
-          int mid_x = (width+2)/2-1;
-          int mid_y = (height+2)/2-1;
+				if(choice != 0){
+				//*****************************************************************************
+		  			int mid_x = (width+2)/2-1;
+		  			int mid_y = (height+2)/2-1;
 
-          if(highlight==5){
-          	current_state = main_menu;
-          	clear();
-          	box(game_win, 0, 0);
-          	wrefresh(game_win);
-          	highlight = 1;
-          } else {
-          	clear();
-          	box(game_win, 0, 0);
-          	wrefresh(game_win);
-          	bool check = false; //Check if memory allocation was successful -> Check if defined previously
-          	vector state; //Check if defined previously
-          	check = initVector(&state,5); //We estimate that the min. number is going to be 5
-          	CHECK_ALLOC(0);
-          	int check_int = 0; //check_int = 1 go back to menu; check_int = -1 memory allocation failed, teminate.
-          	if(highlight==1){ //Game mode 1: R-pentomino
-          		int x1[5] = {mid_x  ,mid_x+1,mid_x-1,mid_x,mid_x  };
-          		int y1[5] = {mid_y-1,mid_y-1,mid_y  ,mid_y,mid_y+1};
-          		check_int = initMode(&state,&width,x1,y1,5);
-          	}	else if(highlight==2){ //Game mode 2: Diehard
-          		int x2[7] = {mid_x+3,mid_x-3,mid_x-2,mid_x-2,mid_x+2,mid_x+3,mid_x+4};
-          		int y2[7] = {mid_y-1,mid_y  ,mid_y  ,mid_y+1,mid_y+1,mid_y+1,mid_y+1};
-          		check_int = initMode(&state,&width,x2,y2,7);
-          	} else if(highlight==3){ //Game mode 3: Acorn
-          		int x3[7] = {mid_x-2,mid_x  ,mid_x-3,mid_x-2,mid_x+1,mid_x+2,mid_x+3};
-          		int y3[7] = {mid_y-1,mid_y  ,mid_y+1,mid_y+1,mid_y+1,mid_y+1,mid_y+1};
-          		check_int = initMode(&state,&width,x3,y3,7);
-          	} else if(highlight==4) { //Game mode 4: User inputs simulation
-        			check_int = GetUserSim(game_win, &state, &width, &height, &symbol);
-          	}
-          	//Check if memory allocation was successful
-          	if (check_int==-1){
-          		return -1;
-          	} else if (check_int==0) { //Start game
-      				current_state = game_on;
-          	} else if (check_int==1){ //Go back to choice menu
-          			//freeVector(1,&state); //Pensaba que con esto limpiaba el vector pero parece que no
-        			state.size = 0;
-        			current_state = play_menu;
-          	}
-          	PrintWndw(game_win, &width, &height, &state, &symbol);
-          }
-        }
-        	//*****************************************************************************
-        choice = 0;
+		  			if(highlight==5){
+		  				current_state = main_menu;
+		  				clear();
+		  				box(game_win, 0, 0);
+		  				wrefresh(game_win);
+		  				highlight = 1;
+		  			} else {
+		  				clear();
+		  				box(game_win, 0, 0);
+		  				wrefresh(game_win);
+		  				bool check = false; //Check if memory allocation was successful -> Check if defined previously
+		  				vector state; //Check if defined previously
+		  				check = initVector(&state,5); //We estimate that the min. number is going to be 5
+		  				CHECK_ALLOC(0);
+		  				int check_int = 0; //check_int = 1 go back to menu; check_int = -1 memory allocation failed, teminate.
+		  				if (highlight==1) { //Game mode 1: R-pentomino
+		  					int x1[5] = {mid_x  ,mid_x+1,mid_x-1,mid_x,mid_x  };
+		  					int y1[5] = {mid_y-1,mid_y-1,mid_y  ,mid_y,mid_y+1};
+		  					check_int = initMode(&state,&width,x1,y1,5);
+		  				} else if (highlight==2) { //Game mode 2: Diehard
+		  					int x2[7] = {mid_x+3,mid_x-3,mid_x-2,mid_x-2,mid_x+2,mid_x+3,mid_x+4};
+		  					int y2[7] = {mid_y-1,mid_y  ,mid_y  ,mid_y+1,mid_y+1,mid_y+1,mid_y+1};
+		  					check_int = initMode(&state,&width,x2,y2,7);
+		  				} else if (highlight==3) { //Game mode 3: Acorn
+		  					int x3[7] = {mid_x-2,mid_x  ,mid_x-3,mid_x-2,mid_x+1,mid_x+2,mid_x+3};
+		  					int y3[7] = {mid_y-1,mid_y  ,mid_y+1,mid_y+1,mid_y+1,mid_y+1,mid_y+1};
+		  					check_int = initMode(&state,&width,x3,y3,7);
+		  				} else { //Game mode 4: User inputs simulation
+							check_int = GetUserSim(game_win, &state, &width, &height, &symbol);
+		  				}
+		  				//Check if memory allocation was successful
+		  				if (check_int==-1){
+		  					return -1;
+		  				} else if (check_int==0) { //Start game
+	  						current_state = game_on;
+		  				} else if (check_int==1){ //Go back to choice menu
+		  					//freeVector(1,&state); //Pensaba que con esto limpiaba el vector pero parece que no
+							state.size = 0;
+							current_state = play_menu;
+		  				}
+		  				PrintWndw(game_win, &width, &height, &state, &symbol);
+		  			}
+				}
+			//*****************************************************************************
+				choice = 0;
 
-      break;
+	  		break;
 
 			case options_menu: ;
 
@@ -263,13 +261,13 @@ int main (int argc, char *argv[])
 				mvwprintw(game_win, 1, 1, "Lets begin...");
 				mvwprintw(game_win, 2, 1, "Press ESC to finalize");
 				wrefresh(game_win);
-        wtimeout(game_win,(int)(refreshing_time*1000));
+				wtimeout(game_win,(int)(refreshing_time*1000));
 				keypad(game_win, TRUE);
-        int dummy_var = 1;
+				int dummy_var = 1;
 				int movement;
 				do{
 					movement = wgetch(game_win);
-          mvwprintw(game_win,1, dummy_var, "%c",symbol);
+		  			mvwprintw(game_win,1, dummy_var, "%c",symbol);
 					switch (movement){
 						case 27:
 
@@ -278,7 +276,7 @@ int main (int argc, char *argv[])
 						default:
 							break;
 					}
-          dummy_var ++;
+		  			dummy_var ++;
 				}while(movement!=27);
 				keypad(game_win, FALSE);
 				wclear(game_win);
@@ -291,13 +289,13 @@ int main (int argc, char *argv[])
 		}
 
 	}
-  // Mac Problem
+  	// Mac Problem
 	curs_set(1);
 	nocbreak();
 	echo();
 	erase();
 	refresh();
-  // Mac Problem
+  	// Mac Problem
 	endwin();
 	return 0;
 }
@@ -305,63 +303,59 @@ int main (int argc, char *argv[])
 void setWindowsSize(int width_size,int height_size){
 
   if(width_size<COLS && height_size<LINES && width_size>42 && height_size>17){
-      width = width_size;
-      height = height_size;
+	  width = width_size;
+	  height = height_size;
   }
 }
 
-void printMenu(WINDOW *win, int highlight, int n_choices)
-{
+void printMenu(WINDOW *win, int highlight, int n_choices){
 	clear();
 	int x, y, i;
 
 	x = 2;
 	y = 2;
 	box(win, 0, 0);
-	for(i = 0; i < n_choices; ++i)
-	{	if(highlight == i + 1) /* High light the present choice */
-		{	wattron(win, A_REVERSE);
+	for(i = 0; i < n_choices; ++i){	
+		if(highlight == i + 1) /* High light the present choice */{	
+			wattron(win, A_REVERSE);
 			mvwprintw(win, y, x, "%s", choices_menu[i]);
 			wattroff(win, A_REVERSE);
 		}
-		else
-			mvwprintw(win, y, x, "%s", choices_menu[i]);
+		else {mvwprintw(win, y, x, "%s", choices_menu[i]);}
 		++y;
 	}
 	wrefresh(win);
 }
 
-void printGameMenu(WINDOW *win, int highlight, int n_choices)
-{
+void printGameMenu(WINDOW *win, int highlight, int n_choices){
 	clear();
 	int x, y, i;
 
 	x = 2;
 	y = 2;
 	box(win, 0, 0);
-	for(i = 0; i < n_choices; ++i)
-	{	if(highlight == i + 1) /* High light the present choice */
-		{	wattron(win, A_REVERSE);
+	for(i = 0; i < n_choices; ++i){
+		if(highlight == i + 1) /* High light the present choice */{
+			wattron(win, A_REVERSE);
 			mvwprintw(win, y, x, "%s", choices_game[i]);
 			wattroff(win, A_REVERSE);
 		}
-		else
-			mvwprintw(win, y, x, "%s", choices_game[i]);
+		else {mvwprintw(win, y, x, "%s", choices_game[i]);}
 		++y;
 	}
 	wrefresh(win);
 }
 
-void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refreshing_time)
-{
+void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refreshing_time){
+
 	clear();
 	int x, y, i;
 
 	x = 2;
 	y = 2;
 	box(win, 0, 0);
-	for(i = 0; i < n_choices-1; ++i)
-	{
+	for(i = 0; i < n_choices-1; ++i){
+
 		mvwprintw(win, y, x, "%s", choices_options[i]);
 		if(highlight == i + 1) /* High light the present choice */
 		  wattron(win, A_REVERSE);
@@ -383,17 +377,16 @@ void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int
 		wattron(win, A_REVERSE);
 		mvwprintw(win, y, x, "%s", choices_options[n_choices-1]);
 		wattroff(win, A_REVERSE);
-	}else{
-		mvwprintw(win, y, x, "%s", choices_options[n_choices-1]);
-	}
+	}else{ mvwprintw(win, y, x, "%s", choices_options[n_choices-1]); }
 	wrefresh(win);
 }
 
-void keyPressed(WINDOW *win, int *highlight, int n_choices, int *choice)
-{
+void keyPressed(WINDOW *win, int *highlight, int n_choices, int *choice){
+	
 	int c = wgetch(win);
-	switch(c)
-	{	case KEY_UP:
+	switch(c){
+	
+		case KEY_UP:
 			if(*highlight == 1)
 				*highlight = n_choices;
 			else
