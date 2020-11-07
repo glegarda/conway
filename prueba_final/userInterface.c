@@ -114,7 +114,7 @@ void keyPressedMenu(WINDOW *win, int *highlight, int n_choices, int *choice){
 			*choice = *highlight;
 			break;
 		default:
-			refresh();
+			wrefresh(win);
 			break;
 	}
 }
