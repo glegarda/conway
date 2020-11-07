@@ -1,18 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-//#include <ncurses.h>
 #include "conway.h"
 
 // Check for correct memory allocation and clear memory in case of error.
 #define CHECK_ALLOC(...) \
-    if (!check) { freeVector(__VA_ARGS__); return -1; } \
-    else (void)0
+	if (!check) { freeVector(__VA_ARGS__); return -1; } \
+	else (void)0
 
 int main() {
 
-	// NCURSES implementation here. Define window size and obtain COLS and LINES
-	// variables, which are then used to obtain linear indices of active cells.
+	// Define window size and obtain COLS and LINES variables, which are then
+	// used to obtain linear indices of active cells.
 	// For testing purposes, set values.
 	size_t COLS = 80;
 	size_t LINES = 24;
@@ -39,14 +38,12 @@ int main() {
 	check = pushBack(&state, &c4);
 	CHECK_ALLOC(1, &state);
 
-	bool end_game = false;
 	int eight_nn[8] = {0}; // indices of 8 nearest neighbours
 	unsigned short coordinates[2] = {0}; // (x,y) coordinates of a cell
 	// Main loop. Apply game logic to update the state at every iteration. 
-	//while (!end_game) {
 	for (int k = 0; k < 10; k++) {
 		// Show current state
-		printf("Iteration %d:\n", k);
+		printf("Iteration %d:\n", k + 1);
 		for (unsigned short n = 0; n < state.size; n++) {
 			id2xy(coordinates, state.array[n].id, COLS);
 			printf("%hu   %hu\n", coordinates[0], coordinates[1]);
@@ -111,8 +108,6 @@ int main() {
 
 		// Clear memory
 		freeVector(1, &dead_cells);
-
-		// Trigger *end_game* from NCURSES here
 
 		if (state.size == 0) {
 			break;

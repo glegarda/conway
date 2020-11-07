@@ -9,9 +9,9 @@ typedef struct cell {
 } cell;
 
 typedef struct vector {
-    cell *array;
-    unsigned short size; // occupied elements
-    unsigned short capacity; // number of elements available in memory
+	cell *array;
+	unsigned short size; // occupied elements
+	unsigned short capacity; // number of elements available in memory
 } vector;
 
 // vector functions
