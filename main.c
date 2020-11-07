@@ -53,25 +53,25 @@ int main (int argc, char *argv[]) {
 		int arg1 = atoi(argv[1]);
 		int arg2 = atoi(argv[2]);
 		setWindowsSize(arg1,arg2,&Width,&Height);
-  	} else {
+	} else {
 		setWindowsSize((int)(3.0/4*COLS),(int)(3.0/4*LINES), &Width, &Height);
 	}
 
-  	WINDOW *game_win;
+	WINDOW *game_win;
 
-  	int highlight = 1;
-  	int choice = 0;
-  	int c;
+	int highlight = 1;
+	int choice = 0;
+	int c;
 
-  	int start_x = (int)COLS/2-(int)Width/2-1;
-  	int start_y = (int)LINES/2-(int)Height/2-1;
-  	game_win = newwin(Height+2, Width+2, start_y, start_x);
+	int start_x = (int)COLS/2-(int)Width/2-1;
+	int start_y = (int)LINES/2-(int)Height/2-1;
+	game_win = newwin(Height+2, Width+2, start_y, start_x);
 
-  	refresh();
-  	box(game_win, 0, 0);
-  	wrefresh(game_win);
+	refresh();
+	box(game_win, 0, 0);
+	wrefresh(game_win);
 
-  	while (escape == false) {
+	while (escape == false) {
 		int n_choices;
 		int start_x_menu, start_y_menu;
 
@@ -89,25 +89,25 @@ int main (int argc, char *argv[]) {
 				printMenu(menu_win, highlight, n_choices, Choices_menu);
 
 				if (choice != 0) {
-		  			if (highlight == 1) {
+					if (highlight == 1) {
 						current_state = play_menu;
 						clear();
 						box(game_win, 0, 0);
-		  				wrefresh(game_win);
+						wrefresh(game_win);
 					} else if (highlight == 2) {
-		  				current_state = options_menu;
-		  				clear();
-		  				box(game_win, 0, 0);
-		  				wrefresh(game_win);
-		  				highlight = 1;
-		  			} else {
+						current_state = options_menu;
+						clear();
+						box(game_win, 0, 0);
+						wrefresh(game_win);
+						highlight = 1;
+					} else {
 						escape = true;
 					}
-		  		choice = 0;
-				}	/* User did a choice come out of the infinite loop */
+				choice = 0;
+				} /* User did a choice come out of the infinite loop */
 			break;
 
-	  		case play_menu: ;
+			case play_menu: ;
 				n_choices = sizeof(Choices_game) / sizeof(char *);
 				WINDOW *gameMenu_win;
 				start_x_menu = (int)(COLS/2-20-1);
@@ -120,54 +120,54 @@ int main (int argc, char *argv[]) {
 				printGameMenu(gameMenu_win, highlight,n_choices, Choices_game);
 
 				if (choice != 0) {
-		  			int mid_x = (Width+2)/2-1;
-		  			int mid_y = (Height+2)/2-1;
+					int mid_x = (Width+2)/2-1;
+					int mid_y = (Height+2)/2-1;
 
-		  			if (highlight==5) {
-		  				current_state = main_menu;
-		  				clear();
-		  				box(game_win, 0, 0);
-		  				wrefresh(game_win);
-		  				highlight = 1;
-		  			} else {
-		  				clear();
-		  				box(game_win, 0, 0);
-		  				wrefresh(game_win);
-		  				Check = initVector(&original_conway_state, 10); // Set initial arbitrary size
+					if (highlight==5) {
+						current_state = main_menu;
+						clear();
+						box(game_win, 0, 0);
+						wrefresh(game_win);
+						highlight = 1;
+					} else {
+						clear();
+						box(game_win, 0, 0);
+						wrefresh(game_win);
+						Check = initVector(&original_conway_state, 10); // Set initial arbitrary size
 						if (!Check) {
 							return -1;
 						}
 
-		  				Check_int = 0; //Check_int = 1 go back to menu; Check_int = -1 memory allocation failed, teminate.
-		  				if (highlight == 1) { //Game mode 1: R-pentomino
-		  					int x1[5] = {mid_x  , mid_x+1, mid_x-1, mid_x, mid_x  };
-		  					int y1[5] = {mid_y-1, mid_y-1, mid_y  , mid_y, mid_y+1};
-		  					Check_int = initMode(&original_conway_state, &Width, x1, y1, 5);
-		  				} else if (highlight == 2) { //Game mode 2: Diehard
-		  					int x2[7] = {mid_x+3, mid_x-3, mid_x-2, mid_x-2, mid_x+2, mid_x+3, mid_x+4};
-		  					int y2[7] = {mid_y-1, mid_y  , mid_y  , mid_y+1, mid_y+1, mid_y+1, mid_y+1};
-		  					Check_int = initMode(&original_conway_state, &Width, x2, y2, 7);
-		  				} else if (highlight == 3) { //Game mode 3: Acorn
-		  					int x3[7] = {mid_x-2,mid_x  , mid_x-3, mid_x-2, mid_x+1, mid_x+2, mid_x+3};
-		  					int y3[7] = {mid_y-1,mid_y  , mid_y+1, mid_y+1, mid_y+1, mid_y+1, mid_y+1};
-		  					Check_int = initMode(&original_conway_state, &Width, x3, y3, 7);
-		  				} else { //Game mode 4: User inputs simulation
+						Check_int = 0; //Check_int = 1 go back to menu; Check_int = -1 memory allocation failed, teminate.
+						if (highlight == 1) { //Game mode 1: R-pentomino
+							int x1[5] = {mid_x  , mid_x+1, mid_x-1, mid_x, mid_x  };
+							int y1[5] = {mid_y-1, mid_y-1, mid_y  , mid_y, mid_y+1};
+							Check_int = initMode(&original_conway_state, &Width, x1, y1, 5);
+						} else if (highlight == 2) { //Game mode 2: Diehard
+							int x2[7] = {mid_x+3, mid_x-3, mid_x-2, mid_x-2, mid_x+2, mid_x+3, mid_x+4};
+							int y2[7] = {mid_y-1, mid_y  , mid_y  , mid_y+1, mid_y+1, mid_y+1, mid_y+1};
+							Check_int = initMode(&original_conway_state, &Width, x2, y2, 7);
+						} else if (highlight == 3) { //Game mode 3: Acorn
+							int x3[7] = {mid_x-2,mid_x  , mid_x-3, mid_x-2, mid_x+1, mid_x+2, mid_x+3};
+							int y3[7] = {mid_y-1,mid_y  , mid_y+1, mid_y+1, mid_y+1, mid_y+1, mid_y+1};
+							Check_int = initMode(&original_conway_state, &Width, x3, y3, 7);
+						} else { //Game mode 4: User inputs simulation
 							Check_int = GetUserSim(game_win, &original_conway_state, &Width, &Height, &Symbol);
-		  				}
+						}
 
-		  				//Check if memory allocation was successful
-		  				if (Check_int == -1) {
-		  					return -1;
-		  				} else if (Check_int == 0) { //Start game
-	  						current_state = game_on;
-		  				} else if (Check_int == 1) { //Go back to choice menu
+						//Check if memory allocation was successful
+						if (Check_int == -1) {
+							return -1;
+						} else if (Check_int == 0) { //Start game
+							current_state = game_on;
+						} else if (Check_int == 1) { //Go back to choice menu
 							original_conway_state.size = 0;
 							current_state = play_menu;
-		  				}
-		  			}
+						}
+					}
 				}
 				choice = 0;
-	  		break;
+			break;
 
 			case options_menu: ;
 				n_choices = sizeof(Choices_options) / sizeof(char *);
@@ -336,13 +336,13 @@ int main (int argc, char *argv[]) {
 	// Clear memory
 	freeVector(1, &original_conway_state);
 
-  	// Mac Problem
+	// Mac Problem
 	curs_set(1);
 	nocbreak();
 	echo();
 	erase();
 	refresh();
-  	// Mac Problem
+	// Mac Problem
 	endwin();
 
 	return 0;
