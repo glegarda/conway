@@ -8,13 +8,6 @@
 	if (!check) { freeVector(__VA_ARGS__); return -1; } \
 	else (void)0
 
-//////////////////////////
-//                   	//
-//		structures		//
-//                  	//
-//////////////////////////
-
-// vector structures
 typedef struct cell {
 	int id; // linear index encoding location
 	unsigned char live_neighbours; // number of live neighbours
@@ -25,12 +18,6 @@ typedef struct vector {
 	unsigned short size; // occupied elements
 	unsigned short capacity; // number of elements available in memory
 } vector;
-
-////////////////////////////
-//                   	  //
-// 		 functions 		  //
-//                  	  //
-////////////////////////////
 
 // vector functions
 bool initVector(vector *v, const unsigned short init_size);
