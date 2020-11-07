@@ -75,10 +75,6 @@ int main(int argc, char *argv[])
   }else{
     setWindowsSize((int)(3.0/4*COLS),(int)(3.0/4*LINES));
   }
-//*****************************************************************************
-	int mid_x = (width+2)/2-1;
-	int mid_y = (height+2)/2-1;
-//*****************************************************************************
   WINDOW *game_win;
 
   int highlight = 1;
@@ -154,6 +150,8 @@ int main(int argc, char *argv[])
 						wrefresh(game_win);
 						highlight = 1;
 					} else {
+						int mid_x = (width+2)/2-1;
+						int mid_y = (height+2)/2-1;
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
@@ -276,9 +274,15 @@ int main(int argc, char *argv[])
 							break;
 
 						default:
+							// check_int = iterateConway(&state, &width, &height);
+							// if (check_int==-1){
+							// 	return -1;
+							// } else {
+							// 	PrintWndw(game_win, &width, &height, &state, &symbol);
+							// }
 							break;
 					}
-				}while(movement!=27);
+				}while(movement!=27);//ESC
 				keypad(game_win, FALSE);
 				wclear(game_win);
 				box(game_win, 0, 0);
