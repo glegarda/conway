@@ -12,14 +12,14 @@
 
 bool initVector(vector *v, const unsigned short init_size) {
 	// Initialise struct members
-    v->array = (cell *) malloc(init_size * sizeof(cell));
-    if (v->array == NULL) {
-        fprintf(stderr, "malloc failed\n");
-        return false;
-    }
-    v->size = 0;
-    v->capacity = init_size;
-    return true;
+	v->array = (cell *) malloc(init_size * sizeof(cell));
+	if (v->array == NULL) {
+		fprintf(stderr, "malloc failed\n");
+		return false;
+	}
+	v->size = 0;
+	v->capacity = init_size;
+	return true;
 }
 
 void freeVector(const unsigned int n, ...) {
@@ -28,39 +28,39 @@ void freeVector(const unsigned int n, ...) {
 	va_start(args, n);
 	for (unsigned int i = 0; i < n; i++) {
 		vector *f = va_arg(args, vector *);
-    	free(f->array);
-    	f->array = NULL;
-    	f->size = 0;
-    	f->capacity = 0;
+		free(f->array);
+		f->array = NULL;
+		f->size = 0;
+		f->capacity = 0;
 	}
 	va_end(args);
 }
 
 bool pushBack(vector *v, const cell *c) {
 	// Add element at the end
-    if (v->size == v->capacity) {
-        v->capacity *= 2;
-        cell *tmp = (cell *) realloc(v->array, v->capacity * sizeof(cell));
-        if (tmp == NULL) {
-            fprintf(stderr, "realloc failed\n");
-            return false;
-        } else {
-            v->array = tmp;
-        }
-    }
-    v->array[v->size++] = *c;
-    return true;
+	if (v->size == v->capacity) {
+		v->capacity *= 2;
+		cell *tmp = (cell *) realloc(v->array, v->capacity * sizeof(cell));
+		if (tmp == NULL) {
+			fprintf(stderr, "realloc failed\n");
+			return false;
+		} else {
+			v->array = tmp;
+		}
+	}
+	v->array[v->size++] = *c;
+	return true;
 }
 
 bool popBack(vector *v) {
 	// Remove last element
-    if (v->size) {
-        v->size--;
-    } else {
-        fprintf(stderr, "cannot popBack empty vector\n");
-        return false;
-    }
-    return true;
+	if (v->size) {
+		v->size--;
+	} else {
+		fprintf(stderr, "cannot popBack empty vector\n");
+		return false;
+	}
+	return true;
 }
 
 int isInVector(const vector *v, const int id) {
