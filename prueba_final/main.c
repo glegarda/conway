@@ -48,7 +48,7 @@ int main (int argc, char *argv[])
 
  	bool escape;
 
-	vector state; //Check if defined previously
+	vector original_conway_state;
 
 	if (argc == 3) {
 		int arg1 = atoi(argv[1]);
@@ -136,23 +136,23 @@ int main (int argc, char *argv[])
 		  				box(game_win, 0, 0);
 		  				wrefresh(game_win);
 		  				bool check = false; //Check if memory allocation was successful -> Check if defined previously
-		  				check = initVector(&state,5); //We estimate that the min. number is going to be 5
+		  				check = initVector(&original_conway_state,5); //We estimate that the min. number is going to be 5
 		  				CHECK_ALLOC(0);
 		  				Check_int = 0; //Check_int = 1 go back to menu; Check_int = -1 memory allocation failed, teminate.
 		  				if (highlight==1) { //Game mode 1: R-pentomino
 		  					int x1[5] = {mid_x  ,mid_x+1,mid_x-1,mid_x,mid_x  };
 		  					int y1[5] = {mid_y-1,mid_y-1,mid_y  ,mid_y,mid_y+1};
-		  					Check_int = initMode(&state,&Width,x1,y1,5);
+		  					Check_int = initMode(&original_conway_state,&Width,x1,y1,5);
 		  				} else if (highlight==2) { //Game mode 2: Diehard
 		  					int x2[7] = {mid_x+3,mid_x-3,mid_x-2,mid_x-2,mid_x+2,mid_x+3,mid_x+4};
 		  					int y2[7] = {mid_y-1,mid_y  ,mid_y  ,mid_y+1,mid_y+1,mid_y+1,mid_y+1};
-		  					Check_int = initMode(&state,&Width,x2,y2,7);
+		  					Check_int = initMode(&original_conway_state,&Width,x2,y2,7);
 		  				} else if (highlight==3) { //Game mode 3: Acorn
 		  					int x3[7] = {mid_x-2,mid_x  ,mid_x-3,mid_x-2,mid_x+1,mid_x+2,mid_x+3};
 		  					int y3[7] = {mid_y-1,mid_y  ,mid_y+1,mid_y+1,mid_y+1,mid_y+1,mid_y+1};
-		  					Check_int = initMode(&state,&Width,x3,y3,7);
+		  					Check_int = initMode(&original_conway_state,&Width,x3,y3,7);
 		  				} else { //Game mode 4: User inputs simulation
-							Check_int = GetUserSim(game_win, &state, &Width, &Height, &Symbol);
+							Check_int = GetUserSim(game_win, &original_conway_state, &Width, &Height, &Symbol);
 		  				}
 		  				//Check if memory allocation was successful
 		  				if (Check_int==-1){
@@ -160,10 +160,9 @@ int main (int argc, char *argv[])
 		  				} else if (Check_int==0) { //Start game
 	  						current_state = game_on;
 		  				} else if (Check_int==1){ //Go back to choice menu
-							state.size = 0;
+							original_conway_state.size = 0;
 							current_state = play_menu;
 		  				}
-
 		  			}
 				}
 
@@ -239,7 +238,7 @@ int main (int argc, char *argv[])
 			break;
 
 			case game_on: ;
-				PrintWndw(game_win, &Width, &Height, &state, &Symbol);
+				PrintWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
 				float scaled_speed = 1.0;
 				bool game_paused = false;
 				mvprintw (start_y+Height+2,start_x,"r: reset");
@@ -287,7 +286,7 @@ int main (int argc, char *argv[])
 							wclear(game_win);
 							box(game_win, 0, 0);
 							wrefresh(game_win);
-							PrintWndw(game_win, &Width, &Height, &state, &Symbol);
+							PrintWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
 
 						break;
 
@@ -306,17 +305,17 @@ int main (int argc, char *argv[])
 						break;
 					}
 					if (refresh) {
-						Check_int = iterateConway(&state, Width, Height);
+						Check_int = iterateConway(&original_conway_state, Width, Height);
 						if (Check_int == -1) {
-							freeVector(1, &state);
+							freeVector(1, &original_conway_state);
 							return -1;
 						}
 						wclear(game_win);
 						box(game_win, 0, 0);
-						PrintWndw(game_win, &Width, &Height, &state, &Symbol);
+						PrintWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
 						wrefresh(game_win);
 					}
-					if (!state.size) {
+					if (!original_conway_state.size) {
 						current_state = play_menu;
 						break;
 					}
@@ -331,7 +330,7 @@ int main (int argc, char *argv[])
 	}
 
 	// Clear memory
-	freeVector(1, &state);
+	freeVector(1, &original_conway_state);
 
   	// Mac Problem
 	curs_set(1);

@@ -143,14 +143,14 @@ int iterateConway(vector *state, size_t columns, size_t lines) {
 
 	// Remove underpopulated live cells
 	sortVectorDescending(state);
-	while (state->array[state->size - 1].live_neighbours < 2) {
+	while (state->size && state->array[state->size - 1].live_neighbours < 2) {
 		check = popBack(state);
 		CHECK_ALLOC(2, &dead_cells, state);
 	}
 
 	// Remove overpopulated live cells
 	sortVectorAscending(state);
-	while (state->array[state->size - 1].live_neighbours > 3) {
+	while (state->size && state->array[state->size - 1].live_neighbours > 3) {
 		check = popBack(state);
 		CHECK_ALLOC(2, &dead_cells, state);
 	}
