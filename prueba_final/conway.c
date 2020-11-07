@@ -5,9 +5,9 @@
 #include "conway.h"
 
 //////////////////////
-//				  //
+//                  //
 // vector functions //
-//				  //
+//                  //
 //////////////////////
 
 bool initVector(vector *v, const unsigned short init_size) {
@@ -102,9 +102,9 @@ void sortVectorAscending(vector *v) {
 }
 
 //////////////////////
-//				  //
+//                  //
 // conway functions //
-//				  //
+//                  //
 //////////////////////
 
 int iterateConway(vector *state, size_t columns, size_t lines) {
