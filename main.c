@@ -48,7 +48,7 @@ int main (int argc, char *argv[]) {
     // Create Exit-game variable
  	bool escape;
     // Create vector of initial live cells
-	vector original_conway_stat
+	vector original_conway_state;
 
     // Allows user to input window height and width from terminal
 	if (argc == 3) {
