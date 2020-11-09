@@ -186,7 +186,7 @@ int GetUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol){
 			case 'D':
 				if (x_loc<x_max){x_loc++;}
 				break;
-			case 32:
+			case 32: // Spacebar
 				mvwprintw(win,y_loc,x_loc, "%c",*symbol);
 				check = initMode(v,width,&x_loc,&y_loc,1);
 				if (check){return -1;} //Memory allocation failed, terminate
