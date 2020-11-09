@@ -6,28 +6,27 @@
 #include "conway.h"
 #include "userInterface.h"
 
-int Width;
-int Height;
-char Symbol = '*';
-float Refreshing_time = 1.0;
-bool Check = false;
+int Width; // Game window width
+int Height; // Game window height
+char Symbol = '*'; // Deafult game symbol
+float Refreshing_time = 1.0; // Default screen refreshing time
+bool Check = false; // Memory allocation success check variable
 int Check_int;
 
-char *Choices_menu[] = {
+// Game menus
+char *Choices_menu[] = { // Main menu
   "PLAY",
   "OPTIONS",
   "EXIT",
 };
-
-char *Choices_game[] = {
+char *Choices_game[] = { // PLAY menu
   "Test 1: R-pentomino",
   "Test 2: Diehard",
   "Test 3: Acorn",
   "User input using keyboard",
   "Back",
 };
-
-char *Choices_options[] = {
+char *Choices_options[] = { // OPTIONS menu
   "Width: ",
   "Heigth: ",
   "Cell Alive Symbol: ",
@@ -35,95 +34,106 @@ char *Choices_options[] = {
   "Back",
 };
 
-enum states {main_menu, play_menu, options_menu, game_on};
-enum states current_state = main_menu;
+enum states {main_menu, play_menu, options_menu, game_on}; // Different screens
+enum states current_state = main_menu; // Current screen
 
 int main (int argc, char *argv[]) {
+    // NCURSES initialization
 	initscr();
-	curs_set(0); //Makes the cursor invisible, otherwise it will keep blinking after the '*'
+	curs_set(0); // Makes cursor invisible
 	noecho();
-	cbreak();	/* Line buffering disabled. pass on everything */
+	cbreak(); // Line buffering disabled
  	clear();
 
+    // Create Exit-game variable
  	bool escape;
+    // Create vector of initial live cells
+	vector original_conway_stat
 
-	vector original_conway_state;
-
+    // Allows user to input window height and width from terminal
 	if (argc == 3) {
 		int arg1 = atoi(argv[1]);
 		int arg2 = atoi(argv[2]);
 		setWindowsSize(arg1,arg2,&Width,&Height);
-	} else {
+	} else { // By default the window is 3/4 of the terminals' dimensions
 		setWindowsSize((int)(3.0/4*COLS),(int)(3.0/4*LINES), &Width, &Height);
 	}
 
-	WINDOW *game_win;
-
-	int highlight = 1;
+    // Menu variables
+    int highlight = 1;
 	int choice = 0;
 	int c;
 
+    // Initialises game window
+    WINDOW *game_win;
 	int start_x = (int)COLS/2-(int)Width/2-1;
 	int start_y = (int)LINES/2-(int)Height/2-1;
 	game_win = newwin(Height+2, Width+2, start_y, start_x);
-
 	refresh();
-	box(game_win, 0, 0);
+	box(game_win, 0, 0); // Creates game box
 	wrefresh(game_win);
 
+    // Program loop. Run until escape is triggered.
 	while (escape == false) {
 		int n_choices;
 		int start_x_menu, start_y_menu;
 
+        // Check users' current window
 		switch (current_state) {
 			case main_menu: ;
+                // Initialise Main menu
 				n_choices = sizeof(Choices_menu) / sizeof(char *);
 				WINDOW *menu_win;
 				start_x_menu = (int)(COLS/2-15-1);
 				start_y_menu = (int)(LINES/2-5-1);
 				menu_win = newwin(10, 30,start_y_menu,start_x_menu);
 
+                // Tracking users' movemenet through menu
 				keypad(menu_win, TRUE);
 				printMenu(menu_win, highlight, n_choices, Choices_menu);
 				keyPressedMenu(menu_win, &highlight, n_choices, &choice);
 				printMenu(menu_win, highlight, n_choices, Choices_menu);
 
+                // Users' selected choice
 				if (choice != 0) {
-					if (highlight == 1) {
+					if (highlight == 1) { // PLAY. Updates current state & window
 						current_state = play_menu;
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
-					} else if (highlight == 2) {
+					} else if (highlight == 2) { //OPTIONS. Updates current state & window
 						current_state = options_menu;
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 						highlight = 1;
-					} else {
+					} else { // EXIT. Triggers game exit
 						escape = true;
 					}
-				choice = 0;
-				} /* User did a choice come out of the infinite loop */
+				choice = 0; // A choice has been made, get out of the loop
+                }
 			break;
 
 			case play_menu: ;
+                // Initialise Play menu
 				n_choices = sizeof(Choices_game) / sizeof(char *);
 				WINDOW *gameMenu_win;
 				start_x_menu = (int)(COLS/2-20-1);
 				start_y_menu = (int)(LINES/2-7-1);
 				gameMenu_win = newwin(15, 40,start_y_menu,start_x_menu);
 
+                // Tracking users' movemenet through menu
 				keypad(gameMenu_win, TRUE);
 				printGameMenu(gameMenu_win, highlight,n_choices, Choices_game);
 				keyPressedMenu(gameMenu_win, &highlight, n_choices, &choice);
 				printGameMenu(gameMenu_win, highlight,n_choices, Choices_game);
 
+                // Users' selected choice
 				if (choice != 0) {
-					int mid_x = (Width+2)/2-1;
+					int mid_x = (Width+2)/2-1; // Screen center point (x,y) coordinates
 					int mid_y = (Height+2)/2-1;
 
-					if (highlight==5) {
+					if (highlight==5) { // Back. Goes back to Main menu.
 						current_state = main_menu;
 						clear();
 						box(game_win, 0, 0);
@@ -134,12 +144,12 @@ int main (int argc, char *argv[]) {
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 						Check = initVector(&original_conway_state, 10); // Set initial arbitrary size
-						if (!Check) {
-							return -1;
+						if (!Check) { // If a memory allocation error hs ocurred
+							return -1; // Terminate
 						}
 
-						Check_int = 0; //Check_int = 1 go back to menu; Check_int = -1 memory allocation failed, teminate.
-						if (highlight == 1) { //Game mode 1: R-pentomino
+                        // Load selected game mode:
+                        if (highlight == 1) { //Game mode 1: R-pentomino
 							int x1[5] = {mid_x  , mid_x+1, mid_x-1, mid_x, mid_x  };
 							int y1[5] = {mid_y-1, mid_y-1, mid_y  , mid_y, mid_y+1};
 							Check_int = initMode(&original_conway_state, &Width, x1, y1, 5);
@@ -154,40 +164,42 @@ int main (int argc, char *argv[]) {
 						} else { //Game mode 4: User inputs simulation
 							Check_int = GetUserSim(game_win, &original_conway_state, &Width, &Height, &Symbol);
 						}
-
 						//Check if memory allocation was successful
-						if (Check_int == -1) {
+						if (Check_int == -1) { // Error has occurred, terminate.
 							return -1;
 						} else if (Check_int == 0) { //Start game
 							current_state = game_on;
-						} else if (Check_int == 1) { //Go back to choice menu
-							original_conway_state.size = 0;
+						} else if (Check_int == 1) { //Go back to Main menu
+							original_conway_state.size = 0; // Reset state
 							current_state = play_menu;
 						}
 					}
 				}
-				choice = 0;
+				choice = 0; // A choice has been made, get out of the loop
 			break;
 
 			case options_menu: ;
+                // Initialise Options menu
 				n_choices = sizeof(Choices_options) / sizeof(char *);
 				WINDOW *options_menu_win;
 				start_x_menu = (int)(COLS/2-20-1);
 				start_y_menu = (int)(LINES/2-7-1);
 				options_menu_win = newwin(15, 40, start_y_menu, start_x_menu);
 
+                // Tracking users' movemenet through menu
 				keypad(options_menu_win, TRUE);
 				printOptionsMenu(options_menu_win, highlight, n_choices, &Width, &Height, &Symbol, &Refreshing_time, Choices_options);
 				keyPressedMenu(options_menu_win, &highlight, n_choices, &choice);
 				printOptionsMenu(options_menu_win, highlight, n_choices, &Width, &Height, &Symbol, &Refreshing_time, Choices_options);
 
+                // Users' selected choice
 				if (choice != 0) {
-					if (highlight < 5) {
+					if (highlight < 5) { // If new value is going to be introduced, display message
 						mvwprintw(options_menu_win, 10, 2, "Introduce new %s", Choices_options[highlight-1]);
 						wrefresh(options_menu_win);
 					}
 					char newValue[5];
-					if (highlight == 1) {
+					if (highlight == 1) { // New Width. Read new value, update window size & screen.
 						optionsGetch(newValue, options_menu_win);
 						erase();
 						refresh();
@@ -197,7 +209,7 @@ int main (int argc, char *argv[]) {
 						game_win = newwin(Height+2, Width+2, start_y, start_x);
 						box(game_win, 0, 0);
 						wrefresh(game_win);
-					} else if (highlight == 2) {
+					} else if (highlight == 2) { // New Height. Read new value, update window size & screen.
 						optionsGetch(newValue, options_menu_win);
 						erase();
 						refresh();
@@ -208,34 +220,35 @@ int main (int argc, char *argv[]) {
 						game_win = newwin(Height+2, Width+2, start_y, start_x);
 						box(game_win, 0, 0);
 						wrefresh(game_win);
-					} else if (highlight == 3) {
+					} else if (highlight == 3) { // New Symbol. Read new symbol & update.
 						Symbol = wgetch(options_menu_win);
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
-					} else if (highlight == 4) {
+					} else if (highlight == 4) { // New Refreshing time. Read new value & update.
 						optionsGetch(newValue,options_menu_win);
 						Refreshing_time = atof(newValue);
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
-					} else{
+					} else{ // Back. Goes back to Main menu.
 						current_state = main_menu;
 						highlight = 1;
 						clear();
 						box(game_win, 0, 0);
 						wrefresh(game_win);
 					}
-					choice = 0;
-				} /* User did a choice come out of the infinite loop */
+					choice = 0; // A choice has been made, get out of the loop
+				}
 			break;
 
 			case game_on: ;
+                // Initialise game-state vector
 				vector conway_state;
 				Check = copyVector(&conway_state, &original_conway_state);
-				if (!Check) {
-					freeVector(1, &original_conway_state);
-					return -1;
+				if (!Check) { //If memory allocation was  not successful
+					freeVector(1, &original_conway_state); // Free memory
+					return -1; // Terminate
 				}
 				PrintWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
 				float scaled_speed = 1.0;
