@@ -233,6 +233,7 @@ int getUserSim(WINDOW *win, vector *v, int start_x, int start_y, int width, int 
 	} while (movement != 10 && movement != 27);
 	// ESC or ENTER have been pressed.
 	clear();
+	refresh();
 	curs_set(0);
 	keypad(win, FALSE);
 	if (movement == 27) { //ESC. Return back to Game menu
