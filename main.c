@@ -182,7 +182,7 @@ int main (int argc, char *argv[]) {
 							Check_int = initMode(&original_conway_state, &Width, x3, y3, 7);
 						} else {
 							//Game mode 4: User inputs simulation
-							Check_int = GetUserSim(game_win, &original_conway_state, &Width, &Height, &Symbol);
+							Check_int = getUserSim(game_win, &original_conway_state, &Width, &Height, &Symbol);
 						}
 
 						if (Check_int == -1) { //Check if memory allocation was successful
@@ -294,7 +294,7 @@ int main (int argc, char *argv[]) {
 					break;
 				}
 				// Print game starting point
-				PrintWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
+				printWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
 				// Print game-menu on the lower part of the screen
 				float scaled_speed = 1.0;
 				bool game_paused = false;
@@ -360,7 +360,7 @@ int main (int argc, char *argv[]) {
 							wclear(game_win);
 							box(game_win, 0, 0);
 							wrefresh(game_win);
-							PrintWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
+							printWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
 							break;
 
 						case 27: // ESC
@@ -391,7 +391,7 @@ int main (int argc, char *argv[]) {
 						// Print new iteration
 						wclear(game_win);
 						box(game_win, 0, 0);
-						PrintWndw(game_win, &Width, &Height, &conway_state, &Symbol);
+						printWndw(game_win, &Width, &Height, &conway_state, &Symbol);
 						wrefresh(game_win);
 					}
 					// Game ends. No more living cells. Go back to Play menu.

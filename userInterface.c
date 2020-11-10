@@ -156,7 +156,7 @@ int initMode(vector *v, int *width, int *x, int *y, char size) {
 	return 0;
 }
 
-int GetUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
+int getUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
 	// Reads user's input simulation and stores the positions
 	curs_set(1);
 	keypad(win, TRUE);
@@ -229,7 +229,7 @@ int GetUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
 	}
 }
 
-void PrintWndw(WINDOW *win, int *width, int *height, vector *v, char *symbol) {
+void printWndw(WINDOW *win, int *width, int *height, vector *v, char *symbol) {
 	// Prints active cells
 	unsigned short coordinates[2] = {0};
 	for (unsigned short i = 0; i < (v->size); i++) {
