@@ -375,7 +375,8 @@ int main (int argc, char *argv[]) {
 							wrefresh(game_win);
 							break;
 
-						case ERR:
+						case ERR: // Timeout achieved.
+                            // No key has been pressed. Game iteration will be performed
 							refresh = true;
 							break;
 
