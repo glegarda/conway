@@ -65,7 +65,6 @@ int main (int argc, char *argv[]) {
 	// Menu variables
 	int highlight = 1;
 	int choice = 0;
-	int c;
 
 	// Initialises game window
 	WINDOW *game_win = NULL;

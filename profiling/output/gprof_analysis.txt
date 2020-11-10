@@ -1,0 +1,247 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+100.03      0.02     0.02    33158     0.60     0.60  isInVector
+  0.00      0.02     0.00     7650     0.00     0.00  pushBack
+  0.00      0.02     0.00     2500     0.00     0.00  get8nn
+  0.00      0.02     0.00     2500     0.00     0.00  id2xy
+  0.00      0.02     0.00     1134     0.00     0.00  popBack
+  0.00      0.02     0.00      260     0.00     0.00  sortVectorAscending
+  0.00      0.02     0.00      132     0.00     0.00  freeVector
+  0.00      0.02     0.00      131     0.00     0.00  initVector
+  0.00      0.02     0.00      131     0.00     0.00  printWndw
+  0.00      0.02     0.00      130     0.00   153.89  iterateConway
+  0.00      0.02     0.00      130     0.00     0.00  resetNeighbours
+  0.00      0.02     0.00      130     0.00     0.00  sortVectorDescending
+  0.00      0.02     0.00       12     0.00     0.00  printGameMenu
+  0.00      0.02     0.00       10     0.00     0.00  keyPressedMenu
+  0.00      0.02     0.00        8     0.00     0.00  printMenu
+  0.00      0.02     0.00        7     0.00     0.00  xy2id
+  0.00      0.02     0.00        1     0.00     0.00  copyVector
+  0.00      0.02     0.00        1     0.00     0.00  initMode
+  0.00      0.02     0.00        1     0.00     0.00  setWindowsSize
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 49.98% of 0.02 seconds
+
+index % time    self  children    called     name
+                0.02    0.00   33158/33158       iterateConway [2]
+[1]    100.0    0.02    0.00   33158         isInVector [1]
+-----------------------------------------------
+                0.00    0.02     130/130         main [3]
+[2]    100.0    0.00    0.02     130         iterateConway [2]
+                0.02    0.00   33158/33158       isInVector [1]
+                0.00    0.00    7643/7650        pushBack [4]
+                0.00    0.00    2500/2500        get8nn [5]
+                0.00    0.00    1134/1134        popBack [7]
+                0.00    0.00     260/260         sortVectorAscending [8]
+                0.00    0.00     130/131         initVector [10]
+                0.00    0.00     130/130         sortVectorDescending [13]
+                0.00    0.00     130/130         resetNeighbours [12]
+                0.00    0.00     130/132         freeVector [9]
+-----------------------------------------------
+                                                 <spontaneous>
+[3]    100.0    0.00    0.02                 main [3]
+                0.00    0.02     130/130         iterateConway [2]
+                0.00    0.00     131/131         printWndw [11]
+                0.00    0.00      12/12          printGameMenu [14]
+                0.00    0.00      10/10          keyPressedMenu [15]
+                0.00    0.00       8/8           printMenu [16]
+                0.00    0.00       2/132         freeVector [9]
+                0.00    0.00       1/1           setWindowsSize [20]
+                0.00    0.00       1/131         initVector [10]
+                0.00    0.00       1/1           initMode [19]
+                0.00    0.00       1/1           copyVector [18]
+-----------------------------------------------
+                0.00    0.00       7/7650        initMode [19]
+                0.00    0.00    7643/7650        iterateConway [2]
+[4]      0.0    0.00    0.00    7650         pushBack [4]
+-----------------------------------------------
+                0.00    0.00    2500/2500        iterateConway [2]
+[5]      0.0    0.00    0.00    2500         get8nn [5]
+-----------------------------------------------
+                0.00    0.00    2500/2500        printWndw [11]
+[6]      0.0    0.00    0.00    2500         id2xy [6]
+-----------------------------------------------
+                0.00    0.00    1134/1134        iterateConway [2]
+[7]      0.0    0.00    0.00    1134         popBack [7]
+-----------------------------------------------
+                0.00    0.00     260/260         iterateConway [2]
+[8]      0.0    0.00    0.00     260         sortVectorAscending [8]
+-----------------------------------------------
+                0.00    0.00       2/132         main [3]
+                0.00    0.00     130/132         iterateConway [2]
+[9]      0.0    0.00    0.00     132         freeVector [9]
+-----------------------------------------------
+                0.00    0.00       1/131         main [3]
+                0.00    0.00     130/131         iterateConway [2]
+[10]     0.0    0.00    0.00     131         initVector [10]
+-----------------------------------------------
+                0.00    0.00     131/131         main [3]
+[11]     0.0    0.00    0.00     131         printWndw [11]
+                0.00    0.00    2500/2500        id2xy [6]
+-----------------------------------------------
+                0.00    0.00     130/130         iterateConway [2]
+[12]     0.0    0.00    0.00     130         resetNeighbours [12]
+-----------------------------------------------
+                0.00    0.00     130/130         iterateConway [2]
+[13]     0.0    0.00    0.00     130         sortVectorDescending [13]
+-----------------------------------------------
+                0.00    0.00      12/12          main [3]
+[14]     0.0    0.00    0.00      12         printGameMenu [14]
+-----------------------------------------------
+                0.00    0.00      10/10          main [3]
+[15]     0.0    0.00    0.00      10         keyPressedMenu [15]
+-----------------------------------------------
+                0.00    0.00       8/8           main [3]
+[16]     0.0    0.00    0.00       8         printMenu [16]
+-----------------------------------------------
+                0.00    0.00       7/7           initMode [19]
+[17]     0.0    0.00    0.00       7         xy2id [17]
+-----------------------------------------------
+                0.00    0.00       1/1           main [3]
+[18]     0.0    0.00    0.00       1         copyVector [18]
+-----------------------------------------------
+                0.00    0.00       1/1           main [3]
+[19]     0.0    0.00    0.00       1         initMode [19]
+                0.00    0.00       7/7           xy2id [17]
+                0.00    0.00       7/7650        pushBack [4]
+-----------------------------------------------
+                0.00    0.00       1/1           main [3]
+[20]     0.0    0.00    0.00       1         setWindowsSize [20]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [18] copyVector              [2] iterateConway          [12] resetNeighbours
+   [9] freeVector             [15] keyPressedMenu         [20] setWindowsSize
+   [5] get8nn                  [7] popBack                 [8] sortVectorAscending
+   [6] id2xy                  [14] printGameMenu          [13] sortVectorDescending
+  [19] initMode               [16] printMenu              [17] xy2id
+  [10] initVector             [11] printWndw
+   [1] isInVector              [4] pushBack

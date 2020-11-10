@@ -1,0 +1,60 @@
+--------------------------------------------------------------------------------
+I1 cache:         32768 B, 64 B, 8-way associative
+D1 cache:         32768 B, 64 B, 8-way associative
+LL cache:         8388608 B, 64 B, 16-way associative
+Command:          ./run
+Data file:        cachegrind.out.14681
+Events recorded:  Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw Bc Bcm Bi Bim
+Events shown:     Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw Bc Bcm Bi Bim
+Event sort order: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw Bc Bcm Bi Bim
+Thresholds:       0.1 100 100 100 100 100 100 100 100 100 100 100 100
+Include dirs:     
+User annotated:   
+Auto-annotation:  off
+
+--------------------------------------------------------------------------------
+         Ir   I1mr  ILmr         Dr    D1mr  DLmr         Dw    D1mw  DLmw         Bc     Bcm        Bi     Bim 
+--------------------------------------------------------------------------------
+165,119,819 68,359 2,437 41,327,225 502,575 3,448 20,146,331 267,241 5,798 28,400,135 754,820 2,667,324 685,174  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+        Ir   I1mr ILmr        Dr    D1mr  DLmr        Dw    D1mw  DLmw        Bc     Bcm      Bi     Bim  file:function
+--------------------------------------------------------------------------------
+37,676,626  5,541   50 7,489,916   1,880     9 4,679,990   2,117     2 5,650,388 170,977 597,432 340,658  ???:tparm
+32,735,856  1,267   18 6,696,585   2,037    11 4,866,276     819     0 4,822,606 311,791 740,478 259,198  ???:_nc_tparm_analyze
+31,284,806 16,801  416 6,970,716 303,675    49   851,170   3,403    13 7,262,850  81,564 987,788  72,315  ???:???
+10,640,060    162    3 6,299,284     307     0   805,142       0     0 1,391,662  33,629       0       0  /home/guillermo/Code/git-projects/conway/conway.c:isInVector
+ 6,572,898  5,052   66 1,876,336   2,629     4 1,110,485   3,471    12 1,184,888   2,591 100,732  12,207  /build/glibc-S7xCS9/glibc-2.27/stdio-common/vfprintf.c:vfprintf
+ 6,364,484    271    3 2,727,636     266     0   909,212     437     1 1,136,515     542       0       0  ???:_nc_outch
+ 4,839,966    675    8 1,338,512 167,170     0    48,666     565     0 1,346,385  10,289       0       0  ???:wnoutrefresh
+ 4,616,131  2,252   23   196,557   5,036     0 1,072,186 129,174     0 1,124,815   8,844       0       0  ???:doupdate
+ 4,015,097    916    5 1,233,682   1,860     0   520,424       4     0   886,353  32,186 199,034       1  ???:tputs
+ 3,158,030     79    3     6,646     779     0   781,902  97,141     0   781,902   5,937       0       0  ???:werase
+ 2,493,018  1,951   18   613,022     157     0   326,940     560     0   296,299  10,307       0       0  ???:vidputs
+ 1,898,385    136    1 1,898,385     152     0         0       0     0         0       0       0       0  /build/glibc-S7xCS9/glibc-2.27/ctype/../include/ctype.h:__ctype_b_loc
+ 1,713,229     11    5   238,131   1,045     8         0       0     0   238,131  10,622       0       0  /build/glibc-S7xCS9/glibc-2.27/string/../sysdeps/x86_64/multiarch/strlen-avx2.S:__strlen_avx2
+ 1,431,880      9    6   315,401       0     0   217,176     462     5   221,713   6,866       0       0  /build/glibc-S7xCS9/glibc-2.27/libio/genops.c:_IO_default_xsputn
+ 1,198,860     28    4   276,660       0     0   299,715     687     4    69,165       0       0       0  /build/glibc-S7xCS9/glibc-2.27/debug/vsprintf_chk.c:__vsprintf_chk
+ 1,172,305  1,040    8   306,065       0     0   211,882       1     0   123,614  23,570  40,481     260  /build/glibc-S7xCS9/glibc-2.27/stdlib/msort.c:msort_with_tmp.part.0
+ 1,150,665  1,879   12   312,900      46    46   269,837     180   153   176,222   4,782       0       0  /build/glibc-S7xCS9/glibc-2.27/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms
+   931,465      8    5   103,367     285     6         0       0     0   103,367     160       0       0  /build/glibc-S7xCS9/glibc-2.27/string/../sysdeps/x86_64/multiarch/strchr-avx2.S:__strchrnul_avx2
+   923,356      0    0   395,724       0     0   230,839       0     0         0       0       0       0  /home/guillermo/Code/git-projects/conway/conway.c:compareCellsAscending
+   906,780      4    3   129,540       0     0   310,896       0     0    51,816       5       0       0  /build/glibc-S7xCS9/glibc-2.27/libio/strops.c:_IO_str_init_static_internal
+   872,676  1,848   15   322,759     130     0   148,746       0     0    87,022  15,318       0       0  /home/guillermo/Code/git-projects/conway/conway.c:iterateConway
+   832,094    142    3    73,183     152     1    50,132       0     0    73,183   5,934       0       0  /build/glibc-S7xCS9/glibc-2.27/stdio-common/_itoa.c:_itoa_word
+   647,727     10    3    77,727     298     1   414,546     515     4    51,818      19       0       0  /build/glibc-S7xCS9/glibc-2.27/libio/genops.c:_IO_old_init
+   641,247    143    1       289       0     0   639,224   5,548    85   639,513     308       0       0  /build/glibc-S7xCS9/glibc-2.27/string/../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S:__memset_avx2_erms
+   570,009     14    4   129,545       0     0   207,284     465     6    25,909       7       0       0  /build/glibc-S7xCS9/glibc-2.27/libio/genops.c:_IO_no_init
+   484,155     28    3    92,220       0     0   184,440     216     2    46,110       7       0       0  /build/glibc-S7xCS9/glibc-2.27/debug/sprintf_chk.c:__sprintf_chk
+   477,752    285    3    48,916       0     0    25,908       0     0    74,824       4       0       0  /build/glibc-S7xCS9/glibc-2.27/stdio-common/../libio/libioP.h:vfprintf
+   466,391      2    2   103,644       0     0   103,644       0     0    25,911       6       0       0  /build/glibc-S7xCS9/glibc-2.27/libio/genops.c:_IO_setb
+   405,396      7    2   101,349       0     0    90,088       0     0    33,783       0       0       0  ???:_nc_safe_strcpy
+   314,251      2    2   106,036      13     0    58,113       0     0    58,113     288       0       0  ???:_nc_flush
+   235,935     30    1    60,524       0     0    47,187       0     0    20,310      75       0       0  ???:_nc_safe_strcat
+   235,675    130    1       264       0     0   103,366     757     3       660       2       0       0  /build/glibc-S7xCS9/glibc-2.27/stdio-common/printf-parse.h:vfprintf
+   222,712    431   14    85,094       0     0    32,530       0     0     9,998     312       0       0  /home/guillermo/Code/git-projects/conway/conway.c:get8nn
+   211,570    396    4   101,960       0     0    39,254     621   396     7,901     267       0       0  /home/guillermo/Code/git-projects/conway/conway.c:pushBack
+   210,112      0    0    90,048       0     0    52,528       0     0         0       0       0       0  /home/guillermo/Code/git-projects/conway/conway.c:compareCellsDescending
+   196,796  1,418   10    10,480   1,033     0    60,432  11,430     0    24,728     688       0       0  ???:wborder
+   165,474    288    4    37,089       0     0    39,942     727     0    14,265      81       0       0  /build/glibc-S7xCS9/glibc-2.27/debug/vsnprintf_chk.c:__vsnprintf_chk
+

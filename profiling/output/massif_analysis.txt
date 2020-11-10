@@ -1,0 +1,732 @@
+--------------------------------------------------------------------------------
+Command:            ./run
+Massif arguments:   (none)
+ms_print arguments: massif.out.23883
+--------------------------------------------------------------------------------
+
+
+    KB
+257.1^ #                                                                      
+     | #:@::::@::::::::@:::::::::@@::::@:::::@::::@::::@::::::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+     | #:@::::@::::: ::@:: ::::::@ ::::@:: ::@::::@::::@:: :::@:::::::::@:::::
+   0 +----------------------------------------------------------------------->Mi
+     0                                                                   156.7
+
+Number of snapshots: 68
+ Detailed snapshots: [1 (peak), 3, 8, 16, 25, 30, 35, 40, 45, 51, 61]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1      2,657,323          263,224          256,322         6,902            0
+97.38% (256,322B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.94% (218,320B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->22.84% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->22.84% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->22.84% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->22.84% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->22.84% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->22.84% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->22.84% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->22.84% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->22.84% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->22.84% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->22.84% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->22.84% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.51% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.91% (2,400B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.56% (11,995B) in 27 places, all below massif's threshold (1.00%)
+| 
+->03.09% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.09% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.09% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.09% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.87% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.87% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.87% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.87% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.87% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.58% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.45% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.45% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.45% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.45% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.45% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.45% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.45% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.45% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.45% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.25% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.25% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.09% (2,880B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.09% (2,880B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.09% (2,880B) in 5 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  2      5,108,032          260,704          253,866         6,838            0
+  3      7,252,816          260,976          254,146         6,830            0
+97.38% (254,146B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.74% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.04% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.04% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.04% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.04% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.04% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.04% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.04% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.04% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.04% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.04% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.04% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.04% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.63% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.74% (12,379B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.12% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.12% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.12% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.12% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.47% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.47% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.47% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.47% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.47% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.47% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.47% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.47% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.47% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  4      9,416,332          260,712          253,890         6,822            0
+  5     11,549,419          260,816          253,986         6,830            0
+  6     13,765,505          260,848          254,018         6,830            0
+  7     16,056,110          261,072          254,242         6,830            0
+  8     19,610,098          261,040          254,202         6,838            0
+97.38% (254,202B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.72% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.03% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.03% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.03% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.62% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.76% (12,435B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.11% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.11% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.11% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.11% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.46% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.46% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.46% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.46% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.46% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.46% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.46% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.46% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.46% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  9     22,182,367          260,872          254,050         6,822            0
+ 10     24,700,502          260,872          254,050         6,822            0
+ 11     27,138,214          260,872          254,050         6,822            0
+ 12     29,445,191          260,872          254,050         6,822            0
+ 13     31,748,119          261,040          254,210         6,830            0
+ 14     34,253,147          260,872          254,050         6,822            0
+ 15     37,932,493          260,872          254,050         6,822            0
+ 16     40,292,143          260,872          254,050         6,822            0
+97.38% (254,050B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.77% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.05% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.05% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.05% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.05% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.05% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.05% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.05% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.05% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.05% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.05% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.05% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.05% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.63% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.71% (12,283B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.12% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.12% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.12% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.12% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.47% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.47% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.47% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.47% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.47% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.47% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.47% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.47% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.47% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 17     42,561,153          261,008          254,170         6,838            0
+ 18     44,929,977          261,008          254,178         6,830            0
+ 19     48,482,794          261,024          254,186         6,838            0
+ 20     50,983,021          260,872          254,050         6,822            0
+ 21     53,300,961          261,056          254,218         6,838            0
+ 22     55,805,237          261,104          254,266         6,838            0
+ 23     58,403,729          261,152          254,314         6,838            0
+ 24     59,948,816          260,872          254,050         6,822            0
+ 25     63,809,612          261,120          254,282         6,838            0
+97.38% (254,282B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.69% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.02% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.02% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.02% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.02% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.02% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.02% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.02% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.02% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.02% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.02% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.02% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.02% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.62% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.79% (12,515B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.11% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.11% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.11% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.11% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.46% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.46% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.46% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.46% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.46% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.46% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.46% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.46% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.46% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 26     66,411,737          261,056          254,226         6,830            0
+ 27     68,939,664          261,072          254,234         6,838            0
+ 28     71,491,401          261,184          254,346         6,838            0
+ 29     74,163,995          261,088          254,258         6,830            0
+ 30     76,736,503          261,152          254,298         6,854            0
+97.38% (254,298B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.68% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.02% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.02% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.02% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.02% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.02% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.02% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.02% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.02% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.02% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.02% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.02% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.02% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.62% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.80% (12,531B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.11% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.11% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.11% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.11% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.46% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.46% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.46% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.46% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.46% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.46% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.46% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.46% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.46% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 31     79,420,865          261,168          254,330         6,838            0
+ 32     82,158,538          261,120          254,290         6,830            0
+ 33     84,832,260          261,072          254,234         6,838            0
+ 34     87,243,104          261,008          254,170         6,838            0
+ 35     89,537,541          261,008          254,178         6,830            0
+97.38% (254,178B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.73% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.03% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.03% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.03% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.62% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.76% (12,411B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.12% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.12% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.12% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.12% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.47% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.47% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.47% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.47% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.47% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.47% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.47% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.47% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.47% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 36     91,778,468          260,992          254,162         6,830            0
+ 37     93,995,935          260,944          254,114         6,830            0
+ 38     96,162,587          260,960          254,130         6,830            0
+ 39     98,365,060          261,008          254,170         6,838            0
+ 40    100,687,606          260,992          254,154         6,838            0
+97.38% (254,154B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.73% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.04% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.04% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.04% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.04% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.04% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.04% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.04% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.04% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.04% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.04% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.04% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.04% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.62% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.75% (12,387B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.12% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.12% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.12% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.12% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.47% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.47% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.47% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.47% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.47% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.47% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.47% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.47% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.47% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 41    102,975,240          261,008          254,178         6,830            0
+ 42    105,301,445          261,024          254,186         6,838            0
+ 43    107,713,847          261,040          254,210         6,830            0
+ 44    110,184,770          261,056          254,218         6,838            0
+ 45    112,729,822          261,072          254,234         6,838            0
+97.38% (254,234B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.71% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.03% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.03% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.03% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.62% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.78% (12,467B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.11% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.11% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.11% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.11% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.46% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.46% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.46% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.46% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.46% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.46% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.46% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.46% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.46% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 46    115,365,239          261,104          254,274         6,830            0
+ 47    118,172,169          261,152          254,306         6,846            0
+ 48    121,050,702          261,056          254,226         6,830            0
+ 49    123,636,277          261,072          254,234         6,838            0
+ 50    126,186,737          261,056          254,218         6,838            0
+ 51    128,687,975          261,024          254,186         6,838            0
+97.38% (254,186B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.72% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.03% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.03% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.03% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.03% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.03% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.03% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.62% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.76% (12,419B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.12% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.12% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.12% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.12% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.46% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.46% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.46% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.46% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.46% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.46% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.46% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.46% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.46% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 52    131,062,049          261,024          254,186         6,838            0
+ 53    133,393,629          261,008          254,178         6,830            0
+ 54    135,740,364          261,008          254,170         6,838            0
+ 55    138,111,193          261,024          254,194         6,830            0
+ 56    140,532,537          261,040          254,210         6,830            0
+ 57    142,989,245          261,040          254,210         6,830            0
+ 58    145,409,197          260,992          254,154         6,838            0
+ 59    147,675,913          260,960          254,130         6,830            0
+ 60    149,882,171          260,960          254,122         6,838            0
+ 61    152,053,403          260,944          254,106         6,838            0
+97.38% (254,106B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.75% (215,920B) 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->23.04% (60,120B) 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.04% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.04% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.04% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.04% (60,120B) 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.04% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.04% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.04% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->23.04% (60,120B) 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| | ->23.04% (60,120B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |   ->23.04% (60,120B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |     ->23.04% (60,120B) 0x109220: main (main.c:45)
+| |       
+| ->13.63% (35,560B) 0x109390: main (main.c:73)
+| | 
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.73% (12,339B) in 30 places, all below massif's threshold (1.00%)
+| 
+->03.12% (8,131B) 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->03.12% (8,131B) 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->03.12% (8,131B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->03.12% (8,131B) 0x109220: main (main.c:45)
+|       
+->02.90% (7,561B) 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| ->02.90% (7,561B) 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|   ->02.90% (7,561B) 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+|     ->02.90% (7,561B) 0x10B827: printMenu (userInterface.c:25)
+|       ->02.90% (7,561B) 0x1094BD: main (main.c:95)
+|         
+->01.59% (4,147B) 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.47% (3,824B) 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| | ->01.47% (3,824B) 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |   ->01.47% (3,824B) 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |     ->01.47% (3,824B) 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |       ->01.47% (3,824B) 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |         ->01.47% (3,824B) 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| |           ->01.47% (3,824B) 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |             ->01.47% (3,824B) 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+| |               ->01.47% (3,824B) 0x109220: main (main.c:45)
+| |                 
+| ->00.12% (323B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.26% (3,288B) 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+| ->01.26% (3,288B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.04% (2,720B) 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  ->01.04% (2,720B) 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    ->01.04% (2,720B) in 6 places, all below massif's threshold (1.00%)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 62    154,182,893          260,944          254,106         6,838            0
+ 63    156,304,583          260,928          254,090         6,838            0
+ 64    158,401,025          260,928          254,090         6,838            0
+ 65    160,464,757          260,896          254,066         6,830            0
+ 66    162,421,905          260,544          253,730         6,814            0
+ 67    164,331,302          263,064          256,162         6,902            0

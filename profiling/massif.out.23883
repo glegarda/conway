@@ -1,0 +1,1009 @@
+desc: (none)
+cmd: ./run
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=2657323
+mem_heap_B=256322
+mem_heap_extra_B=6902
+mem_stacks_B=0
+heap_tree=peak
+n7: 256322 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 218320 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 2400 in 1 place, below massif's threshold (1.00%)
+ n0: 11995 in 27 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2880 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2880 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2880 in 5 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=2
+#-----------
+time=5108032
+mem_heap_B=253866
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=7252816
+mem_heap_B=254146
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254146 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12379 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=4
+#-----------
+time=9416332
+mem_heap_B=253890
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=11549419
+mem_heap_B=253986
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=13765505
+mem_heap_B=254018
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=16056110
+mem_heap_B=254242
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=19610098
+mem_heap_B=254202
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254202 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12435 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=9
+#-----------
+time=22182367
+mem_heap_B=254050
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=24700502
+mem_heap_B=254050
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=27138214
+mem_heap_B=254050
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=29445191
+mem_heap_B=254050
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=31748119
+mem_heap_B=254210
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=34253147
+mem_heap_B=254050
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=37932493
+mem_heap_B=254050
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=40292143
+mem_heap_B=254050
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254050 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12283 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=17
+#-----------
+time=42561153
+mem_heap_B=254170
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=44929977
+mem_heap_B=254178
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=48482794
+mem_heap_B=254186
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=50983021
+mem_heap_B=254050
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=53300961
+mem_heap_B=254218
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=55805237
+mem_heap_B=254266
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=58403729
+mem_heap_B=254314
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=59948816
+mem_heap_B=254050
+mem_heap_extra_B=6822
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=63809612
+mem_heap_B=254282
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254282 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12515 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=26
+#-----------
+time=66411737
+mem_heap_B=254226
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=68939664
+mem_heap_B=254234
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=71491401
+mem_heap_B=254346
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=74163995
+mem_heap_B=254258
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=76736503
+mem_heap_B=254298
+mem_heap_extra_B=6854
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254298 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12531 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=31
+#-----------
+time=79420865
+mem_heap_B=254330
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=82158538
+mem_heap_B=254290
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=84832260
+mem_heap_B=254234
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=87243104
+mem_heap_B=254170
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=89537541
+mem_heap_B=254178
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254178 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12411 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=36
+#-----------
+time=91778468
+mem_heap_B=254162
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=93995935
+mem_heap_B=254114
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=96162587
+mem_heap_B=254130
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=98365060
+mem_heap_B=254170
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=100687606
+mem_heap_B=254154
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254154 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12387 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=41
+#-----------
+time=102975240
+mem_heap_B=254178
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=105301445
+mem_heap_B=254186
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=107713847
+mem_heap_B=254210
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=110184770
+mem_heap_B=254218
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=112729822
+mem_heap_B=254234
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254234 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12467 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=46
+#-----------
+time=115365239
+mem_heap_B=254274
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=118172169
+mem_heap_B=254306
+mem_heap_extra_B=6846
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=121050702
+mem_heap_B=254226
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=123636277
+mem_heap_B=254234
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=126186737
+mem_heap_B=254218
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=128687975
+mem_heap_B=254186
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254186 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12419 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=52
+#-----------
+time=131062049
+mem_heap_B=254186
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=133393629
+mem_heap_B=254178
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=135740364
+mem_heap_B=254170
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=138111193
+mem_heap_B=254194
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=140532537
+mem_heap_B=254210
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=142989245
+mem_heap_B=254210
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=145409197
+mem_heap_B=254154
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=147675913
+mem_heap_B=254130
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=149882171
+mem_heap_B=254122
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=152053403
+mem_heap_B=254106
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=detailed
+n7: 254106 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 215920 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 60120 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n1: 60120 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 60120 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 60120 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 60120 0x109220: main (main.c:45)
+  n0: 35560 0x109390: main (main.c:73)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12339 in 30 places, all below massif's threshold (1.00%)
+ n1: 8131 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 8131 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 8131 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 8131 0x109220: main (main.c:45)
+ n1: 7561 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7561 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7561 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7561 0x10B827: printMenu (userInterface.c:25)
+     n0: 7561 0x1094BD: main (main.c:95)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109220: main (main.c:45)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2720 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2720 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2720 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=62
+#-----------
+time=154182893
+mem_heap_B=254106
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=156304583
+mem_heap_B=254090
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=158401025
+mem_heap_B=254090
+mem_heap_extra_B=6838
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=160464757
+mem_heap_B=254066
+mem_heap_extra_B=6830
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=162421905
+mem_heap_B=253730
+mem_heap_extra_B=6814
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=164331302
+mem_heap_B=256162
+mem_heap_extra_B=6902
+mem_stacks_B=0
+heap_tree=empty
