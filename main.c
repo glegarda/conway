@@ -360,7 +360,11 @@ int main (int argc, char *argv[]) {
 							}
 							wclear(game_win);
 							box(game_win, 0, 0);
+<<<<<<< Updated upstream
 							printWndw(game_win, &Width, &Height, &conway_state, &Symbol);
+=======
+							PrintWndw(game_win, &Width, &Height, &conway_state, &Symbol);
+>>>>>>> Stashed changes
                             wrefresh(game_win);
 							break;
 
