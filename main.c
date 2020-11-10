@@ -434,6 +434,8 @@ int main (int argc, char *argv[]) {
 	echo();
 	erase();
 	refresh();
+
+	
 	endwin();
 
 	return 0;

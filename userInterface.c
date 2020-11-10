@@ -126,7 +126,7 @@ void setWindowsSize(int width_size,int height_size, int *width, int *height) {
 }
 
 void optionsGetch(char *buffer, WINDOW *win) {
-	// Reads keyboard input
+	// Reads keyboard input in options menu
 	curs_set(1);
 	nocbreak();
 	echo();
