@@ -1,0 +1,7 @@
+Conway's game of life
+Embedded & Real Time Systems
+Master's Degree in Automatic Control and Robotics, UPC
+
+Coder 1 -> Guillermo Legarda Herranz
+Coder 2 -> Antonio Miranda Moreno
+Coder 3 -> Lucia Teruel Saldaña
