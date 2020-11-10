@@ -5,19 +5,11 @@
 #include <ncurses.h>
 #include "conway.h"
 
-///////////////////////
-//                   //
-// display functions //
-//                   //
-///////////////////////
-
-void setWindowsSize(int width_size,int height_size, int *width, int *height) {
-	// Updates window width and height variables
- 	if (width_size < COLS && height_size < LINES && width_size > 42 && height_size > 17) {
-		*width = width_size;
-		*height = height_size;
-	}
-}
+////////////////////////////
+//                        //
+//    display functions   //
+//                        //
+////////////////////////////
 
 void printMenu(WINDOW *win, int highlight, int n_choices, char *choices_menu[]) {
 	// Prints Main menu
@@ -61,7 +53,7 @@ void printGameMenu(WINDOW *win, int highlight, int n_choices, char *choices_game
 	wrefresh(win);
 }
 
-void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int *height, char *symbol, float *refreshing_time, char *choices_options[]) {
+void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int width, int height, char symbol, float refreshing_time, char *choices_options[]) {
 	// Prints Options menu
 	clear();
 	int x, y, i;
@@ -75,13 +67,13 @@ void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int *width, int
 		  wattron(win, A_REVERSE);
 		}
 		if (i == 0) {
-			wprintw(win, "%d", *width);
+			wprintw(win, "%d", width);
 		} else if (i == 1) {
-			wprintw(win, "%d", *height);
+			wprintw(win, "%d", height);
 		} else if (i == 2) {
-			wprintw(win, "%c", *symbol);
+			wprintw(win, "%c", symbol);
 		} else if (i == 3) {
-			wprintw(win,"%.02f",*refreshing_time);
+			wprintw(win,"%.02f", refreshing_time);
 		}
 		if(highlight == i + 1) {
 			wattroff(win, A_REVERSE);
@@ -125,6 +117,14 @@ void keyPressedMenu(WINDOW *win, int *highlight, int n_choices, int *choice) {
 	}
 }
 
+void setWindowsSize(int width_size,int height_size, int *width, int *height) {
+	// Updates window width and height variables
+ 	if (width_size < COLS && height_size < LINES && width_size > 42 && height_size > 17) {
+		*width = width_size;
+		*height = height_size;
+	}
+}
+
 void optionsGetch(char *buffer, WINDOW *win) {
 	// Reads keyboard input
 	curs_set(1);
@@ -133,20 +133,20 @@ void optionsGetch(char *buffer, WINDOW *win) {
 	curs_set(1);
 	nocbreak();
 	echo();
-	wgetstr(win,buffer);
+	wgetstr(win, buffer);
 	curs_set(0);
 	noecho();
 	cbreak();
 	keypad(win, TRUE);
 }
 
-int initMode(vector *v, int *width, int *x, int *y, char size) {
+int initMode(vector *v, int width, int *x, int *y, char size) {
 	// Receives x&y coord. transforms and inputs them into the cells vector
 	bool check = true;
 	cell c;
 	c.live_neighbours = 0;
 	for (int i=0; i<size; i++){
-		c.id = xy2id(x[i], y[i], *width);
+		c.id = xy2id(x[i], y[i], width);
 		check = pushBack(v, &c);
 		if (!check) {
 			freeVector(1, v);
@@ -156,15 +156,22 @@ int initMode(vector *v, int *width, int *x, int *y, char size) {
 	return 0;
 }
 
-int getUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
+int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
 	// Reads user's input simulation and stores the positions
 	curs_set(1);
 	keypad(win, TRUE);
 
+<<<<<<< HEAD
 	int x_loc = 0;
 	int y_loc = 0;
 	int x_max = *width-1;
 	int y_max = *height-1;
+=======
+	int x_loc = 1;
+	int y_loc = 1;
+	int x_max = width;
+	int y_max = height;
+>>>>>>> ea0583e7256ee00d7888d89860b8cc914967a1f8
 
 	int movement;
 	int check = 0;
@@ -205,7 +212,11 @@ int getUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
 				}
 				break;
 			case 32: // Spacebar
+<<<<<<< HEAD
 				mvwprintw(win, y_loc+1, x_loc+1, "%c", *symbol);
+=======
+				mvwprintw(win, y_loc, x_loc, "%c", symbol);
+>>>>>>> ea0583e7256ee00d7888d89860b8cc914967a1f8
 				check = initMode(v, width, &x_loc, &y_loc, 1);
 				if (check == -1) {
 					freeVector(1, v);
@@ -230,14 +241,14 @@ int getUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
 	}
 }
 
-void printWndw(WINDOW *win, int *width, int *height, vector *v, char *symbol) {
+void printWndw(WINDOW *win, int width, vector *v, char symbol) {
 	// Prints active cells
 	unsigned short coordinates[2] = {0};
 	for (unsigned short i = 0; i < (v->size); i++) {
-		id2xy(coordinates, v->array[i].id, *width);
+		id2xy(coordinates, v->array[i].id, width);
 		coordinates[0]++;
 		coordinates[1]++;
-		mvwprintw(win, coordinates[1], coordinates[0], "%c", *symbol);
+		mvwprintw(win, coordinates[1], coordinates[0], "%c", symbol);
 	}
 	wrefresh(win);
 }
