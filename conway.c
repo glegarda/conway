@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <stdarg.h>
 #include <string.h>
-#include <ncurses.h>
 #include "conway.h"
 
 //////////////////////
@@ -123,7 +122,7 @@ void sortVectorAscending(vector *v) {
 //                  //
 //////////////////////
 
-int iterateConway(vector *state, size_t columns, size_t lines) {
+bool iterateConway(vector *state, size_t columns, size_t lines) {
 	// Apply game logic to update the state
 	int eight_nn[8] = {0}; // indices of 8 nearest neighbours
 	unsigned short coordinates[2] = {0}; // (x,y) coordinates of a cell
@@ -187,7 +186,7 @@ int iterateConway(vector *state, size_t columns, size_t lines) {
 	// Clear memory
 	freeVector(1, &dead_cells);
 
-	return 0;
+	return true;
 }
 
 int xy2id(const unsigned short x, const unsigned short y, size_t columns) {
