@@ -382,7 +382,7 @@ int main (int argc, char *argv[]) {
 
 					// Game iteration
 					// Apply game logic to update the state at every iteration.
-					if (refresh&&!game_paused) {
+					if (refresh && !game_paused) {
 						Check = iterateConway(&conway_state, Width, Height);
 						if (!Check) {
 							freeVector(1, &conway_state);
