@@ -1,3 +1,5 @@
+// Coder 1
+
 #ifndef CONWAY_H
 #define CONWAY_H
 
