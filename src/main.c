@@ -49,7 +49,7 @@ int main (int argc, char *argv[]) {
  	clear();
 
 	// Create Exit-game variable
- 	bool escape;
+ 	bool escape = false;
 	// Create vector of initial live cells
 	vector original_conway_state;
 
