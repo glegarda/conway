@@ -110,7 +110,7 @@ void keyPressedMenu(WINDOW *win, int *highlight, int n_choices, int *choice) {
 				++(*highlight);
 			}
 			break;
-		case 10:
+		case 10: // ENTER
 			*choice = *highlight;
 			break;
 		default:
@@ -156,7 +156,7 @@ int initMode(vector *v, int width, int *x, int *y, char size) {
 }
 
 int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
-	// Reads user's input simulation and stores the positions for game by user input option
+	// Get Users' Simulation. Reads user's input and stores the positions
 	curs_set(1);
 	keypad(win, TRUE);
 
@@ -170,10 +170,10 @@ int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
 
     wmove(win, y_loc+1, x_loc+1);
     wrefresh(win);
+	// Users' tracking loop
 	do {
-
+		// Tracks users' movements
 		movement = wgetch(win);
-
 		switch (movement){
 			case KEY_UP:
 			case 'w':
@@ -203,7 +203,7 @@ int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
 					x_loc++;
 				}
 				break;
-			case 32: // Spacebar
+			case 32: // Spacebar. Prints live cell.
 				mvwprintw(win, y_loc+1, x_loc+1, "%c", symbol);
 				check = initMode(v, width, &x_loc, &y_loc, 1);
 				if (check == -1) {
@@ -214,17 +214,19 @@ int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
 			default:
 				break;
 		}
+		// Updates cursor
 		wmove(win, y_loc+1, x_loc+1);
 		wrefresh(win);
 	} while (movement != 10 && movement != 27);
+	// ESC or ENTER have been pressed.
 	curs_set(0);
 	keypad(win, FALSE);
-	if (movement == 27) { //ESC return back to menu
+	if (movement == 27) { //ESC. Return back to Game menu
 		wclear(win);
 		box(win, 0, 0);
 		wrefresh(win);
 		return 1;
-	} else { //ENTER starts the game
+	} else { //ENTER. Start game
 		return 0;
 	}
 }
