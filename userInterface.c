@@ -155,10 +155,17 @@ int initMode(vector *v, int width, int *x, int *y, char size) {
 	return 0;
 }
 
-int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
+int getUserSim(WINDOW *win, vector *v, int start_x, int start_y, int width, int height, char symbol) {
 	// Get Users' Simulation. Reads user's input and stores the positions
 	curs_set(1);
 	keypad(win, TRUE);
+	mvprintw (start_y+height+2, start_x, "Use arrows or WASD to move arround");
+	mvprintw (start_y+height+3, start_x, "spacebar: print live cell");
+	mvprintw (start_y+height+4, start_x, "enter: Start game");
+	mvprintw (start_y+height+2, start_x+width-17, "esc: exit game");
+	mvprintw (start_y+height+3, start_x+width-17, "r: reset");
+	box(win, 0, 0);
+	refresh();
 
 	int x_loc = 0;
 	int y_loc = 0;
@@ -211,6 +218,11 @@ int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
 					return -1;
 				}
 				break;
+			case 'r':
+				v->size = 0; // Reset state
+				wclear(win);
+				box(win, 0, 0);
+				wrefresh(win);
 			default:
 				break;
 		}
@@ -219,6 +231,7 @@ int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
 		wrefresh(win);
 	} while (movement != 10 && movement != 27);
 	// ESC or ENTER have been pressed.
+	clear();
 	curs_set(0);
 	keypad(win, FALSE);
 	if (movement == 27) { //ESC. Return back to Game menu

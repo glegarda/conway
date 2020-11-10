@@ -182,7 +182,7 @@ int main (int argc, char *argv[]) {
 							Check_int = initMode(&original_conway_state, Width, x3, y3, 7);
 						} else {
 							//Game mode 4: User inputs simulation
-							Check_int = getUserSim(game_win, &original_conway_state, Width, Height, Symbol);
+							Check_int = getUserSim(game_win, &original_conway_state, start_x, start_y, Width, Height, Symbol);
 						}
 
 						if (Check_int == -1) { //Check if memory allocation was successful
@@ -410,6 +410,8 @@ int main (int argc, char *argv[]) {
 				if (!Check || Check_int == -1) {
 					break;
 				}
+                clear();
+                refresh();
 				wclear(game_win);
 				box(game_win, 0, 0);
 				wrefresh(game_win);

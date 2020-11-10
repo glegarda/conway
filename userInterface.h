@@ -17,7 +17,7 @@ void keyPressedMenu (WINDOW *win, int *highlight, int n_choices, int *choice);
 void setWindowsSize(int width_size,int height_size, int *width, int *height);
 void optionsGetch (char *buffer, WINDOW *win);
 int initMode (vector *v, int width, int *x, int *y, char size);
-int getUserSim (WINDOW *win, vector *v, int width, int height, char symbol);
+int getUserSim(WINDOW *win, vector *v, int start_x, int start_y, int width, int height, char symbol);
 void printWndw (WINDOW *win, int width, vector *v, char symbol);
 
 #endif
