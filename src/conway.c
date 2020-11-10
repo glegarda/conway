@@ -1,11 +1,11 @@
-// Coder 1
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdarg.h>
 #include <string.h>
 #include "conway.h"
+
+// Coder 1 /////////////////////////////////////////////////////////////////////
 
 //////////////////////
 //                  //

@@ -10,7 +10,8 @@
 //    display functions   //
 //                        //
 ////////////////////////////
-// Coder 2
+
+// Coder 2 /////////////////////////////////////////////////////////////////////
 void printMenu(WINDOW *win, int highlight, int n_choices, char *choices_menu[]) {
 	// Prints Main menu
 	clear();
@@ -127,7 +128,7 @@ void setWindowsSize(int width_size,int height_size, int *width, int *height) {
 	}
 }
 
-// Coder 3
+// Coder 3 /////////////////////////////////////////////////////////////////////
 void optionsGetch(char *buffer, WINDOW *win) {
 	// Reads keyboard input in options menu for modifying height and width and refreshing time (all of them requires more than one number)
 	curs_set(1);

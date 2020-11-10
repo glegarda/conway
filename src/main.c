@@ -6,6 +6,7 @@
 #include "conway.h"
 #include "userInterface.h"
 
+// Coder 1, Coder 2, Coder 3 ///////////////////////////////////////////////////
 int Width; // Game window width
 int Height; // Game window height
 char Symbol = '*'; // Deafult game symbol
@@ -41,6 +42,7 @@ enum states {main_menu, play_menu, options_menu, game_on}; // Different screens
 enum states current_state = main_menu; // Current screen
 
 int main (int argc, char *argv[]) {
+    // Coder 2 **start** ///////////////////////////////////////////////////////
 	// NCURSES initialization
 	initscr();
 	curs_set(0); // Makes cursor invisible
@@ -74,6 +76,7 @@ int main (int argc, char *argv[]) {
 	refresh();
 	box(game_win, 0, 0); // Creates game box
 	wrefresh(game_win);
+    // Coder 2 **finish** //////////////////////////////////////////////////////
 
 	// Main program loop
 	while (escape == false) {
@@ -82,6 +85,7 @@ int main (int argc, char *argv[]) {
 
 		// Check users' current window
 		switch (current_state) {
+            // Coder 2 **start** ///////////////////////////////////////////////
 			case main_menu: ;
 				// Initialise Main menu
 				n_choices = sizeof(Choices_menu) / sizeof(char *);
@@ -125,7 +129,8 @@ int main (int argc, char *argv[]) {
 					escape = true;
 				}
 				break;
-
+            // Coder 2 **finish** //////////////////////////////////////////////
+            // Coder 3 **start** ///////////////////////////////////////////////
 			case play_menu: ;
 				// Initialise Play menu
 				n_choices = sizeof(Choices_game) / sizeof(char *);
@@ -205,7 +210,8 @@ int main (int argc, char *argv[]) {
 					escape = true;
 				}
 				break;
-
+            // Coder 3 **finish** //////////////////////////////////////////////
+            // Coder 2 **start** ///////////////////////////////////////////////
 			case options_menu: ;
 				// Initialise Options menu
 				n_choices = sizeof(Choices_options) / sizeof(char *);
@@ -282,7 +288,8 @@ int main (int argc, char *argv[]) {
 					escape = true;
 				}
 				break;
-
+            // Coder 2 **start** ///////////////////////////////////////////////
+            // Coder 1, Coder2, Coder 3 ////////////////////////////////////////
 			case game_on: ;
 				// GAME
 				// Initialise game-state vector
