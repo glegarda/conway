@@ -350,6 +350,7 @@ int main (int argc, char *argv[]) {
 						case 114: // 'r'
 							// Reset game
 							// Resets state vector to initial/original state
+                            refresh = false;
 							freeVector(1, &conway_state);
 							Check = copyVector(&conway_state, &original_conway_state);
 							if (!Check) { // Check for unsuccessful memory allocation
@@ -359,8 +360,13 @@ int main (int argc, char *argv[]) {
 							}
 							wclear(game_win);
 							box(game_win, 0, 0);
+<<<<<<< Updated upstream
 							wrefresh(game_win);
 							printWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
+=======
+							PrintWndw(game_win, &Width, &Height, &conway_state, &Symbol);
+                            wrefresh(game_win);
+>>>>>>> Stashed changes
 							break;
 
 						case 27: // ESC
@@ -381,7 +387,7 @@ int main (int argc, char *argv[]) {
 
 					// Game iteration
 					// Apply game logic to update the state at every iteration.
-					if (refresh) {
+					if (refresh&&!game_paused) {
 						Check = iterateConway(&conway_state, Width, Height);
 						if (!Check) {
 							freeVector(1, &conway_state);

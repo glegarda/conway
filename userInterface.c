@@ -161,16 +161,17 @@ int getUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
 	curs_set(1);
 	keypad(win, TRUE);
 
-	int x_loc = 1;
-	int y_loc = 1;
-	int x_max = *width;
-	int y_max = *height;
+	int x_loc = 0;
+	int y_loc = 0;
+	int x_max = *width-1;
+	int y_max = *height-1;
 
 	int movement;
 	int check = 0;
+
+    wmove(win, y_loc+1, x_loc+1);
+    wrefresh(win);
 	do {
-		wmove(win, y_loc, x_loc);
-		wrefresh(win);
 
 		movement = wgetch(win);
 
@@ -178,7 +179,7 @@ int getUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
 			case KEY_UP:
 			case 'w':
 			case 'W':
-				if (y_loc > 1) {
+				if (y_loc > 0) {
 					y_loc--;
 				}
 				break;
@@ -192,7 +193,7 @@ int getUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
 			case KEY_LEFT:
 			case 'a':
 			case 'A':
-				if (x_loc > 1) {
+				if (x_loc > 0) {
 					x_loc--;
 				}
 				break;
@@ -204,7 +205,7 @@ int getUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
 				}
 				break;
 			case 32: // Spacebar
-				mvwprintw(win, y_loc, x_loc, "%c", *symbol);
+				mvwprintw(win, y_loc+1, x_loc+1, "%c", *symbol);
 				check = initMode(v, width, &x_loc, &y_loc, 1);
 				if (check == -1) {
 					freeVector(1, v);
@@ -214,7 +215,7 @@ int getUserSim(WINDOW *win, vector *v, int *width, int *height, char *symbol) {
 			default:
 				break;
 		}
-		wmove(win, y_loc, x_loc);
+		wmove(win, y_loc+1, x_loc+1);
 		wrefresh(win);
 	} while (movement != 10 && movement != 27);
 	curs_set(0);
