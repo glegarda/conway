@@ -317,6 +317,7 @@ int main (int argc, char *argv[]) {
 							// Pause/Play game
 							if (!game_paused) { // Pause game
 								game_paused = true;
+                                refresh = false;
 								wtimeout(game_win, -1);
 							} else { // Continue game
 								game_paused = false;
@@ -329,7 +330,7 @@ int main (int argc, char *argv[]) {
 							// Resets state vector to initial/original state
 							freeVector(1, &conway_state);
 							Check = copyVector(&conway_state, &original_conway_state);
-							if (!Check) { // Check for unseccessful memory allocation
+							if (!Check) { // Check for unsuccessful memory allocation
 								movement = 27;
 								escape = true;
 								break;
@@ -376,7 +377,7 @@ int main (int argc, char *argv[]) {
 						break;
 					}
 				} while (movement != 27);
-				// ESC has been pressed.
+				// ESC has been pressed or memory allocation was unsuccessful
 				// Game ends. State memory is cleared. Back to Play menu.
 				if (!Check || Check_int == -1) {
 					break;
