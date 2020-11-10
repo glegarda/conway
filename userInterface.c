@@ -163,8 +163,8 @@ int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
 
 	int x_loc = 0;
 	int y_loc = 0;
-	int x_max = *width-1;
-	int y_max = *height-1;
+	int x_max = width-1;
+	int y_max = height-1;
 
 	int movement;
 	int check = 0;
@@ -205,7 +205,7 @@ int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
 				}
 				break;
 			case 32: // Spacebar
-				mvwprintw(win, y_loc+1, x_loc+1, "%c", *symbol);
+				mvwprintw(win, y_loc+1, x_loc+1, "%c", symbol);
 				check = initMode(v, width, &x_loc, &y_loc, 1);
 				if (check == -1) {
 					freeVector(1, v);
