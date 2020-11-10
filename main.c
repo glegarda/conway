@@ -360,13 +360,8 @@ int main (int argc, char *argv[]) {
 							}
 							wclear(game_win);
 							box(game_win, 0, 0);
-<<<<<<< HEAD
 							printWndw(game_win, &Width, &Height, &conway_state, &Symbol);
                             wrefresh(game_win);
-=======
-							wrefresh(game_win);
-							printWndw(game_win, Width, &original_conway_state, Symbol);
->>>>>>> ea0583e7256ee00d7888d89860b8cc914967a1f8
 							break;
 
 						case 27: // ESC
