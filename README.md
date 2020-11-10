@@ -23,7 +23,7 @@ Once the game is played, the iterations are computed using _iterateConway_ funct
 	   * 8 nearest neighbours are computed
        * Iterate over each of its 8-nearest neighbours:
          * If neighbour is alive, cell.live_neighbours += 1; but if neighbour is dead, add neighbour to dead_cells (if it is not there already) and neighbour.live_cells += 1
-         * By now, we have two arrays containing the location and the number of live neighbours of each live cell and of each dead cell that might evolve in the next iteration, respectively. We can then apply game logic to these two arrays.
+    By now, we have two arrays containing the location and the number of live neighbours of each live cell and of each dead cell that might evolve in the next iteration, respectively. We can then apply game logic to these two arrays.
     3. Iterate over every cell in state: if it does not have 2/3 live neighbours, remove from state.
     4. Iterate over every cell in dead_cells: if it has 3 live neighbours, add to state.
 
