@@ -314,6 +314,10 @@ int main (int argc, char *argv[]) {
 				do {
 					// Update screen
 					mvprintw (start_y+Height+2, start_x+Width-17, "speed factor: x%.02f", scaled_speed);
+					if(game_paused)
+						mvprintw (start_y+Height+2, start_x+Width-21, "||", scaled_speed);
+					else
+						mvprintw (start_y+Height+2, start_x+Width-21, "|>", scaled_speed);
 					refresh();
 					movement = wgetch(game_win);
 					bool refresh = false;
