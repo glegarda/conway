@@ -169,20 +169,20 @@ int main (int argc, char *argv[]) {
 							//Game mode 1: R-pentomino
 							int x1[5] = {mid_x  , mid_x+1, mid_x-1, mid_x, mid_x  };
 							int y1[5] = {mid_y-1, mid_y-1, mid_y  , mid_y, mid_y+1};
-							Check_int = initMode(&original_conway_state, &Width, x1, y1, 5);
+							Check_int = initMode(&original_conway_state, Width, x1, y1, 5);
 						} else if (highlight == 2) {
 							//Game mode 2: Diehard
 							int x2[7] = {mid_x+3, mid_x-3, mid_x-2, mid_x-2, mid_x+2, mid_x+3, mid_x+4};
 							int y2[7] = {mid_y-1, mid_y  , mid_y  , mid_y+1, mid_y+1, mid_y+1, mid_y+1};
-							Check_int = initMode(&original_conway_state, &Width, x2, y2, 7);
+							Check_int = initMode(&original_conway_state, Width, x2, y2, 7);
 						} else if (highlight == 3) {
 							//Game mode 3: Acorn
 							int x3[7] = {mid_x-2,mid_x  , mid_x-3, mid_x-2, mid_x+1, mid_x+2, mid_x+3};
 							int y3[7] = {mid_y-1,mid_y  , mid_y+1, mid_y+1, mid_y+1, mid_y+1, mid_y+1};
-							Check_int = initMode(&original_conway_state, &Width, x3, y3, 7);
+							Check_int = initMode(&original_conway_state, Width, x3, y3, 7);
 						} else {
 							//Game mode 4: User inputs simulation
-							Check_int = getUserSim(game_win, &original_conway_state, &Width, &Height, &Symbol);
+							Check_int = getUserSim(game_win, &original_conway_state, Width, Height, Symbol);
 						}
 
 						if (Check_int == -1) { //Check if memory allocation was successful
@@ -217,9 +217,9 @@ int main (int argc, char *argv[]) {
 
 				// Tracking users' movemenet through menu
 				keypad(options_menu_win, TRUE);
-				printOptionsMenu(options_menu_win, highlight, n_choices, &Width, &Height, &Symbol, &Refreshing_time, Choices_options);
+				printOptionsMenu(options_menu_win, highlight, n_choices, Width, Height, Symbol, Refreshing_time, Choices_options);
 				keyPressedMenu(options_menu_win, &highlight, n_choices, &choice);
-				printOptionsMenu(options_menu_win, highlight, n_choices, &Width, &Height, &Symbol, &Refreshing_time, Choices_options);
+				printOptionsMenu(options_menu_win, highlight, n_choices, Width, Height, Symbol, Refreshing_time, Choices_options);
 
 				// Users' selected choice
 				if (choice != 0) {
@@ -294,7 +294,7 @@ int main (int argc, char *argv[]) {
 					break;
 				}
 				// Print game starting point
-				printWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
+				printWndw(game_win, Width, &original_conway_state, Symbol);
 				// Print game-menu on the lower part of the screen
 				float scaled_speed = 1.0;
 				bool game_paused = false;
@@ -360,7 +360,7 @@ int main (int argc, char *argv[]) {
 							wclear(game_win);
 							box(game_win, 0, 0);
 							wrefresh(game_win);
-							printWndw(game_win, &Width, &Height, &original_conway_state, &Symbol);
+							printWndw(game_win, Width, &original_conway_state, Symbol);
 							break;
 
 						case 27: // ESC
@@ -391,7 +391,7 @@ int main (int argc, char *argv[]) {
 						// Print new iteration
 						wclear(game_win);
 						box(game_win, 0, 0);
-						printWndw(game_win, &Width, &Height, &conway_state, &Symbol);
+						printWndw(game_win, Width, &conway_state, Symbol);
 						wrefresh(game_win);
 					}
 					// Game ends. No more living cells. Go back to Play menu.
