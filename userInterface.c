@@ -20,7 +20,7 @@ void printMenu(WINDOW *win, int highlight, int n_choices, char *choices_menu[]) 
 	y = 2;
 	box(win, 0, 0);
 	for (i = 0; i < n_choices; ++i) {
-		if (highlight == i + 1) { // High light the present choice
+		if (highlight == i + 1) { // Highlight the present choice
 			wattron(win, A_REVERSE);
 			mvwprintw(win, y, x, "%s", choices_menu[i]);
 			wattroff(win, A_REVERSE);
@@ -41,7 +41,7 @@ void printGameMenu(WINDOW *win, int highlight, int n_choices, char *choices_game
 	y = 2;
 	box(win, 0, 0);
 	for (i = 0; i < n_choices; ++i) {
-		if (highlight == i + 1) { // High light the present choice
+		if (highlight == i + 1) { // Highlight the present choice
 			wattron(win, A_REVERSE);
 			mvwprintw(win, y, x, "%s", choices_game[i]);
 			wattroff(win, A_REVERSE);
@@ -62,8 +62,9 @@ void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int width, int 
 	y = 2;
 	box(win, 0, 0);
 	for (i = 0; i < n_choices-1; ++i) {
+		// In this case we only highlight the parameter
 		mvwprintw(win, y, x, "%s", choices_options[i]);
-		if(highlight == i + 1) { // Highlight the present choice
+		if(highlight == i + 1) { // Highlight the parameter
 		  wattron(win, A_REVERSE);
 		}
 		if (i == 0) {
@@ -80,6 +81,7 @@ void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int width, int 
 		}
 		++y;
 	}
+	// But if we are on the back option, it is highlighted
 	if (highlight == n_choices) {
 		wattron(win, A_REVERSE);
 		mvwprintw(win, y, x, "%s", choices_options[n_choices-1]);
@@ -91,7 +93,7 @@ void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int width, int 
 }
 
 void keyPressedMenu(WINDOW *win, int *highlight, int n_choices, int *choice) {
-	// Reads arrows, updates cursor's position and reads selected choice
+	// Reads arrows, updates cursor's position and reads selected choice when clicking enter
 	int c = wgetch(win);
 	switch(c) {
 		case KEY_UP:
@@ -118,7 +120,7 @@ void keyPressedMenu(WINDOW *win, int *highlight, int n_choices, int *choice) {
 }
 
 void setWindowsSize(int width_size,int height_size, int *width, int *height) {
-	// Updates window width and height variables
+	// Updates window width and height variables if some restrictions are acomplished
  	if (width_size < COLS && height_size < LINES && width_size > 42 && height_size > 17) {
 		*width = width_size;
 		*height = height_size;
@@ -126,10 +128,7 @@ void setWindowsSize(int width_size,int height_size, int *width, int *height) {
 }
 
 void optionsGetch(char *buffer, WINDOW *win) {
-	// Reads keyboard input in options menu
-	curs_set(1);
-	nocbreak();
-	echo();
+	// Reads keyboard input in options menu for modifying height and width and refreshing time (all of them requires more than one number)
 	curs_set(1);
 	nocbreak();
 	echo();
@@ -157,7 +156,7 @@ int initMode(vector *v, int width, int *x, int *y, char size) {
 }
 
 int getUserSim(WINDOW *win, vector *v, int width, int height, char symbol) {
-	// Reads user's input simulation and stores the positions
+	// Reads user's input simulation and stores the positions for game by user input option
 	curs_set(1);
 	keypad(win, TRUE);
 
