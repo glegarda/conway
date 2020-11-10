@@ -127,7 +127,6 @@ void sortVectorAscending(vector *v) {
 bool iterateConway(vector *state, size_t columns, size_t lines) {
 	// Apply game logic to update the state
 	int eight_nn[8] = {0}; // indices of 8 nearest neighbours
-	unsigned short coordinates[2] = {0}; // (x,y) coordinates of a cell
 
 	// Vector that keeps track of dead cells encountered
 	vector dead_cells;
