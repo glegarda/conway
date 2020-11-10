@@ -316,7 +316,7 @@ int main (int argc, char *argv[]) {
 					mvprintw (start_y+Height+2, start_x+Width-17, "speed factor: x%.02f", scaled_speed);
 					refresh();
 					movement = wgetch(game_win);
-					bool refresh = true;
+					bool refresh = false;
 					// Check for new input screen refresh speed
 					switch (movement) {
 						case KEY_RIGHT:
@@ -339,7 +339,6 @@ int main (int argc, char *argv[]) {
 							// Pause/Play game
 							if (!game_paused) { // Pause game
 								game_paused = true;
-                                refresh = false;
 								wtimeout(game_win, -1);
 							} else { // Continue game
 								game_paused = false;
@@ -350,7 +349,6 @@ int main (int argc, char *argv[]) {
 						case 114: // 'r'
 							// Reset game
 							// Resets state vector to initial/original state
-                            refresh = false;
 							freeVector(1, &conway_state);
 							Check = copyVector(&conway_state, &original_conway_state);
 							if (!Check) { // Check for unsuccessful memory allocation
@@ -362,6 +360,8 @@ int main (int argc, char *argv[]) {
 							box(game_win, 0, 0);
 							printWndw(game_win, Width, &conway_state, Symbol);
                             wrefresh(game_win);
+							game_paused = true;
+							wtimeout(game_win, -1);
 							break;
 
 						case 27: // ESC
@@ -373,10 +373,10 @@ int main (int argc, char *argv[]) {
 							break;
 
 						case ERR:
+							refresh = true;
 							break;
 
 						default:
-							refresh = false;
 							break;
 					}
 
@@ -435,7 +435,7 @@ int main (int argc, char *argv[]) {
 	erase();
 	refresh();
 
-	
+
 	endwin();
 
 	return 0;
