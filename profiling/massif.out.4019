@@ -1,0 +1,812 @@
+desc: (none)
+cmd: ./conwayMake
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=4208407
+mem_heap_B=248920
+mem_heap_extra_B=6808
+mem_stacks_B=0
+heap_tree=peak
+n7: 248920 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n6: 211688 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 57448 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 34544 0x10A0E7: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 4800 0x10A410: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 11939 in 28 places, all below massif's threshold (1.00%)
+ n1: 7785 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7785 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7785 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 7785 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n1: 7225 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7225 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7225 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7225 0x10B850: printMenu (in /home/guillermo/Code/git-projects/conway/conwayMake)
+     n0: 7225 0x10A214: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2848 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2848 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2848 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=2
+#-----------
+time=7644989
+mem_heap_B=244184
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=11823148
+mem_heap_B=244024
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=16211295
+mem_heap_B=244280
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=19676363
+mem_heap_B=244240
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=22189320
+mem_heap_B=244088
+mem_heap_extra_B=6680
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=24648115
+mem_heap_B=244088
+mem_heap_extra_B=6680
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=27026544
+mem_heap_B=244088
+mem_heap_extra_B=6680
+mem_stacks_B=0
+heap_tree=detailed
+n7: 244088 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 206888 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 57448 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 34544 0x10A0E7: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12147 in 30 places, all below massif's threshold (1.00%)
+ n1: 7785 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7785 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7785 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 7785 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n1: 7225 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7225 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7225 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7225 0x10B850: printMenu (in /home/guillermo/Code/git-projects/conway/conwayMake)
+     n0: 7225 0x10A214: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2608 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2608 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2608 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=9
+#-----------
+time=31517865
+mem_heap_B=244248
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=33846296
+mem_heap_B=244248
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=detailed
+n7: 244248 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 206888 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 57448 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 34544 0x10A0E7: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12307 in 30 places, all below massif's threshold (1.00%)
+ n1: 7785 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7785 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7785 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 7785 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n1: 7225 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7225 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7225 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7225 0x10B850: printMenu (in /home/guillermo/Code/git-projects/conway/conwayMake)
+     n0: 7225 0x10A214: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2608 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2608 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2608 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=11
+#-----------
+time=36231872
+mem_heap_B=244248
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=38640539
+mem_heap_B=244408
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=40911522
+mem_heap_B=244272
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=detailed
+n7: 244272 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 206888 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 57448 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 34544 0x10A0E7: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12331 in 30 places, all below massif's threshold (1.00%)
+ n1: 7785 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7785 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7785 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 7785 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n1: 7225 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7225 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7225 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7225 0x10B850: printMenu (in /home/guillermo/Code/git-projects/conway/conwayMake)
+     n0: 7225 0x10A214: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2608 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2608 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2608 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=14
+#-----------
+time=43213107
+mem_heap_B=244216
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=45537085
+mem_heap_B=244208
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=47837526
+mem_heap_B=244224
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=50278452
+mem_heap_B=244088
+mem_heap_extra_B=6680
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=52537096
+mem_heap_B=244256
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=56352852
+mem_heap_B=245048
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=58946362
+mem_heap_B=245048
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=61690231
+mem_heap_B=244088
+mem_heap_extra_B=6680
+mem_stacks_B=0
+heap_tree=detailed
+n7: 244088 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 206888 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 57448 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 34544 0x10A0E7: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12147 in 30 places, all below massif's threshold (1.00%)
+ n1: 7785 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7785 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7785 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 7785 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n1: 7225 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7225 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7225 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7225 0x10B850: printMenu (in /home/guillermo/Code/git-projects/conway/conwayMake)
+     n0: 7225 0x10A214: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2608 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2608 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2608 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=22
+#-----------
+time=64264966
+mem_heap_B=244088
+mem_heap_extra_B=6680
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=67819656
+mem_heap_B=244272
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=70312020
+mem_heap_B=244384
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=72925267
+mem_heap_B=244296
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=75438406
+mem_heap_B=244336
+mem_heap_extra_B=6712
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=79429820
+mem_heap_B=244328
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=82069530
+mem_heap_B=244288
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=84557703
+mem_heap_B=244224
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=86854908
+mem_heap_B=244472
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=90124530
+mem_heap_B=244200
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=detailed
+n7: 244200 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 206888 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 57448 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 34544 0x10A0E7: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12259 in 30 places, all below massif's threshold (1.00%)
+ n1: 7785 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7785 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7785 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 7785 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n1: 7225 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7225 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7225 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7225 0x10B850: printMenu (in /home/guillermo/Code/git-projects/conway/conwayMake)
+     n0: 7225 0x10A214: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2608 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2608 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2608 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=32
+#-----------
+time=92282785
+mem_heap_B=244152
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=96533450
+mem_heap_B=244208
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=98867142
+mem_heap_B=244088
+mem_heap_extra_B=6680
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=103331612
+mem_heap_B=244632
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=105645117
+mem_heap_B=244248
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=detailed
+n7: 244248 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 206888 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 57448 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 34544 0x10A0E7: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12307 in 30 places, all below massif's threshold (1.00%)
+ n1: 7785 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7785 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7785 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 7785 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n1: 7225 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7225 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7225 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7225 0x10B850: printMenu (in /home/guillermo/Code/git-projects/conway/conwayMake)
+     n0: 7225 0x10A214: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2608 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2608 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2608 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=108056720
+mem_heap_B=244256
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=110542428
+mem_heap_B=244272
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=113118515
+mem_heap_B=244312
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=115866033
+mem_heap_B=244344
+mem_heap_extra_B=6704
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=119954715
+mem_heap_B=244328
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=122449607
+mem_heap_B=244256
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=124912717
+mem_heap_B=244272
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=127306344
+mem_heap_B=244256
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=129605160
+mem_heap_B=244344
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=131941443
+mem_heap_B=244728
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=134267955
+mem_heap_B=244088
+mem_heap_extra_B=6680
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=136591698
+mem_heap_B=244760
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=138884627
+mem_heap_B=244272
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=141288047
+mem_heap_B=244264
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=143570526
+mem_heap_B=244208
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=145730593
+mem_heap_B=244192
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=detailed
+n7: 244192 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n5: 206888 0x4E45FCB: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 57448 0x4E486C5: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E486E6: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n1: 57448 0x4E48790: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 57448 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 57448 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+     n0: 57448 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 34544 0x10A0E7: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 12251 in 30 places, all below massif's threshold (1.00%)
+ n1: 7785 0x4E483EF: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7785 0x4E45719: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7785 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n0: 7785 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n1: 7225 0x4E4B3EE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 7225 0x4E469ED: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n1: 7225 0x4E46D23: mvwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+    n1: 7225 0x10B850: printMenu (in /home/guillermo/Code/git-projects/conway/conwayMake)
+     n0: 7225 0x10A214: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+ n2: 4147 0x5067291: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n1: 3824 0x506EEB4: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+   n1: 3824 0x506F2FB: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+    n1: 3824 0x506F4E5: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+     n1: 3824 0x506F7CF: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+      n1: 3824 0x5069287: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+       n1: 3824 0x50695D0: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+        n1: 3824 0x4E456D6: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+         n1: 3824 0x4E41FF1: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+          n0: 3824 0x109F70: main (in /home/guillermo/Code/git-projects/conway/conwayMake)
+  n0: 323 in 4 places, all below massif's threshold (1.00%)
+ n1: 3288 0x5064E54: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+  n0: 3288 in 2 places, all below massif's threshold (1.00%)
+ n1: 2608 0x4E45D95: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+  n1: 2608 0x4E45F8F: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+   n0: 2608 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=53
+#-----------
+time=147903333
+mem_heap_B=244088
+mem_heap_extra_B=6680
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=150987413
+mem_heap_B=244144
+mem_heap_extra_B=6696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=154068382
+mem_heap_B=244136
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=157091764
+mem_heap_B=244104
+mem_heap_extra_B=6688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=159294455
+mem_heap_B=243768
+mem_heap_extra_B=6672
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=161565835
+mem_heap_B=246200
+mem_heap_extra_B=6760
+mem_stacks_B=0
+heap_tree=empty

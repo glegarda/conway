@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdarg.h>
 #include <string.h>
-#include "conway.h"
+#include <conway.h>
 
 // Coder 1 /////////////////////////////////////////////////////////////////////
 

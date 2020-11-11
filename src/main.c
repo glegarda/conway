@@ -3,8 +3,8 @@
 #include <stdbool.h>
 #include <stdarg.h>
 #include <ncurses.h>
-#include "conway.h"
-#include "userInterface.h"
+#include <conway.h>
+#include <userInterface.h>
 
 // Coder 1, Coder 2, Coder 3 ///////////////////////////////////////////////////
 int Width; // Game window width
