@@ -16,10 +16,10 @@ window, the alive cell symbol and refreshing time for the different iterations.
 structures and create our own starting configuration by user input.
 
 ### **Installation**
-After cloning the repository, run `$ make all clean` and then `$ ./conwayMake`.
+After cloning the repository, run `$ make all clean`.
 
 ### **Game**
-Once the game is played, the iterations are computed using _iterateConway_ function as follows:
+To play the game, run `$ ./conwayMake`. During the game, the iterations are computed using _iterateConway_ function as follows:
 
     1. For the current state an array of dead cells is initialised
     2. Iterate over every live cell:
