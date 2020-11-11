@@ -21,22 +21,21 @@ After cloning the repository, run `$ make all clean`.
 ### **Game**
 To play the game, run `$ ./conwayMake`. During the game, the iterations are computed using _iterateConway_ function as follows:
 
-    1. For the current state an array of dead cells is initialised
-    2. Iterate over every live cell:
-	   * 8 nearest neighbours are computed
-       * Iterate over each of its 8-nearest neighbours:
-         * If neighbour is alive, cell.live_neighbours += 1; but if neighbour is dead, add neighbour to the array of dead cells (if it is not there already) and neighbour.live_neighbours += 1
-    By now, we have two arrays containing the location and the number of live neighbours of each live cell and of each dead cell that might evolve in the next iteration, respectively. We can then apply game logic to these two arrays.
-    3. Iterate over every cell in state: if it does not have 2/3 live neighbours, remove from state.
-    4. Iterate over every cell in dead_cells: if it has 3 live neighbours, add to state.
+1. An empty array of dead cells is initialised
+2. Iterate over every live cell in the current state:
+	- Iterate over each of its eight nearest neighbours:
+		* If it is alive, add one to the number of live neighbours of the live cell.
+		* Otherwise, check if the neighbour is in the array of dead cells. If it is, add one to the number of live neighbours of the dead cell; if it is not, add the neighbour to the array of dead cells and set its number of live neighbours to one.
+3. At this point, we have two arrays containing the location and the number of live neighbours of each live cell and of each dead cell that might evolve in the next iteration, respectively. We can then apply game logic to these two arrays:
+	- Iterate over every live cell. If it does not have two or three live neighbours, remove it from the array of live cells.
+	- Iterate over every dead cell. If it has three live neighbours, add it to the array of live cells.
+
 
 ### **.c and .h**
 Some useful libraries using c files and header files has been implemented.
-1. conway: It basically implements the structures required for the iterations during the game,
-some vector treatment functions and memory allocation checking. We are implementing our game using two structures:
-   - Cell structure: That has an id to locate the different cells on the map and the number of live neighbours for that cell.
-   - Vector structure: it has an array of cells, the current size of the vector and the capacity.
-   These two parameters are used for augmenting and reducing the size of the vector if necessary.
+1. It implements the structures required for the iterations during the game and to make memory management less cumbersome. We are implementing our game using two structures:
+   - Cell structure: it has an ID to locate the different cells on the grid and the number of live neighbours of that cell.
+   - Vector structure: it has an array of cells, the current size of the vector, which keeps track of the number of elements added/removed, and its capacity, which is doubled whenever one tries to add an element to a full vector (i.e. when size = capacity).
 
 2. userInterface: It includes some useful functions for displaying and key input purposes.
 
