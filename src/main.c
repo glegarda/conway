@@ -436,7 +436,6 @@ int main (int argc, char *argv[]) {
 	Check_int = delwin(game_win);
 	if (Check_int == ERR) {
 		fprintf(stderr, "delwin failed\n");
-		escape = true;
 	}
 
 	// Mac Problem
