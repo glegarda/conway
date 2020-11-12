@@ -11,7 +11,6 @@
 //                        //
 ////////////////////////////
 
-// display functions
 void printMenu (WINDOW *win, int highlight, int n_choices, char *choices_menu[]);
 void printGameMenu(WINDOW *win, int highlight, int n_choices, char *choices_game[]);
 void printOptionsMenu(WINDOW *win, int highlight, int n_choices, int width, int height, char symbol, float refreshing_time, char *choices_options[]);
