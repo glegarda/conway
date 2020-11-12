@@ -28,7 +28,7 @@ typedef struct vector {
 //////////////////////
 
 bool initVector(vector *v, const unsigned short init_size);
-bool copyVector(vector *v_c, vector *v_o);
+bool copyVector(vector *v_c, const vector *v_o);
 void freeVector(const unsigned int n, ...);
 bool pushBack(vector *v, const cell *c);
 bool popBack(vector *v);
@@ -44,10 +44,10 @@ void sortVectorAscending(vector *v);
 //                  //
 //////////////////////
 
-bool iterateConway(vector *v, size_t columns, size_t lines);
-int xy2id(const unsigned short x, const unsigned short y, size_t columns);
-void id2xy(unsigned short *array, const int id, size_t columns);
-void get8nn(int *array, const int id, size_t columns, size_t lines);
+bool iterateConway(vector *v, const int columns, const int lines);
+int xy2id(const unsigned short x, const unsigned short y, const int columns);
+void id2xy(unsigned short *array, const int id, const int columns);
+void get8nn(int *array, const int id, const int columns, const int lines);
 void resetNeighbours(vector *v);
 
 #endif

@@ -25,7 +25,7 @@ bool initVector(vector *v, const unsigned short init_size) {
 	return true;
 }
 
-bool copyVector(vector *v_c, vector *v_o) {
+bool copyVector(vector *v_c, const vector *v_o) {
 	// Copy the contents of a vector v_o to a vector v_c
 	v_c->array = (cell *) malloc(v_o->capacity * sizeof(cell));
 	if (v_c->array == NULL) {
@@ -124,7 +124,7 @@ void sortVectorAscending(vector *v) {
 //                  //
 //////////////////////
 
-bool iterateConway(vector *state, size_t columns, size_t lines) {
+bool iterateConway(vector *state, const int columns, const int lines) {
 	// Apply game logic to update the state
 	int eight_nn[8] = {0}; // indices of 8 nearest neighbours
 
@@ -190,19 +190,19 @@ bool iterateConway(vector *state, size_t columns, size_t lines) {
 	return true;
 }
 
-int xy2id(const unsigned short x, const unsigned short y, size_t columns) {
+int xy2id(const unsigned short x, const unsigned short y, const int columns) {
 	// Transform (x,y) coordinates to a linear index (left-right, top-bottom)
 	int id = (int) (y * columns + x);
 	return id;
 }
 
-void id2xy(unsigned short *array, const int id, size_t columns) {
+void id2xy(unsigned short *array, const int id, const int columns) {
 	// Transform linear index back to (x,y) coordinates
 	array[0] = (unsigned short) id % columns; // x
 	array[1] = (unsigned short) (id - id % columns) / columns; // y
 }
 
-void get8nn(int *array, const int id, size_t columns, size_t lines) {
+void get8nn(int *array, const int id, const int columns, const int lines) {
 	// Return linear indices of 8 nearest neighbours of cell at id
 	// Assign default values
 	array[0] = id - columns - 1;
