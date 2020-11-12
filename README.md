@@ -27,8 +27,8 @@ To play the game, run `$ ./conwayMake`. During the game, the iterations are comp
 		* If it is alive, add one to the number of live neighbours of the live cell.
 		* Otherwise, check if the neighbour is in the array of dead cells. If it is, add one to the number of live neighbours of the dead cell; if it is not, add the neighbour to the array of dead cells and set its number of live neighbours to one.
 3. At this point, we have two arrays containing the location and the number of live neighbours of each live cell and of each dead cell that might evolve in the next iteration, respectively. We can then apply game logic to these two arrays:
-	- Iterate over every live cell. If it does not have two or three live neighbours, remove it from the array of live cells.
-	- Iterate over every dead cell. If it has three live neighbours, add it to the array of live cells.
+	- Remove every live cell that does not have two or three live neighbours from the array of live cells.
+	- Add every dead cell with three live neighbours to the array of live cells.
 
 
 ### **.c and .h**
