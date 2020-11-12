@@ -177,8 +177,8 @@ int getUserSim(WINDOW *win, vector *v, int start_x, int start_y, int width, int 
 	int movement;
 	int check = 0;
 
-    wmove(win, y_loc+1, x_loc+1);
-    wrefresh(win);
+	wmove(win, y_loc+1, x_loc+1);
+	wrefresh(win);
 	// Users' tracking loop
 	do {
 		// Tracks users' movements

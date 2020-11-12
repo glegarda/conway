@@ -42,7 +42,7 @@ enum states {main_menu, play_menu, options_menu, game_on}; // Different screens
 enum states current_state = main_menu; // Current screen
 
 int main (int argc, char *argv[]) {
-    // Coder 2 **start** ///////////////////////////////////////////////////////
+	// Coder 2 **start** ///////////////////////////////////////////////////////
 	// NCURSES initialization
 	initscr();
 	curs_set(0); // Makes cursor invisible
@@ -76,7 +76,7 @@ int main (int argc, char *argv[]) {
 	refresh();
 	box(game_win, 0, 0); // Creates game box
 	wrefresh(game_win);
-    // Coder 2 **finish** //////////////////////////////////////////////////////
+	// Coder 2 **finish** //////////////////////////////////////////////////////
 
 	// Main program loop
 	while (escape == false) {
@@ -85,7 +85,7 @@ int main (int argc, char *argv[]) {
 
 		// Check users' current window
 		switch (current_state) {
-            // Coder 2 **start** ///////////////////////////////////////////////
+			// Coder 2 **start** ///////////////////////////////////////////////
 			case main_menu: ;
 				// Initialise Main menu
 				n_choices = sizeof(Choices_menu) / sizeof(char *);
@@ -129,8 +129,8 @@ int main (int argc, char *argv[]) {
 					escape = true;
 				}
 				break;
-            // Coder 2 **finish** //////////////////////////////////////////////
-            // Coder 3 **start** ///////////////////////////////////////////////
+			// Coder 2 **finish** //////////////////////////////////////////////
+			// Coder 3 **start** ///////////////////////////////////////////////
 			case play_menu: ;
 				// Initialise Play menu
 				n_choices = sizeof(Choices_game) / sizeof(char *);
@@ -210,8 +210,8 @@ int main (int argc, char *argv[]) {
 					escape = true;
 				}
 				break;
-            // Coder 3 **finish** //////////////////////////////////////////////
-            // Coder 2 **start** ///////////////////////////////////////////////
+			// Coder 3 **finish** //////////////////////////////////////////////
+			// Coder 2 **start** ///////////////////////////////////////////////
 			case options_menu: ;
 				// Initialise Options menu
 				n_choices = sizeof(Choices_options) / sizeof(char *);
@@ -288,8 +288,8 @@ int main (int argc, char *argv[]) {
 					escape = true;
 				}
 				break;
-            // Coder 2 **start** ///////////////////////////////////////////////
-            // Coder 1, Coder2, Coder 3 ////////////////////////////////////////
+			// Coder 2 **start** ///////////////////////////////////////////////
+			// Coder 1, Coder2, Coder 3 ////////////////////////////////////////
 			case game_on: ;
 				// GAME
 				// Initialise game-state vector
@@ -369,7 +369,7 @@ int main (int argc, char *argv[]) {
 							wclear(game_win);
 							box(game_win, 0, 0);
 							printWndw(game_win, Width, &conway_state, Symbol);
-                            wrefresh(game_win);
+							wrefresh(game_win);
 							game_paused = true;
 							wtimeout(game_win, -1);
 							break;
@@ -383,7 +383,7 @@ int main (int argc, char *argv[]) {
 							break;
 
 						case ERR: // Timeout achieved.
-                            // No key has been pressed. Game iteration will be performed
+							// No key has been pressed. Game iteration will be performed
 							refresh = true;
 							break;
 
@@ -417,8 +417,8 @@ int main (int argc, char *argv[]) {
 				if (!Check || Check_int == -1) {
 					break;
 				}
-                clear();
-                refresh();
+				clear();
+				refresh();
 				wclear(game_win);
 				box(game_win, 0, 0);
 				wrefresh(game_win);
